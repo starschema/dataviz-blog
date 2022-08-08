@@ -1,11 +1,16 @@
 import TinaProvider from "../.tina/components/TinaDynamicProvider";
+import Layout from "../components/Layout";
 
-const App = ({ Component, pageProps }) => {
+import type { AppProps } from "next/app";
+
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <TinaProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </TinaProvider>
   );
-};
+}
 
-export default App;
+App;

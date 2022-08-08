@@ -1,5 +1,4 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 import { client } from "../.tina/__generated__/client";
 
@@ -12,11 +11,7 @@ export default function Home(props) {
   });
 
   const content = data.page.body;
-  return (
-    <Layout>
-      <TinaMarkdown content={content} />
-    </Layout>
-  );
+  return <TinaMarkdown content={content} />;
 }
 
 export const getStaticProps = async () => {
