@@ -1,5 +1,5 @@
-import TinaProvider from "../.tina/components/TinaDynamicProvider";
-import Layout from "../components/Layout";
+import TinaProvider from "@/.tina/components/TinaDynamicProvider";
+import Layout from "@/components/Layout";
 
 import type { AppProps } from "next/app";
 
