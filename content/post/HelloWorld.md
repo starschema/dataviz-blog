@@ -1,5 +1,17 @@
 ---
-title: Hello, World!
+title: "Hello, World!"
+summary: >-
+  A wonderful article about the Ultimate Question of Life, the Universe, and
+  Everything
+readingTime: 42
+publishedOn: "2022-08-07T22:00:00.000Z"
+author: content/author/gipszj.md
+thumbnail: /uploads/istock_000019234168xsmall.jpg
+slug: hello-world
 ---
 
-Edit me!
+Elkészítés
+A megtisztított krumplit felkockázzuk, és a hagymát is apróra felvágjuk. A kolbászt felkarikázzuk.
+Az olajat megforrósítjuk, beletesszük a hagymát, üvegesre pároljuk, majd levesszük a tűzről.
+Hozzátesszük a pirospaprikát, elkeverjük, beledobjuk a krumplit, a kolbászkarikákat, az apróra kockázott fokhagymát, pici vizet öntünk alá, és visszatesszük a tűzre.
+Jól átforgatjuk, megsózzuk, megborsozzuk, és annyi forró vizet öntünk rá, hogy épp ellepje. Lefedjük, és puhára főzzük.

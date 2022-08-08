@@ -1,0 +1,11 @@
+---
+title: Another banger of a blog post
+summary: "If you like reading, you'll really love this one"
+readingTime: 1.5
+publishedOn: "2022-08-07T22:00:00.000Z"
+author: content/author/gipszj.md
+thumbnail: /uploads/istock_000022055550xsmall.jpg
+slug: show-up-test
+---
+
+Actually, I lied to you, this is a somewhat boring blog post, but haha you clicked on it so I win
