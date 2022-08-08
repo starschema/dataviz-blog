@@ -1,0 +1,20 @@
+query postSummaries {
+  postConnection {
+    edges {
+      node {
+        title
+        summary
+        publishedOn
+        readingTime
+        thumbnail
+        slug
+        author {
+          ... on Author {
+            name
+            avatar
+          }
+        }
+      }
+    }
+  }
+}

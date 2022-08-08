@@ -19,7 +19,7 @@ export default function Layout(props) {
       <header>
         <div className="header-content">
           <h2>A blog by the Starschema Data Visualization Team</h2>
-          <h1>Name Placeholder</h1>
+          <h1>Grumpy Armadillo</h1>
         </div>
         <nav>
           <Link href="/">

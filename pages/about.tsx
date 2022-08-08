@@ -1,8 +1,4 @@
-export default function About() {
-  return (
-    <div>
-      <h1>About Us</h1>
-      <p>Not much, we are just the awesomest dataviz team</p>
-    </div>
-  );
+import About from "@/components/About";
+export default function AboutPage() {
+  return <About version="full" />;
 }

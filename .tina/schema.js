@@ -18,16 +18,19 @@ const schema = defineSchema({
   },
   collections: [
     {
-      label: "Page Content",
-      name: "page",
-      path: "content/page",
-      format: "mdx",
+      label: "Author",
+      name: "author",
+      path: "content/author",
       fields: [
         {
-          name: "body",
-          label: "Main Content",
-          type: "rich-text",
-          isBody: true,
+          type: "string",
+          name: "name",
+          label: "Name",
+        },
+        {
+          type: "image",
+          name: "avatar",
+          label: "Avatar",
         },
       ],
     },
@@ -35,16 +38,56 @@ const schema = defineSchema({
       label: "Blog Posts",
       name: "post",
       path: "content/post",
+      format: "md",
       fields: [
         {
           type: "string",
           label: "Title",
           name: "title",
+          required: true,
+        },
+        {
+          type: "string",
+          label: "Slug",
+          name: "slug",
+          required: true,
+        },
+        {
+          type: "string",
+          label: "Summary",
+          name: "summary",
+          required: true,
+        },
+        {
+          type: "number",
+          label: "Reading Time",
+          name: "readingTime",
+          required: true,
+        },
+        {
+          type: "datetime",
+          label: "Published On",
+          name: "publishedOn",
+          required: true,
+        },
+        {
+          type: "reference",
+          label: "Author",
+          name: "author",
+          required: true,
+          collections: ["author"],
+        },
+        {
+          type: "image",
+          label: "Thumbnail",
+          name: "thumbnail",
+          required: true,
         },
         {
           type: "string",
           label: "Blog Post Body",
           name: "body",
+          required: true,
           isBody: true,
           ui: {
             component: "textarea",
