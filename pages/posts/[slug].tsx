@@ -1,4 +1,3 @@
-import { Layout } from "../../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 import { client } from "../../.tina/__generated__/client";
 
@@ -11,17 +10,15 @@ export default function Home(props) {
   });
 
   return (
-    <Layout>
-      <code>
-        <pre
-          style={{
-            backgroundColor: "lightgray",
-          }}
-        >
-          {JSON.stringify(data.post, null, 2)}
-        </pre>
-      </code>
-    </Layout>
+    <code>
+      <pre
+        style={{
+          backgroundColor: "lightgray",
+        }}
+      >
+        {JSON.stringify(data.post, null, 2)}
+      </pre>
+    </code>
   );
 }
 
