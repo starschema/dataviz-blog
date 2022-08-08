@@ -7,7 +7,9 @@ query postSummaries {
         publishedOn
         readingTime
         thumbnail
-        slug
+        slug: _sys {
+          relativePath
+        }
         author {
           ... on Author {
             name

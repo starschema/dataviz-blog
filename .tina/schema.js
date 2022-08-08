@@ -38,18 +38,12 @@ const schema = defineSchema({
       label: "Blog Posts",
       name: "post",
       path: "content/post",
-      format: "md",
+      format: "mdx",
       fields: [
         {
           type: "string",
           label: "Title",
           name: "title",
-          required: true,
-        },
-        {
-          type: "string",
-          label: "Slug",
-          name: "slug",
           required: true,
         },
         {
@@ -84,7 +78,7 @@ const schema = defineSchema({
           required: true,
         },
         {
-          type: "string",
+          type: "rich-text",
           label: "Blog Post Body",
           name: "body",
           required: true,

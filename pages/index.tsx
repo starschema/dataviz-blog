@@ -5,13 +5,14 @@ import PostPreview from "@/components/PostPreview";
 import PostPreviewList from "@/components/PostPreviewList";
 import About from "@/components/About";
 import { cleanupPostSummariesResults } from "utils/cmsHelpers";
+import { PostSummariesQuery } from "@/.tina/__generated__/types";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
-    data: props.data,
+    data: props.data as PostSummariesQuery,
   });
 
   const postSummaries = cleanupPostSummariesResults(data);
@@ -42,7 +43,7 @@ export default function Home(props) {
 export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.postSummaries();
 
-  const featuredPostSlug = "hello-world";
+  const featuredPostSlug = "HelloWorld";
   return {
     props: {
       data,
