@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shanti&display=swap");
+
+$border-width: 1px;
+$border-style: $border-width solid black;
+$border-collapse-margin: calc($border-width / -2);
+$header-width: 75%;
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headerContent {
+  margin: 0 auto;
+  width: $header-width;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.headerContent h2 {
+  font-size: 1.33rem;
+  text-transform: uppercase;
+  font-stretch: ultra-expanded;
+  letter-spacing: 0.2rem;
+  font-weight: 100;
+  font-family: "Montserrat";
+  margin-top: 2em;
+}
+
+.headerContent h1 {
+  font-size: 7rem;
+  font-family: "Playfair Display";
+  line-height: 33%;
+  margin-bottom: 1em;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  border-top: $border-style;
+  border-bottom: $border-style;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  margin: 0;
+  width: $header-width;
+}
+
+.navbar a {
+  margin: $border-collapse-margin;
+  border: $border-style;
+  height: 100%;
+  flex-grow: 1;
+  line-height: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: black;
+  font-family: "Shanti";
+
+  + :hover {
+    color: rgb(80, 100, 251);
+    transition: color 0.5s;
+  }
+}
+
+.main {
+  width: 60%;
+  margin: 1rem auto;
+}
