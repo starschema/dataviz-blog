@@ -1,0 +1,42 @@
+.preview {
+  display: flex;
+  height: 300px;
+  width: 450px;
+  border: 1px solid black;
+  position: relative;
+}
+
+.featured {
+  margin: auto;
+  height: 730px !important;
+  width: 940px !important;
+}
+
+.thumbnailPositionTop {
+  flex-direction: column;
+
+  .thumbnail {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.thumbnailPositionLeft {
+  flex-direction: row;
+
+  .thumbnail {
+    height: 100%;
+    width: 45%;
+  }
+}
+
+.thumbnail {
+  position: relative;
+}
+
+.featuredLabel {
+  background-color: #fff;
+  border: 1px solid black;
+  text-align: center;
+  margin: -0.5px;
+}

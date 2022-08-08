@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Shanti&display=swap");
+
+.postMetaCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.postMetaCard p {
+  font-family: "Shanti";
+  font-size: 0.83rem;
+}
+
+.avatar {
+  margin: 0.8rem;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.textContent {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  p {
+    margin: 0;
+  }
+}
+
+.authorName {
+  font-weight: bold;
+}
+
+.miscInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.dotGutter {
+  margin: 0 0.4rem !important;
+}

@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import PostMetaCard from "./PostMetaCard";
 
 import type { Author } from "types";
-import { dateToNiceString } from "utils/dateConversionHelper";
+
+import styles from "./PostPreview.module.scss";
 
 interface Props {
   title: string;
@@ -18,32 +20,38 @@ interface Props {
 
 export default function PostPreview(props: Props) {
   const postHref = `/posts/${props.slug}`;
+  const thumbnailPositionClass =
+    props.thumbnailPosition === "top"
+      ? styles.thumbnailPositionTop
+      : styles.thumbnailPositionLeft;
+
+  const topLevelClassNames = [styles.preview, thumbnailPositionClass];
+  if (props.isFeatured) topLevelClassNames.push(styles.featured);
+
   return (
-    <article className={`thumbnail-position-${props.thumbnailPosition}`}>
-      {props.isFeatured && <div className="featured-label">Featured Post</div>}
+    <article className={topLevelClassNames.join(" ")}>
+      {props.isFeatured && (
+        <div className={styles.featuredLabel}>
+          <p>Featured Post</p>
+        </div>
+      )}
       <Link href={postHref}>
-        <a>
-          <Image
-            src={props.thumbnail}
-            className="thumbnail"
-            width={300}
-            height={300}
-            objectFit="contain"
-          />
+        <a className={styles.thumbnail}>
+          <Image src={props.thumbnail} layout="fill" objectFit="cover" />
         </a>
       </Link>
       <div className="details">
-        <div className="misc-info">
-          <p className="published-on">{dateToNiceString(props.publishedOn)}</p>
-          <p className="reading-time">{props.readingTime} min</p>
-        </div>
+        <PostMetaCard
+          author={props.author}
+          readingTime={props.readingTime}
+          publishedOn={props.publishedOn}
+        />
         <h1>
           <Link href={postHref}>
             <a className="title">{props.title}</a>
           </Link>
         </h1>
         <p className="summary">{props.summary}</p>
-        <p className="author">{props.author.name}</p>
       </div>
     </article>
   );

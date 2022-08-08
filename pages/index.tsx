@@ -7,6 +7,8 @@ import About from "@/components/About";
 import { cleanupPostSummariesResults } from "utils/cmsHelpers";
 import { PostSummariesQuery } from "@/.tina/__generated__/types";
 
+import styles from "./index.module.scss";
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -25,7 +27,7 @@ export default function Home(props) {
   );
   return (
     <main>
-      <div className="featured-post-wrapper">
+      <div className={styles.featuredContentWrapper}>
         <PostPreview
           isFeatured={true}
           {...featuredPostSummary}
@@ -33,7 +35,10 @@ export default function Home(props) {
         />
       </div>
       <div className="details">
-        <PostPreviewList postSummaries={nonFeaturedPosts} />
+        <div className="postsWrapper">
+          <h2>Older Posts</h2>
+          <PostPreviewList postSummaries={nonFeaturedPosts} />
+        </div>
         <About version="small" />
       </div>
     </main>

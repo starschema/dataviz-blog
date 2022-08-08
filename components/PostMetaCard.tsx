@@ -2,6 +2,8 @@ import type { Author } from "types";
 import Image from "next/image";
 import { dateToNiceString } from "utils/dateConversionHelper";
 
+import styles from "./PostMetaCard.module.scss";
+
 interface Props {
   author: Author;
   readingTime: number;
@@ -9,19 +11,16 @@ interface Props {
 }
 export default function PostMetaCard(props: Props) {
   return (
-    <div className="post-meta-card">
-      <Image
-        src={props.author.avatar}
-        width={40}
-        height={40}
-        objectFit="contain"
-      />
-      <div className="text-content">
-        <p className="author-name">{props.author.name}</p>
-        <div className="misc-info">
+    <div className={styles.postMetaCard}>
+      <div className={styles.avatar}>
+        <Image src={props.author.avatar} layout="fill" objectFit="cover" />
+      </div>
+      <div className={styles.textContent}>
+        <p className={styles.authorName}>{props.author.name}</p>
+        <div className={styles.miscInfo}>
           <p className="published-on">{dateToNiceString(props.publishedOn)}</p>
-          <p className="dot-gutter" aria-hidden>
-            .
+          <p className={styles.dotGutter} aria-hidden>
+            ·
           </p>
           <p className="reading-time">{props.readingTime} min</p>
         </div>
