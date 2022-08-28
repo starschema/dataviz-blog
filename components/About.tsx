@@ -45,7 +45,7 @@ You did come back different.
 export default function About(props: Props) {
   return (
     <div>
-      <h1>About Us</h1>
+      <h2>About Us</h2>
       <p>Not much, we are just the awesomest dataviz team</p>
       {props.version == "full" && (
         <pre>

@@ -34,12 +34,14 @@ export default function Home(props) {
           thumbnailPosition="top"
         />
       </div>
-      <div className="details">
-        <div className="postsWrapper">
+      <div className={styles.bottomContentWrapper}>
+        <div className={styles.postsWrapper}>
           <h2>Older Posts</h2>
           <PostPreviewList postSummaries={nonFeaturedPosts} />
         </div>
-        <About version="small" />
+        <div className={styles.aboutWrapper}>
+          <About version="small" />
+        </div>
       </div>
     </main>
   );

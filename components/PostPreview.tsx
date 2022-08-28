@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PostMetaCard from "./PostMetaCard";
+import FeaturedPostLabel from "./FeaturedPostLabel";
 
 import type { Author } from "types";
 
@@ -30,28 +31,24 @@ export default function PostPreview(props: Props) {
 
   return (
     <article className={topLevelClassNames.join(" ")}>
-      {props.isFeatured && (
-        <div className={styles.featuredLabel}>
-          <p>Featured Post</p>
-        </div>
-      )}
+      {props.isFeatured && <FeaturedPostLabel />}
       <Link href={postHref}>
         <a className={styles.thumbnail}>
           <Image src={props.thumbnail} layout="fill" objectFit="cover" />
         </a>
       </Link>
-      <div className="details">
+      <div className={styles.details}>
         <PostMetaCard
           author={props.author}
           readingTime={props.readingTime}
           publishedOn={props.publishedOn}
         />
-        <h1>
-          <Link href={postHref}>
-            <a className="title">{props.title}</a>
-          </Link>
-        </h1>
-        <p className="summary">{props.summary}</p>
+        <Link href={postHref}>
+          <a className="title">
+            <h3>{props.title}</h3>
+            <p className={styles.summary}>{props.summary}</p>
+          </a>
+        </Link>
       </div>
     </article>
   );

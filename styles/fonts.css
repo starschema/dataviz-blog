@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  font-family: "Shanti";
+}
+
+h2 {
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  letter-spacing: 0.33em;
+  font-weight: 100;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: rgb(80, 100, 251);
+  transition: color 0.5s;
+}

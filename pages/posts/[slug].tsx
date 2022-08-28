@@ -5,6 +5,8 @@ import PostMetaCard from "@/components/PostMetaCard";
 import { PostQuery } from "@/.tina/__generated__/types";
 import Image from "next/image";
 
+import styles from "../../styles/post.module.scss";
+
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
@@ -15,7 +17,7 @@ export default function Home(props) {
 
   const post = data.post;
   return (
-    <main>
+    <main className={styles.mainContainer}>
       <PostMetaCard
         author={post.author}
         readingTime={post.readingTime}

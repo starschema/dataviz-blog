@@ -83,9 +83,6 @@ const schema = defineSchema({
           name: "body",
           required: true,
           isBody: true,
-          ui: {
-            component: "textarea",
-          },
         },
       ],
     },

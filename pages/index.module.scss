@@ -1,6 +1,31 @@
-.featuredPostWrapper {
+@import "../styles/border";
+
+.featuredContentWrapper {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bottomContentWrapper {
+  display: flex;
+  // width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  border-top: $border-style;
+  padding: 1em;
+
+  h2 {
+    margin: 1em 0;
+  }
+}
+
+.postsWrapper {
+  border-right: $border-style;
+  padding: 2em;
+}
+
+.aboutWrapper {
+  padding: 2em;
+  // margin: 2em;
 }
