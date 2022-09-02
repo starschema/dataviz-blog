@@ -4,10 +4,7 @@ import { client } from "./__generated__/client";
 const schema = defineSchema({
   config: {
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-    branch:
-      process.env.NEXT_PUBLIC_TINA_BRANCH ||
-      process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
-      process.env.HEAD,
+    branch: process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.HEAD,
     token: process.env.TINA_TOKEN,
     media: {
       tina: {
