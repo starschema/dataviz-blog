@@ -80,6 +80,20 @@ const schema = defineSchema({
           name: "body",
           required: true,
           isBody: true,
+          templates: [
+            {
+              name: "hr",
+              label: "Horizontal divider",
+              fields: [
+                {
+                  type: "string",
+                  name: "dividerType",
+                  label: "Divider Type",
+                  options: ["dashed", "solid"],
+                },
+              ],
+            },
+          ],
         },
       ],
     },

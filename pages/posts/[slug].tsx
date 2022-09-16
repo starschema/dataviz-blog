@@ -4,6 +4,7 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import PostMetaCard from "@/components/PostMetaCard";
 import { PostQuery } from "@/.tina/__generated__/types";
 import Image from "next/image";
+import HorizontalDivider from "@/components/HorizontalDivider";
 
 import styles from "../../styles/post.module.scss";
 
@@ -33,7 +34,10 @@ export default function Home(props) {
         objectFit="contain"
       />
       <hr />
-      <TinaMarkdown content={post.body} />
+      <TinaMarkdown
+        content={post.body}
+        components={{ hr: HorizontalDivider }}
+      />
     </main>
   );
 }
