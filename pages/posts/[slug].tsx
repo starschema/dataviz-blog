@@ -27,10 +27,12 @@ export default function Home(props) {
       <p className="summary">{post.summary}</p>
       <Image
         src={post.thumbnail}
-        width={420}
-        height={300}
+        className={styles.thumbnail}
+        width={1000}
+        height={600}
         objectFit="contain"
       />
+      <hr />
       <TinaMarkdown content={post.body} />
     </main>
   );
