@@ -1,0 +1,4 @@
+{
+  "https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js": { "integrity": "sha512-6xBAezMIuIo7KhGiQnaWaiSkuf8mkxwU99moHmQ9JWsnNsBF9kL3yM80xB4f6MGpFbkWARH4fh80I9bBYLpaDQ==", "contentType": "application/javascript; charset=utf-8" },
+  "version": 1
+}
