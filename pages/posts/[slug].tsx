@@ -5,6 +5,7 @@ import PostMetaCard from "@/components/PostMetaCard";
 import { PostQuery } from "@/.tina/__generated__/types";
 import Image from "next/image";
 import HorizontalDivider from "@/components/HorizontalDivider";
+import Tableau from "@/components/Tableau";
 
 import styles from "../../styles/post.module.scss";
 
@@ -36,7 +37,7 @@ export default function Home(props) {
       <hr />
       <TinaMarkdown
         content={post.body}
-        components={{ hr: HorizontalDivider }}
+        components={{ hr: HorizontalDivider, tableau: Tableau }}
       />
     </main>
   );

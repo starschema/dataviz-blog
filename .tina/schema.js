@@ -93,6 +93,17 @@ const schema = defineSchema({
                 },
               ],
             },
+            {
+              name: "tableau",
+              label: "Tableau Embed",
+              fields: [
+                {
+                  type: "string",
+                  name: "url",
+                  label: "URL"
+                },
+              ],
+            },
           ],
         },
       ],
