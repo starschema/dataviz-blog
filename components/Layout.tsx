@@ -17,20 +17,28 @@ export default function Layout(props) {
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <div className={styles.headerContent}>
-            <h2>A blog by the Starschema Data Visualization Team</h2>
+            <h2 className={styles.subtitle}>
+              A blog by the Starschema Data Visualization Team
+            </h2>
             <h1>Grumpy Armadillo</h1>
           </div>
           <nav className={styles.navbar}>
             <ul>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-              <Link href="/blog">
-                <a>Our Blog</a>
-              </Link>
-              <Link href="/about">
-                <a>About Us</a>
-              </Link>
+              <li>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog">
+                  <a>Our Blog</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about">
+                  <a>About Us</a>
+                </Link>
+              </li>
             </ul>
           </nav>
         </header>

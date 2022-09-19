@@ -7,7 +7,7 @@ import Image from "next/image";
 import HorizontalDivider from "@/components/HorizontalDivider";
 import Tableau from "@/components/Tableau";
 
-import styles from "../../styles/post.module.scss";
+import styles from "@/styles/pages/post.module.scss";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode

@@ -1,4 +1,4 @@
-@import "../styles/border";
+@import "@/styles/border";
 
 $header-width: 75%;
 
@@ -14,22 +14,8 @@ $header-width: 75%;
   white-space: nowrap;
 }
 
-.headerContent h2 {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-stretch: ultra-expanded;
-  letter-spacing: 0.125em;
-  font-weight: 100;
-  font-family: "Montserrat";
+.subtitle {
   margin-top: 1.8em;
-}
-
-.headerContent h1 {
-  font-size: 7.25rem;
-  font-family: "Playfair Display";
-  // line-height: 50%;
-  margin-bottom: 0.4em;
-  font-weight: 600;
 }
 
 .navbar {
@@ -42,6 +28,7 @@ $header-width: 75%;
 }
 
 .navbar ul {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -51,17 +38,15 @@ $header-width: 75%;
   width: $header-width;
 }
 
-.navbar a {
-  margin: $border-collapse-margin;
+.navbar li {
+  flex: 0 1 20rem;
+  margin: 0 $border-collapse-margin;
   border-left: $border-style;
   border-right: $border-style;
   height: 100%;
-  flex: 0 1 20rem;
   line-height: 3rem;
   text-align: center;
   font-size: 0.9rem;
-
-  font-family: "Shanti";
 }
 
 .main {

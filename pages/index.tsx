@@ -7,7 +7,7 @@ import About from "@/components/About";
 import { cleanupPostSummariesResults } from "utils/cmsHelpers";
 import { PostSummariesQuery } from "@/.tina/__generated__/types";
 
-import styles from "./index.module.scss";
+import styles from "@/styles/pages/index.module.scss";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
