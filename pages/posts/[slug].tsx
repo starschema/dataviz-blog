@@ -1,6 +1,6 @@
 import { useTina } from "tinacms/dist/edit-state";
 import { client } from "@/.tina/__generated__/client";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { TinaMarkdown, Components } from "tinacms/dist/rich-text";
 import PostMetaCard from "@/components/PostMetaCard";
 import { PostQuery } from "@/.tina/__generated__/types";
 import Image from "next/image";
@@ -18,6 +18,7 @@ export default function Home(props) {
   });
 
   const post = data.post;
+  const components = { hr: HorizontalDivider, tableau: Tableau };
   return (
     <main className={styles.mainContainer}>
       <PostMetaCard
@@ -35,10 +36,7 @@ export default function Home(props) {
         objectFit="contain"
       />
       <hr />
-      <TinaMarkdown
-        content={post.body}
-        components={{ hr: HorizontalDivider, tableau: Tableau }}
-      />
+      <TinaMarkdown content={post.body} components={components} />
     </main>
   );
 }
