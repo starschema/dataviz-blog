@@ -32,28 +32,31 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description: 'This will be used to create the URL for your post.',
       options: {
         source: 'title',
         maxLength: 96,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
-      },
-      validation: (rule) => rule.required(),
+      }
     }),
     defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'block' }],
+      description: 'Add and edit blocks to create the content for your post.',
+      of: [{ type: 'block' }, { type: 'image' }, { type: 'code' }  ],
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
+      description: 'This ends up on summary pages, on Google, when people share your post in social media.',
     }),
     defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',
+      description: 'This will be used as the cover image for your post.',
       options: {
         hotspot: true,
       },
@@ -65,22 +68,30 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: [{ type: authorType.name }],
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [{
+        name: 'author',
+        title: 'Author',
+        type: 'reference',
+        to: [{ type: authorType.name }],
+      }]
     }),
   ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      author0: 'authors.0.name',
+      author1: 'authors.1.name',
+      author2: 'authors.2.name',
       date: 'date',
       media: 'coverImage',
     },
-    prepare({ title, media, author, date }) {
+    prepare({ title, media, author0, author1, author2, date }) {
+      const authors = [author0, author1, author2].filter(Boolean)
       const subtitles = [
-        author && `by ${author}`,
+        authors.length > 0 && `by ${authors.join(', ')}`,
         date && `on ${format(parseISO(date), 'LLL d, yyyy')}`,
       ].filter(Boolean)
 
