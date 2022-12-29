@@ -8,13 +8,21 @@
  *
  */
 import { PortableText } from '@portabletext/react'
+import Code from 'components/Code';
 
 import styles from './PostBody.module.css'
+
+const myPortableTextComponents = {
+  types: {
+    code: Code,
+  },
+}
+  
 
 export default function PostBody({ content }) {
   return (
     <div className={`mx-auto max-w-2xl ${styles.portableText}`}>
-      <PortableText value={content} />
+      <PortableText value={content} components={myPortableTextComponents}/>
     </div>
   )
 }

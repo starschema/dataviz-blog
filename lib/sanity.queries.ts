@@ -7,7 +7,7 @@ const postFields = groq`
   excerpt,
   coverImage,
   "slug": slug.current,
-  "author": author->{name, picture},
+  "authors": authors[]->{name, picture},
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -50,7 +50,7 @@ export interface Post {
   coverImage?: any
   date?: string
   excerpt?: string
-  author?: Author
+  authors?: Author[]
   slug?: string
   content?: any
 }

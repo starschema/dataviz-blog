@@ -39,7 +39,7 @@ export default function PostPage(props: {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
+                authors={post.authors}
               />
               <PostBody content={post.content} />
             </article>
