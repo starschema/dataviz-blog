@@ -1,17 +1,14 @@
 import Avatar from 'components/AuthorAvatar'
-import CoverImage from 'components/CoverImage'
-import Date from 'components/PostDate'
+import CoverImage from 'components/post/CoverImage'
+import Date from 'components/post/Date'
 import type { Post } from 'lib/sanity.queries'
 import Link from 'next/link'
 
-export default function PostPreview({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  authors,
-  slug,
-}: Omit<Post, '_id'>) {
+export default function PostPreview(
+  props: Omit<Post, '_id'>
+) {
+
+  const { title, coverImage, date, excerpt, authors, slug } = props
   return (
     <div>
       <div className="mb-5">
@@ -30,8 +27,8 @@ export default function PostPreview({
       <div className="mb-4 text-lg">
         <Date dateString={date} />
       </div>
-      {excerpt && <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>}
-      {authors && authors.map(a => <Avatar name={a.name} picture={a.picture} key={a.name}/>)}
+      <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
+      {authors.map(a => <Avatar name={a.name} picture={a.picture} key={a.name}/>)}
     </div>
   )
 }
