@@ -12,7 +12,6 @@ Refractor.registerLanguage(python);
 
 type Props = PortableTextTypeComponentProps<CodeInputValue>
 export default function Code(props: Props) {
-  console.log(props)
   return (
     <Refractor
       // In this example, `props` is the value of a `code` field

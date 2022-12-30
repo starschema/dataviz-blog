@@ -8,9 +8,9 @@
  *
  */
 import { PortableText } from '@portabletext/react'
-import Code from 'components/Code';
+import Code from 'components/blocks/Code';
 
-import styles from './PostBody.module.css'
+import styles from './Body.module.css'
 
 const myPortableTextComponents = {
   types: {
