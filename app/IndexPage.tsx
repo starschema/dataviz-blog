@@ -14,13 +14,11 @@ export default function IndexPage(props: {
 }) {
   const { preview, loading, posts, settings } = props
   const [heroPost, ...morePosts] = posts || []
-  const { title = demo.title, description = demo.description } = settings || {}
 
   return (
     <>
       <Layout preview={preview} loading={loading}>
         <Container>
-          <BlogHeader title={title} description={description} level={1} />
           {heroPost && (
             <HeroPost
               title={heroPost.title}

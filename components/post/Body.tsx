@@ -8,21 +8,22 @@
  *
  */
 import { PortableText } from '@portabletext/react'
-import Code from 'components/blocks/Code';
+import BodyImage from 'components/blocks/BodyImage'
+import Code from 'components/blocks/Code'
 
 import styles from './Body.module.css'
 
 const myPortableTextComponents = {
   types: {
     code: Code,
+    image: BodyImage,
   },
 }
-  
 
 export default function PostBody({ content }) {
   return (
     <div className={`mx-auto max-w-2xl ${styles.portableText}`}>
-      <PortableText value={content} components={myPortableTextComponents}/>
+      <PortableText value={content} components={myPortableTextComponents} />
     </div>
   )
 }

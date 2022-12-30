@@ -37,20 +37,28 @@ export default defineType({
         source: 'title',
         maxLength: 96,
         isUnique: (value, context) => context.defaultIsUnique(value, context),
-      }
+      },
     }),
     defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       description: 'Add and edit blocks to create the content for your post.',
-      of: [{ type: 'block' }, { type: 'image' }, { type: 'code' }  ],
+      of: [
+        { type: 'block' },
+        {
+          type: 'image',
+          fields: [{ name: 'alt', type: 'string', title: 'Alternative text' }],
+        },
+        { type: 'code' },
+      ],
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      description: 'This ends up on summary pages, on Google, when people share your post in social media.',
+      description:
+        'This ends up on summary pages, on Google, when people share your post in social media.',
     }),
     defineField({
       name: 'coverImage',
@@ -71,12 +79,14 @@ export default defineType({
       name: 'authors',
       title: 'Authors',
       type: 'array',
-      of: [{
-        name: 'author',
-        title: 'Author',
-        type: 'reference',
-        to: [{ type: authorType.name }],
-      }]
+      of: [
+        {
+          name: 'author',
+          title: 'Author',
+          type: 'reference',
+          to: [{ type: authorType.name }],
+        },
+      ],
     }),
   ],
   preview: {

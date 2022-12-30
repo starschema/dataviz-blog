@@ -1,5 +1,11 @@
 import 'tailwindcss/tailwind.css'
 
+import localFont from '@next/font/local'
+import BlogHeader from 'components/BlogHeader'
+
+const Satoshi = localFont({
+  src: './Satoshi.woff2',
+})
 export default function RootLayout({
   children,
 }: {
@@ -7,8 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
-      <body className="bg-white text-black">{children}</body>
+      <body className="bg-white text-black dark:bg-neutral-900 dark:text-white">
+        <BlogHeader />
+        {children}
+      </body>
     </html>
   )
 }
