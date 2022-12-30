@@ -38,5 +38,5 @@
   ],
 
   "remoteUser": "node",
-  "postCreateCommand": "npm install -g @sanity/cli"
+  "postCreateCommand": "npm install -g @sanity/cli netlify-cli @netlify/plugin-nextjs"
 }

@@ -23,3 +23,7 @@
 .portableText a:hover {
   @apply text-blue-800;
 }
+
+.portableText ul {
+  @apply list-disc list-inside;
+}

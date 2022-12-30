@@ -1,6 +1,13 @@
 [template]
   incoming-hooks = ["Sanity"]
 
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[build]
+command = "npm run build"
+publish = ".next"
+
 [template.environment]
   NEXT_PUBLIC_SANITY_PROJECT_ID="Your Sanity Project Id"
   NEXT_PUBLIC_SANITY_DATASET="Your Sanity Dataset"
