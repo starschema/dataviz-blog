@@ -36,7 +36,6 @@
   "mounts": [
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,readonly"
   ],
-
   "remoteUser": "node",
-  "postCreateCommand": "npm install -g @sanity/cli netlify-cli @netlify/plugin-nextjs"
+  "postCreateCommand": "npm install -g @sanity/cli "
 }

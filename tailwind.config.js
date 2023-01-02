@@ -20,6 +20,14 @@ module.exports = {
         'blue-500': '#2276FC',
         'yellow-100': '#fef7da',
       },
+      backgroundImage: {
+        'mobile-hero': "url('/images/mobile-hero.svg')",
+        'process-decoration-green':
+          "url('/images/decoration/process-green.svg')",
+        'process-decoration-orange':
+          "url('/images/decoration/process-orange.svg')",
+        'process-decoration-blue': "url('/images/decoration/process-blue.svg')",
+      },
       spacing: {
         28: '7rem',
       },

@@ -1,0 +1,21 @@
+<svg width="80" height="81" viewBox="0 0 80 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="24" y="28" width="52" height="24" transform="rotate(90 24 28)" fill="#EDD5EB"/>
+<rect x="52" y="28" width="24" height="24" transform="rotate(90 52 28)" fill="#D5EEEA"/>
+<rect x="80" y="45" width="35" height="24" transform="rotate(90 80 45)" fill="#C0D8FD"/>
+<path d="M0 24L11.662 12.507L24 7.33232e-07L24 24L0 24Z" fill="#F3A33C"/>
+<mask id="mask0_335_400" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="56" width="25" height="25">
+<rect x="52.2959" y="80.2144" width="24.296" height="24.2141" transform="rotate(-180 52.2959 80.2144)" fill="#C576BE"/>
+</mask>
+<g mask="url(#mask0_335_400)">
+<ellipse cx="52.7435" cy="56.6724" rx="23.5415" ry="24.2982" transform="rotate(90 52.7435 56.6724)" fill="#C576BE"/>
+</g>
+<mask id="mask1_335_400" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="28" y="0" width="25" height="24">
+<rect x="28" width="24.296" height="23.9998" fill="#E96C61"/>
+</mask>
+<g mask="url(#mask1_335_400)">
+<ellipse cx="27.5521" cy="23.3334" rx="23.3331" ry="24.2982" transform="rotate(-90 27.5521 23.3334)" fill="#E96C61"/>
+</g>
+<circle cx="68" cy="28" r="12" transform="rotate(-180 68 28)" fill="#4B6AF0"/>
+<line x1="67.5" y1="56" x2="67.5" y2="4" stroke="black"/>
+<line x1="80" y1="32.5" x2="17" y2="32.5" stroke="black"/>
+</svg>
