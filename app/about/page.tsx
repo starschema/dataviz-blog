@@ -1,4 +1,6 @@
 import AboutListItem from 'components/AboutListItem'
+import AuthorBio from 'components/AuthorBio'
+import { getAuthors } from 'lib/sanity.client'
 import Image from 'next/image'
 
 import AdaptabilityIcon from '../../public/images/decoration/adaptability-icon.svg'
@@ -9,7 +11,8 @@ import DataVizBestPracticesIcon from '../../public/images/decoration/dataviz-bes
 import FunctionalSystemsIcon from '../../public/images/decoration/functional-systems-icon.svg'
 import SupportiveAtmosphereIcon from '../../public/images/decoration/supportive-atmosphere-icon.svg'
 
-export default function About() {
+export default async function About() {
+  const authors = await getAuthors()
   const listItemClasses =
     'flex items-center gap-10 border-b border-gray-200 py-10'
   return (
@@ -81,6 +84,10 @@ export default function About() {
           textFirst={true}
         />
       </ul>
+      <h2 className="my-8 text-3xl font-bold">Our Team</h2>
+      {authors.map((a) => (
+        <AuthorBio name={a.name} bio={a.bio} key={a.name} />
+      ))}
     </main>
   )
 }
