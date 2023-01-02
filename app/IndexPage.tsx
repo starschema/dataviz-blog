@@ -1,8 +1,10 @@
 import BlogHeader from 'components/BlogHeader'
+import Hero from 'components/Hero'
 import Container from 'components/layout/BlogContainer'
 import Layout from 'components/layout/BlogLayout'
 import MoreStories from 'components/MoreStories'
 import HeroPost from 'components/post/HeroPost'
+import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 
@@ -19,6 +21,9 @@ export default function IndexPage(props: {
     <>
       <Layout preview={preview} loading={loading}>
         <Container>
+          <Hero />
+          <SectionSeparator />
+          <h3 className="mb-10 text-3xl font-bold">Latest Posts</h3>
           {heroPost && (
             <HeroPost
               title={heroPost.title}
