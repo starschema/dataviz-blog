@@ -39,6 +39,13 @@ export const postBySlugQuery = groq`
 }
 `
 
+export const authorsQuery = groq`
+*[_type == "author" && isGuest != true] | order(name asc) {
+  name,
+  bio
+}
+`
+
 export interface Author {
   name?: string
   picture?: any

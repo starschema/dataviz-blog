@@ -26,5 +26,13 @@ export default defineType({
       type: 'string',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'isGuest',
+      title: 'Guest Author?',
+      type: 'boolean',
+      initialValue: false,
+      description:
+        'Checking this remove the author from the author list on the About page',
+    }),
   ],
 })

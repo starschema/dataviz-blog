@@ -2,8 +2,10 @@ import 'server-only'
 
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
+  type Author,
   type Post,
   type Settings,
+  authorsQuery,
   indexQuery,
   postAndMoreStoriesQuery,
   postBySlugQuery,
@@ -29,6 +31,13 @@ export async function getSettings(): Promise<Settings> {
 export async function getAllPosts(): Promise<Post[]> {
   if (client) {
     return (await client.fetch(indexQuery)) || []
+  }
+  return []
+}
+
+export async function getAuthors(): Promise<Omit<Author, 'image'>[]> {
+  if (client) {
+    return (await client.fetch(authorsQuery)) || []
   }
   return []
 }
