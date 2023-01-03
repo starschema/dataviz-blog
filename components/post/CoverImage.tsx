@@ -13,7 +13,7 @@ interface CoverImageProps {
 export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority } = props
   const image = source?.asset?._ref ? (
-    <div className={'relative min-w-full'}>
+    <div >
       <Image
         alt={`Cover Image for ${title}`}
         src={urlForImage(source).width(2000).url()}
