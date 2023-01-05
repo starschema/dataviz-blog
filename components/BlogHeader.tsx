@@ -52,7 +52,7 @@ export default function BlogHeader(props) {
             Blog Name Placeholder
           </h1>
         </Link>
-        <HamburgerIcon isClosed={true} onClick={() => handleMenuClick()} />
+        <HamburgerIcon isClosed={true} onClick={() => handleMenuClick()} className='brightness-0 dark:brightness-0 dark:invert' />
       </div>
       {!isMenuClosed && <div className={`min-w-full overflow-hidden transition-[height] `} style={{ height: menuHeight, top: headerHeight, transitionDuration: `${menuTransitionDuration}ms` }}>
         <OverlayMenu onNavigation={() => handleMenuClick()} />
