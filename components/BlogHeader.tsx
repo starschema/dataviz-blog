@@ -44,7 +44,7 @@ export default function BlogHeader(props) {
 
   return (<>
     {/* <header className={`border-b bg-white border-neutral-600 px-4 top-0`} style={{ position: isMenuClosed ? 'relative' : 'sticky' }} > */}
-    <header className={`border-b bg-white border-neutral-600 px-4 top-0`}  >
+    <header className={`border-b bg-white border-neutral-600 dark:bg-neutral-900 dark:text-white px-4 top-0`}  >
       <div className='grid grid-cols-[20px_1fr_20px] ' style={{ height: headerHeight }}>
 
         <Link href="/" className='col-start-2 col-span-1 flex flex-col justify-center'>
