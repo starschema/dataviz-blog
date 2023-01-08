@@ -8,6 +8,7 @@ const config = {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
       { hostname: 'source.unsplash.com' },
+      { hostname: 'public.tableau.com' },
     ],
   },
   typescript: {
