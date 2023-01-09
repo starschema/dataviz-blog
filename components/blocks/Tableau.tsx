@@ -3,11 +3,11 @@ import Tableau from "components/Tableau";
 
 type TableauValue = {
     _type?: 'tableau'
-    src: string
+    url: string
     alt: string
 }
 type Props = PortableTextTypeComponentProps<TableauValue>
 export default function TableauBlock(props: Props) {
-    const { src, alt } = props.value;
-    return <Tableau src={src} alt={alt} />
+    const { url, alt } = props.value;
+    return <Tableau url={url} alt={alt} />
 }
