@@ -8,7 +8,7 @@ const Tableau = defineType({
   icon: BarChartIcon,
   fields: [
     defineField({
-      name: 'src',
+      name: 'url',
       type: 'string',
       title: 'Tableau URL',
       description: 'The URL of the Tableau dashboard',
