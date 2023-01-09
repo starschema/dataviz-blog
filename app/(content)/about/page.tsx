@@ -3,13 +3,13 @@ import AuthorBio from 'components/AuthorBio'
 import { getAuthors } from 'lib/sanity.client'
 import Image from 'next/image'
 
-import AdaptabilityIcon from '../../public/images/decoration/adaptability-icon.svg'
-import ArtisticApproachIcon from '../../public/images/decoration/artistic-approach-icon.svg'
-import CollectiveThinkingIcon from '../../public/images/decoration/collective-thinking-icon.svg'
-import CreativeChallengesIcon from '../../public/images/decoration/creative-challenges-icon.svg'
-import DataVizBestPracticesIcon from '../../public/images/decoration/dataviz-best-practices-icon.svg'
-import FunctionalSystemsIcon from '../../public/images/decoration/functional-systems-icon.svg'
-import SupportiveAtmosphereIcon from '../../public/images/decoration/supportive-atmosphere-icon.svg'
+import AdaptabilityIcon from '../../../public/images/decoration/adaptability-icon.svg'
+import ArtisticApproachIcon from '../../../public/images/decoration/artistic-approach-icon.svg'
+import CollectiveThinkingIcon from '../../../public/images/decoration/collective-thinking-icon.svg'
+import CreativeChallengesIcon from '../../../public/images/decoration/creative-challenges-icon.svg'
+import DataVizBestPracticesIcon from '../../../public/images/decoration/dataviz-best-practices-icon.svg'
+import FunctionalSystemsIcon from '../../../public/images/decoration/functional-systems-icon.svg'
+import SupportiveAtmosphereIcon from '../../../public/images/decoration/supportive-atmosphere-icon.svg'
 
 export default async function About() {
   const authors = await getAuthors()
