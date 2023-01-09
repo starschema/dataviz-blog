@@ -48,6 +48,7 @@ export default defineType({
           name: 'layout',
           title: 'Layout',
           type: 'string',
+          initialValue: 'hero',
           options: {
             list: [
               { title: 'Tableau Thumbnail + Title', value: 'tableau' },
@@ -63,8 +64,7 @@ export default defineType({
           type: 'url',
           description: 'The URL of the Tableau dashboard',
           hidden: ({ parent, value }) => {
-            console.log(parent, value)
-            return parent.layout !== 'tableau'
+            return parent?.layout !== 'tableau'
           },
         }),
       ],
