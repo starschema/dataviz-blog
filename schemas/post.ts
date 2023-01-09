@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
 import authorType from './author'
-
+import tableauType from './tableau'
 /**
  * This file is the schema definition for a post.
  *
@@ -81,6 +81,7 @@ export default defineType({
           fields: [{ name: 'alt', type: 'string', title: 'Alternative text' }],
         },
         { type: 'code' },
+        { type: tableauType.name },
       ],
     }),
     defineField({
