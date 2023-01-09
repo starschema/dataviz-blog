@@ -40,6 +40,36 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'layoutType',
+      title: 'Layout Type',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'layout',
+          title: 'Layout',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Tableau Thumbnail + Title', value: 'tableau' },
+              { title: 'Title Only', value: 'titleOnly' },
+              { title: 'Hero + Title', value: 'hero' },
+            ],
+            layout: 'dropdown',
+          },
+        }),
+        defineField({
+          name: 'tableauUrl',
+          title: 'Tableau URL',
+          type: 'url',
+          description: 'The URL of the Tableau dashboard',
+          hidden: ({ parent, value }) => {
+            console.log(parent, value)
+            return parent.layout !== 'tableau'
+          },
+        }),
+      ],
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',

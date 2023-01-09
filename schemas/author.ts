@@ -32,7 +32,42 @@ export default defineType({
       type: 'boolean',
       initialValue: false,
       description:
-        'Checking this remove the author from the author list on the About page',
+        'Checking this removes the author from the author list on the About page',
+    }),
+    defineField({
+      name: 'socials',
+      title: 'Social Media Links',
+      type: 'array',
+      description: 'Add links to your social media profiles.',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+              options: {
+                list: [
+                  { title: 'Twitter', value: 'twitter' },
+                  { title: 'GitHub', value: 'github' },
+                  { title: 'LinkedIn', value: 'linkedin' },
+                  { title: 'Instagram', value: 'instagram' },
+                  { title: 'Behance', value: 'behance' },
+                  { title: 'Mastodon', value: 'mastodon' },
+                ],
+              },
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
     }),
   ],
 })

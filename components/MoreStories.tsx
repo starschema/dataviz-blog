@@ -1,7 +1,7 @@
-import PostPreview from 'components/post/PostPreview'
-import type { Post } from 'lib/sanity.queries'
 import { Fragment } from 'react'
 
+import type { Post } from '../lib/sanity.queries'
+import PostPreview from './post/PostPreview'
 import SectionSeparator from './SectionSeparator'
 
 export default function MoreStories({ posts }: { posts: Post[] }) {

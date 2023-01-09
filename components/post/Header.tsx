@@ -1,9 +1,9 @@
-import Avatar from 'components/AuthorAvatar'
-import CoverImage from 'components/post/CoverImage'
-import Date from 'components/post/Date'
-import Excerpt from 'components/post/Excerpt'
-import PostTitle from 'components/post/Title'
 import type { Post } from 'lib/sanity.queries'
+
+import CoverImage from './CoverImage'
+import Date from './Date'
+import Excerpt from './Excerpt'
+import PostTitle from './Title'
 
 export default function PostHeader(
   props: Pick<

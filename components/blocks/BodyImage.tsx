@@ -1,5 +1,5 @@
 import { PortableTextTypeComponentProps } from '@portabletext/react'
-import { urlForImage } from 'lib/sanity.image'
+import { urlForImage } from '../../lib/sanity.image'
 import Image from 'next/image'
 
 // type Props = PortableTextTypeComponentProps<CodeInputValue>
