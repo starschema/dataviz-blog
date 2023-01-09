@@ -10,11 +10,13 @@
 import { PortableText } from '@portabletext/react'
 import BodyImage from 'components/blocks/BodyImage'
 import Code from 'components/blocks/Code'
+import Tableau from 'components/blocks/Tableau'
 
 const myPortableTextComponents = {
   types: {
     code: Code,
     image: BodyImage,
+    tableau: Tableau,
   },
 }
 
