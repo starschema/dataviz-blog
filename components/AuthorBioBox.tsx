@@ -1,5 +1,5 @@
-import AuthorBio from 'components/AuthorBio'
-import type { Author } from 'lib/sanity.queries'
+import type { Author } from '../lib/sanity.queries'
+import AuthorBio from './AuthorBio'
 
 interface Props {
   authors: Author[]

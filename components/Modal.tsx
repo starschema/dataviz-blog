@@ -17,10 +17,8 @@ const Modal = (props: Props) => {
     const { children, } = props;
 
     const modalRoot = document.getElementById('modal-root');
-    console.log(modalRoot)
 
     useOnClickOutside(childrenWrapperRef, () => {
-        console.log('clicked outside')
         props.onClose();
     });
     const modal = (

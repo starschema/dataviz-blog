@@ -1,5 +1,4 @@
 import { CogIcon } from '@sanity/icons'
-import * as demo from 'lib/demo.data'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 import OpenGraphInput from './OpenGraphInput'
@@ -18,7 +17,7 @@ export default defineType({
       description: 'This field is the title of your blog.',
       title: 'Title',
       type: 'string',
-      initialValue: demo.title,
+      initialValue: 'Blog Name Placeholder',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -27,7 +26,56 @@ export default defineType({
         'Used both for the <meta> description tag for SEO, and the blog subheader.',
       title: 'Descriprion',
       type: 'array',
-      initialValue: demo.description,
+      initialValue: [
+        {
+          _key: '9f1a629887fd',
+          _type: 'block',
+          children: [
+            {
+              _key: '4a58edd077880',
+              _type: 'span',
+              marks: [],
+              text: 'A statically generated blog example using ',
+            },
+            {
+              _key: '4a58edd077881',
+              _type: 'span',
+              marks: ['ec5b66c9b1e0'],
+              text: 'Next.js',
+            },
+            {
+              _key: '4a58edd077882',
+              _type: 'span',
+              marks: [],
+              text: ' and ',
+            },
+            {
+              _key: '4a58edd077883',
+              _type: 'span',
+              marks: ['1f8991913ea8'],
+              text: 'Sanity',
+            },
+            {
+              _key: '4a58edd077884',
+              _type: 'span',
+              marks: [],
+              text: '.',
+            },
+          ],
+          markDefs: [
+            {
+              _key: 'ec5b66c9b1e0',
+              _type: 'link',
+              href: 'https://nextjs.org/',
+            },
+            {
+              _key: '1f8991913ea8',
+              _type: 'link',
+              href: 'https://sanity.io/',
+            },
+          ],
+        },
+      ],
       of: [
         defineArrayMember({
           type: 'block',
@@ -69,7 +117,7 @@ export default defineType({
           name: 'title',
           title: 'Title',
           type: 'string',
-          initialValue: demo.ogImageTitle,
+          initialValue: 'Blog Name Placeholder',
         }),
       ],
     }),

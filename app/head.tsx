@@ -1,19 +1,13 @@
 import BlogMeta from 'components/BlogMeta'
 import MetaDescription from 'components/MetaDescription'
-import * as demo from 'lib/demo.data'
 import { getSettings } from 'lib/sanity.client'
 
 export default async function PageHead() {
-  const {
-    title = demo.title,
-    description = demo.description,
-    ogImage = {},
-  } = await getSettings()
-  const ogImageTitle = ogImage?.title || demo.ogImageTitle
+  const { title, description } = await getSettings()
 
   return (
     <>
-      <title>{title}</title>
+      <title>Bestest Blog ever</title>
       <BlogMeta />
       <MetaDescription value={description} />
       <meta
@@ -22,9 +16,8 @@ export default async function PageHead() {
         // `VERCEL_URL` environment variable to get the deployment’s URL.
         // More info:
         // https://vercel.com/docs/concepts/projects/environment-variables
-        content={`${
-          process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
-        }/api/og?${new URLSearchParams({ title: ogImageTitle })}`}
+        content={`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
+          }/api/og?${new URLSearchParams({ title: 'this is an image, it will be sorted out' })}`}
       />
     </>
   )

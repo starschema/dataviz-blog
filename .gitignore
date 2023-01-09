@@ -44,3 +44,6 @@ yarn-error.log*
 studio/.env.development
 # Local Netlify folder
 .netlify
+
+# Build files
+dist
