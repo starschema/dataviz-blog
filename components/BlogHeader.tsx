@@ -49,14 +49,14 @@ export default function BlogHeader(props) {
       <div className='grid grid-cols-[20px_1fr_20px] ' style={{ height: headerHeight }}>
 
         <Link href="/" className='col-start-2 col-span-1 flex flex-col justify-center'>
-          <h1 className="text-center text-2xl font-medium">
+          <h1 className="text-center text-xl min-[360px]:text-2xl font-medium">
             Blog Name Placeholder
           </h1>
         </Link>
         {/* add dark:brightness-0 dark:invert to support dark mode*/}
         <HamburgerIcon isClosed={true} onClick={() => handleMenuClick()} className='brightness-0 ' />
       </div>
-      {!isMenuClosed && <div className={`min-w-full overflow-hidden transition-[height] `} style={{ height: menuHeight, top: headerHeight, transitionDuration: `${menuTransitionDuration}ms` }}>
+      {!isMenuClosed && <div className="min-w-full overflow-hidden transition-[height]" style={{ height: menuHeight, top: headerHeight, transitionDuration: `${menuTransitionDuration}ms` }}>
         <OverlayMenu onNavigation={() => handleMenuClick()} />
       </div>}
     </header>
