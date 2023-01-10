@@ -9,10 +9,10 @@ export default function MoreStories({ posts }: { posts: Post[] }) {
     <section>
       <div className="mb-0 grid grid-cols-1 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">
         {posts.map((post) => (
-          <Fragment key={post._id}>
+          <div key={post._id}>
             <PostPreview key={post._id} post={post} isFeatured={false} />
-            <SectionSeparator key={post._id} className="mt-4 mb-10" />
-          </Fragment>
+            <SectionSeparator key={post._id} className="mt-4 mb-4" />
+          </div>
         ))}
       </div>
     </section>

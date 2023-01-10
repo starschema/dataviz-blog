@@ -1,8 +1,7 @@
-import AuthorBio from 'components/AuthorBio'
-import AuthorBioBox from 'components/AuthorBioBox'
 import Container from 'components/layout/BlogContainer'
 import Layout from 'components/layout/BlogLayout'
 import MoreStories from 'components/MoreStories'
+import AuthorBioBox from 'components/post/AuthorBioBox'
 import PostBody from 'components/post/Body'
 import PostHeader from 'components/post/Header'
 import PostTitle from 'components/post/Title'
@@ -40,11 +39,13 @@ export default function PostPage(props: {
                 authors={post.authors}
                 excerpt={post.excerpt}
               />
-              <hr className="border-t border-neutral-400" />
+              {/* tailwind removes the top margin from the first heading so we need to add a div here to add it back */}
+              <SectionSeparator className='mb-8' />
               <PostBody content={post.content} />
               <AuthorBioBox authors={post.authors} />
+
             </article>
-            <SectionSeparator />
+            <SectionSeparator className='mb-4' />
             {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
           </>
         )}
