@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css'
 
 import BlogHeader from '../../components/BlogHeader'
+import Footer from '../../components/Footer'
 
 export default function ContentRootLayout({
   children,
@@ -12,6 +13,7 @@ export default function ContentRootLayout({
       <div id='modal-root' />
       <BlogHeader />
       {children}
+      <Footer />
     </>
   )
 }
