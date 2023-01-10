@@ -1,36 +1,34 @@
 <svg width="390" height="495" viewBox="0 0 390 495" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_139_64)">
-        <rect x="381" y="16" width="72" height="193" transform="rotate(90 381 16)" fill="#78C9B8"
+    <g clip-path="url(#clip0_478_774)">
+        <rect width="390" height="495" fill="white" />
+        <rect x="195" y="458" width="187" height="28" fill="#788FF4" />
+        <rect x="195" y="391" width="92" height="61" fill="#EDD5EB" />
+        <rect x="8" y="83" width="190" height="92" fill="#EDD5EB" />
+        <rect x="292" y="293" width="90" height="159" fill="#A5B5F8" fill-opacity="0.5" />
+        <rect x="190" y="414" width="72" height="182" transform="rotate(90 190 414)" fill="#78C9B8"
             fill-opacity="0.3" />
-        <rect x="341" y="32" width="72" height="193" transform="rotate(90 341 32)" fill="#78C9B8"
-            fill-opacity="0.3" />
-        <path d="M180 488L7.99998 488L7.99998 408.5L180 488Z" fill="#4B6AF0" fill-opacity="0.5" />
-        <mask id="mask0_139_64" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="324" y="402"
-            width="83" height="83">
-            <circle cx="365.194" cy="443.194" r="41" transform="rotate(-90 365.194 443.194)"
-                fill="#78C9B8" />
-        </mask>
-        <g mask="url(#mask0_139_64)">
-            <rect x="364.357" y="395.5" width="93.7143" height="60.6633"
-                transform="rotate(90 364.357 395.5)" fill="#78C9B8" />
-        </g>
-        <rect x="195" y="406" width="24" height="24" fill="#E96C61" />
-        <rect x="107" y="72" width="66" height="16" fill="#C56BB3" />
-        <rect x="346" y="397" width="5" height="24" fill="#F4CD58" />
-        <circle cx="320.5" cy="164.5" r="17.5" fill="#F4CD58" />
-        <mask id="mask1_139_64" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="44" y="408"
-            width="87" height="87">
-            <path
-                d="M130.565 451.5C130.565 475.524 111.187 495 87.2825 495C63.3782 495 44 475.524 44 451.5C44 427.476 63.3782 408 87.2825 408C111.187 408 130.565 427.476 130.565 451.5Z"
-                fill="#4B6AF0" />
-        </mask>
-        <g mask="url(#mask1_139_64)">
-            <rect x="89.9678" y="453.392" width="48.7912" height="63.2727"
-                transform="rotate(-180 89.9678 453.392)" fill="#4B6AF0" />
-        </g>
+        <rect x="382" y="7" width="72" height="180" transform="rotate(90 382 7)" fill="#78C9B8" fill-opacity="0.3" />
+        <rect x="8" y="286" width="182" height="16" fill="#E96C61" />
+
+        <path
+            d="M202 83C202 94.819 204.328 106.522 208.851 117.441C213.374 128.361 220.003 138.282 228.36 146.64C236.718 154.997 246.639 161.626 257.558 166.149C268.478 170.672 280.181 173 292 173C303.819 173 315.522 170.672 326.442 166.149C337.361 161.626 347.282 154.997 355.64 146.64C363.997 138.282 370.626 128.361 375.149 117.442C379.672 106.522 382 94.819 382 83L292 83L202 83Z"
+            fill="#78C9B8" />
+        <path
+            d="M382 196C370.181 196 358.478 198.328 347.558 202.851C336.639 207.374 326.718 214.003 318.36 222.36C310.003 230.718 303.374 240.639 298.851 251.558C294.328 262.478 292 274.181 292 286L382 286L382 196Z"
+            fill="#C56BB3" />
+        <rect x="8" y="7" width="95" height="72" fill="#E96C61" />
+        <line x1="103" y1="131.5" x2="-23" y2="131.5" stroke="black" />
+        <line x1="134" y1="293.5" x2="-4" y2="293.5" stroke="black" />
+        <line x1="418" y1="354.5" x2="280" y2="354.5" stroke="black" />
+        <line x1="418" y1="43.5" x2="292" y2="43.5" stroke="black" />
+        <line x1="340.5" y1="415" x2="340.5" y2="195" stroke="black" />
+        <path d="M198 7V79L106 79L198 7Z" fill="#4B6AF0" fill-opacity="0.75" />
+        <path d="M99 407L8 407L8.00001 314L99 407Z" fill="#4B6AF0" fill-opacity="0.75" />
+        <path d="M287 293V386H197L287 293Z" fill="#E96C61" />
+        <circle cx="164" cy="382" r="25" fill="#F4CD58" />
     </g>
     <defs>
-        <clipPath id="clip0_139_64">
+        <clipPath id="clip0_478_774">
             <rect width="390" height="495" fill="white" />
         </clipPath>
     </defs>
