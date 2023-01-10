@@ -14,17 +14,18 @@ export default function IndexPage(props: {
   settings: Settings
 }) {
   const { preview, loading, posts, settings } = props
-  // const [heroPost, ...morePosts] = posts || []
-  const [...morePosts] = posts || []
+  const [heroPost, ...morePosts] = posts || []
 
   return (
     <>
       <Layout preview={preview} loading={loading}>
+        <Hero />
+        <SectionSeparator />
         <Container>
-          <Hero />
+          <h3 className="mb-10 mt-6 text-3xl font-bold">Featured</h3>
+          {heroPost && <PostPreview post={heroPost} isFeatured={true} />}
           <SectionSeparator />
-          <h3 className="mb-10 text-3xl font-bold">Latest Articles</h3>
-          {/* {heroPost && <PostPreview post={heroPost} isFeatured={true} />} */}
+          <h3 className="mb-10 mt-6 text-3xl font-bold">Latest Articles</h3>
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
