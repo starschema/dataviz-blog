@@ -16,17 +16,17 @@ export default function PostHeader(
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <CoverImage title={title} image={coverImage} priority slug={slug} />
-      <Excerpt excerpt={props.excerpt} />
       <div className="max-w-2xl text-sm">
         <p className="mb-4 uppercase">
           <span className="text-neutral-400">Written by: </span>
           <span className="font-medium">{authorNames}</span>
         </p>
-        <div className="mb-6">
-          <Date dateString={date} />
-        </div>
       </div>
+      <div className="mb-6 text-sm">
+        <Date dateString={date} />
+      </div>
+      <CoverImage title={title} image={coverImage} priority slug={slug} />
+      <Excerpt excerpt={props.excerpt} />
     </>
   )
 }
