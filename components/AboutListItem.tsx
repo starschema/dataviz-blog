@@ -8,14 +8,13 @@ interface Props {
 
 export default function AboutListItem(props: Props) {
   const { text, image, textFirst } = props
-  const textElement = <span className="flex-1">{text}</span>
+  const flexDirection = textFirst ? 'flex-row-reverse' : 'flex-row'
   return (
-    <li className="flex items-center whitespace-pre-line border-b border-gray-200 py-10">
-      {textFirst && textElement}
+    <li className={`flex ${flexDirection} items-center justify-between max-w-xs w-full whitespace-pre-line py-10 lg:flex-col lg:text-center`}>
       <div className="flex w-40 justify-center">
         <Image src={image} alt="" aria-hidden />
       </div>
-      {!textFirst && textElement}
+      <span className="flex-1 font-medium lg:py-8">{text}</span>
     </li>
   )
 }
