@@ -1,13 +1,14 @@
 import Link from 'next/link';
 
 export default function DestkopBlogHeader() {
-    const navigationItemClasses = 'px-12 outline outline-neutral-300 flex items-center pb-1';
-    return <header className='h-24 bg-white top-0 outline outline-neutral-300 flex flex-row items-center px-12'>
-        <Link href='/' className='text-4xl flex-grow' >
+    // this is only ever shown on md screens and up
+    const navigationItemClasses = 'px-6 lg:px-8 xl:px-12 outline outline-1 outline-neutral-300 flex items-center pb-1 ml-px';
+    return <header className='h-20 xl:h-24 bg-white top-0  outline outline-neutral-300 flex flex-row items-center px-12'>
+        <Link href='/' className='text-xl lg:text-2xl xl:text-4xl flex-grow' >
             Blog Name Placeholder
         </Link>
         <nav className='h-full'>
-            <ul className='flex flex-row px-8 text-xl h-full items-middle'>
+            <ul className='flex flex-row px-8 lg:text-lg xl:text-xl h-full items-middle'>
                 <li className={navigationItemClasses}>
                     <Link href='/' className='decoration-blue-500 underline underline-offset-8'>
                         Home

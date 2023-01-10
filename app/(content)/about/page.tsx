@@ -19,7 +19,7 @@ export default async function About() {
   return (
     <main className="my-10 min-h-screen px-4 text-xl mx-auto">
       <Container>
-        <section className='lg:grid lg:grid-cols-12 lg:gap-6'>
+        <section className='lg:grid lg:grid-cols-12 lg:gap-6 lg:h-[550px] lg:pt-40'>
           <p className="mb-10 font-bold lg:text-2xl lg:col-span-5">
             We are a team of data viz professionals with multidisciplinary &
             diverse backgrounds in business, applied mathematics, software
