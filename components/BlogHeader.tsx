@@ -2,8 +2,8 @@
 import breakpoints from "lib/tailwind.breakpoints";
 import { useMediaQuery } from "usehooks-ts";
 
-import MobileBlogHeader from "./MobileBlogHeader";
 import DesktopBlogHeader from "./DesktopBlogHeader";
+import MobileBlogHeader from "./MobileBlogHeader";
 
 
 export default function BlogHeader() {

@@ -25,6 +25,7 @@ export default function Tableau(props: Props) {
         <div className="relative h-full">
             <Image src={fullImageUrl} fill alt={alt} className='object-contain' />
             {isZoomed && <Modal open={isZoomed} onClose={() => setIsZoomed(!isZoomed)} >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={fullImageUrl} alt={alt} className='object-contain h-full' />
             </Modal>}
             <div className="opacity-0 absolute h-full w-full hover:opacity-100 flex flex-col justify-evenly items-center content-center bg-neutral-700/50">
