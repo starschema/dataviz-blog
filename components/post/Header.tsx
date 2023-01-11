@@ -11,6 +11,7 @@ export default function PostHeader(
     'title' | 'coverImage' | 'date' | 'authors' | 'slug' | 'excerpt'
   >
 ) {
+  // FIXME: the width of this header does not match the body at large screens. this might be an issue
   const { title, coverImage, date, authors, slug } = props
   const authorNames = authors?.map((author) => author.name).join(', ')
   return (

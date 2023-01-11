@@ -42,6 +42,7 @@ export default function PostPage(props: {
               {/* tailwind removes the top margin from the first heading so we need to add a div here to add it back */}
               <SectionSeparator className='mb-8' />
               <PostBody content={post.content} />
+              <SectionSeparator className='mb-8' />
               <AuthorBioBox authors={post.authors} />
 
             </article>
