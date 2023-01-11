@@ -11,8 +11,6 @@ interface Props {
 export default function Tableau(props: Props) {
     const [isZoomed, setIsZoomed] = useState(false);
     const { url, alt } = props;
-    console.log('The props are: ')
-    console.log(props);
     // the structure of a tableau public url is basepath/app/profile/<authorname>/viz/<workbookname>/<viewname>
     // we want to extract the workbookname and viewname
     const workbookName = url.split("/")[5];

@@ -7,7 +7,7 @@ export default function BodyImage(props) {
   const imageUrl = urlForImage(imageData).width(1000).url()
 
   return (
-    <div className="relative my-6 w-full">
+    <figure className="relative my-6 w-full">
       <Image
         src={imageUrl}
         alt={imageData.alt}
@@ -16,6 +16,9 @@ export default function BodyImage(props) {
         width={2000}
         height={1000}
       />
-    </div>
+      <figcaption className="text-center text-md text-neutral-500">
+        {imageData.caption}
+      </figcaption>
+    </figure>
   )
 }

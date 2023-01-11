@@ -78,8 +78,28 @@ export default defineType({
         { type: 'block' },
         {
           type: 'image',
-          fields: [{ name: 'alt', type: 'string', title: 'Alternative text' }],
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              validation: (rule) =>
+                rule
+                  .error(
+                    'You have to fill out the alternative text for vision-impaired readers.'
+                  )
+                  .required(),
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              description:
+                'If you provide a caption, it will be displayed below the image in the post',
+              title: 'Caption',
+            },
+          ],
         },
+
         { type: 'code' },
         { type: tableauType.name },
       ],
