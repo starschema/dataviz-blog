@@ -1,7 +1,13 @@
-import Tableau from "components/Tableau";
+
+import Tableau from "components/tableau/Tableau";
+import { Suspense } from "react";
 
 export default function TestPAge() {
     return <div className='h-80 w-80'>
-        <Tableau alt='this is just a test but alt text is very important' url="https://public.tableau.com/app/profile/julia.borsi/viz/VisitVincent/VisitVincent" />
+        <Suspense>
+            {/* @ts-expect-error Server Component */}
+            <Tableau url='https://public.tableau.com/app/profile/zsofia.nika/viz/Whichcountrygetsthemostpaidvacationdays_16711136524000/Vacation' alt='this is an alt' />
+        </Suspense>
     </div>
+
 }

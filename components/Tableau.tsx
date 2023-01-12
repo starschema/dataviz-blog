@@ -1,5 +1,6 @@
 'use client'
 import Modal from "components/Modal";
+import { imageUrlFromDashboardUrl } from "lib/tableauUtils";
 import Image from "next/image";
 import Link from 'next/link';
 import { useState } from "react";
@@ -11,14 +12,7 @@ interface Props {
 export default function Tableau(props: Props) {
     const [isZoomed, setIsZoomed] = useState(false);
     const { url, alt } = props;
-    // the structure of a tableau public url is basepath/app/profile/<authorname>/viz/<workbookname>/<viewname>
-    // we want to extract the workbookname and viewname
-    const workbookName = url.split("/")[5];
-    const viewName = url.split("/")[6];
-    // example tableau public url is https://public.tableau.com/app/profile/julia.borsi/viz/VisitVincent/VisitVincent
-    // example fullImageUrl is https://public.tableau.com/static/images/Vi/VisitVincent/VisitVincent/1.png
-    const fullImageUrl = `https://public.tableau.com/static/images/${workbookName.slice(0, 2)}/${workbookName}/${viewName}/1.png`;
-    //render the preview image by default
+    const fullImageUrl = imageUrlFromDashboardUrl(url);
     return (
         <div className="relative h-full">
             <Image src={fullImageUrl} fill alt={alt} className='object-contain' />
