@@ -47,7 +47,7 @@ export default function BlogHeader() {
             <div className='grid grid-cols-[20px_1fr_20px] ' style={{ height: headerHeight }}>
 
                 <Link href="/" className='col-start-2 col-span-1 flex flex-col justify-center'>
-                    <span className="text-center text-xl min-[360px]:text-2xl font-medium">
+                    <span className="text-center text-xl xs:text-2xl font-medium">
                         Blog Name Placeholder
                     </span>
                 </Link>

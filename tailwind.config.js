@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'mobile-hero': "url('/images/mobile-hero.svg')",
+        'desktop-hero': "url('/images/desktop-hero.svg')",
         'process-decoration-green':
           "url('/images/decoration/process-green.svg')",
         'process-decoration-orange':
@@ -23,6 +24,10 @@ module.exports = {
       fontFamily: {
         sans: ['Satoshi', defaultTheme.fontFamily.sans],
       },
+    },
+    screens: {
+      xs: '375px',
+      ...defaultTheme.screens,
     },
   },
   plugins: [require('@tailwindcss/typography')],
