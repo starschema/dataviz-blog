@@ -16,9 +16,9 @@ export default function BodyImage(props) {
         width={2000}
         height={1000}
       />
-      <figcaption className="text-center text-md text-neutral-500">
+      {imageData.caption && <figcaption className="text-center text-md text-neutral-500">
         {imageData.caption}
-      </figcaption>
+      </figcaption>}
     </figure>
   )
 }
