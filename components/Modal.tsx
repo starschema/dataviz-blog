@@ -13,8 +13,8 @@ interface Props {
 
 const Modal = (props: Props) => {
     const childrenWrapperRef = useRef<HTMLDivElement>(null);
-    const isClient = useIsClient();
     const { children, } = props;
+
 
     const modalRoot = document.getElementById('modal-root');
 
@@ -22,14 +22,16 @@ const Modal = (props: Props) => {
         props.onClose();
     });
     const modal = (
-        <div className='fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center bg-neutral-700/50 backdrop-filter backdrop-blur-sm '>
-            <div ref={childrenWrapperRef} className='absolute max-h-screen h-full p-6'>
-                {children}
+        <div className='fixed top-0 left-0 w-screen h-screen px-10 overflow-auto z-50 bg-neutral-700/50 backdrop-filter backdrop-blur-sm '>
+            <div className='absolute inline-block mx-auto'>
+                <div ref={childrenWrapperRef} className='my-10'>
+                    {children}
+                </div>
             </div>
         </div>
     );
 
-    return isClient ? createPortal(modal, modalRoot) : null;
+    return props.open ? createPortal(modal, modalRoot) : null;
 };
 
 export default Modal;
