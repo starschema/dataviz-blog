@@ -38,6 +38,7 @@ export default function PostPage(props: {
                 date={post.date}
                 authors={post.authors}
                 excerpt={post.excerpt}
+                layoutType={post.layoutType}
               />
               {/* tailwind removes the top margin from the first heading so we need to add a div here to add it back */}
               <SectionSeparator className='mb-8' />
