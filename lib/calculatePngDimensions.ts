@@ -3,7 +3,7 @@
 const pngFriedChunkName = 'CgBI'
 
 export async function calculatePngDimensions(url: string) {
-  const res = await fetch(url)
+  const res = await fetch(url, { mode: 'no-cors' })
   const buffer = await res.arrayBuffer()
 
   const friedCheckChunk = buffer.slice(12, 16).toString()
