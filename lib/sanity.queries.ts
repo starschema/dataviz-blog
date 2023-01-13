@@ -8,6 +8,7 @@ const postFields = groq`
   coverImage,
   "slug": slug.current,
   "authors": authors[]->{name, picture, bio},
+  "layoutType": layoutType
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -61,6 +62,10 @@ export interface Post {
   authors?: Author[]
   slug?: string
   content?: any
+  layoutType?: {
+    layout: string
+    tableauUrl: string
+  }
 }
 
 export interface Settings {
