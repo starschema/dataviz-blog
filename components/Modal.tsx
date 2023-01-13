@@ -14,13 +14,14 @@ interface Props {
 const Modal = (props: Props) => {
     const childrenWrapperRef = useRef<HTMLDivElement>(null);
     const { children, } = props;
-
-
-    const modalRoot = document.getElementById('modal-root');
-
+    const isClient = useIsClient();
     useOnClickOutside(childrenWrapperRef, () => {
         props.onClose();
     });
+
+    if (!isClient) return null;
+
+    const modalRoot = document.getElementById('modal-root');
     const modal = (
         <div className='fixed top-0 left-0 w-screen h-screen px-10 overflow-auto z-50 bg-neutral-700/50 backdrop-filter backdrop-blur-sm '>
             <div className='absolute inline-block mx-auto'>
