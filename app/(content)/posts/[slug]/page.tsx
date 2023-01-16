@@ -6,8 +6,8 @@ import {
 } from 'lib/sanity.client'
 import { previewData } from 'next/headers'
 
-import PostPage from './PostPage'
-import PreviewPostPage from './PreviewPostPage'
+import PostPage from '../../../../components/PostPage'
+import PreviewPostPage from '../../../../components/PreviewPostPage'
 
 export async function generateStaticParams() {
   return await getAllPostsSlugs()
