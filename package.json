@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.29.5-appdir.0",
+    "@svgr/webpack": "^6.5.1",
     "@tailwindcss/typography": "^0.5.8",
     "@types/react": "^18.0.26",
     "autoprefixer": "^10.4.13",
