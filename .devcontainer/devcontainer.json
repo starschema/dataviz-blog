@@ -27,6 +27,7 @@
         "esbenp.prettier-vscode",
         "sanity-io.vscode-sanity",
         "GitHub.copilot",
+        "GitHub.copilot-labs",
         "vscodevim.vim",
         "bradlc.vscode-tailwindcss"
       ]

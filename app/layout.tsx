@@ -3,7 +3,7 @@ import 'tailwindcss/tailwind.css'
 import localFont from '@next/font/local'
 
 const Satoshi = localFont({
-    src: './Satoshi.woff2',
+    src: '../public/Satoshi.woff2',
 })
 export default function ContentRootLayout({
     children,
