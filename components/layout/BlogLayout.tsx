@@ -1,3 +1,5 @@
+import BlogHeader from 'components/BlogHeader'
+import Footer from 'components/Footer'
 import AlertBanner from 'components/live-preview/AlertBanner'
 
 export default function BlogLayout({
@@ -5,14 +7,16 @@ export default function BlogLayout({
   loading,
   children,
 }: {
-  preview: boolean
+  preview?: boolean
   loading?: boolean
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen">
+    <>
+      <BlogHeader />
       <AlertBanner preview={preview} loading={loading} />
       <main>{children}</main>
-    </div>
+      <Footer />
+    </>
   )
 }

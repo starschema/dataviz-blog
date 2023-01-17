@@ -1,7 +1,5 @@
-import BlogHeader from 'components/BlogHeader'
 import Hero from 'components/Hero'
 import Container from 'components/layout/BlogContainer'
-import Layout from 'components/layout/BlogLayout'
 import MoreStories from 'components/MoreStories'
 import PostPreview from 'components/post/PostPreview'
 import SectionSeparator from 'components/SectionSeparator'
@@ -18,17 +16,15 @@ export default function IndexPage(props: {
 
   return (
     <>
-      <Layout preview={preview} loading={loading}>
-        <Hero />
+      <Hero />
+      <SectionSeparator />
+      <Container>
+        <h3 className="mb-10 mt-6 text-3xl font-bold">Featured</h3>
+        {heroPost && <PostPreview post={heroPost} isFeatured={true} />}
         <SectionSeparator />
-        <Container>
-          <h3 className="mb-10 mt-6 text-3xl font-bold">Featured</h3>
-          {heroPost && <PostPreview post={heroPost} isFeatured={true} />}
-          <SectionSeparator />
-          <h3 className="mb-10 mt-6 text-3xl font-bold">Latest Articles</h3>
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
+        <h3 className="mb-10 mt-6 text-3xl font-bold">Latest Articles</h3>
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      </Container>
     </>
   )
 }
