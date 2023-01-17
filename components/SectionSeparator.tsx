@@ -3,5 +3,5 @@ interface Props {
 }
 export default function SectionSeparator(props: Props) {
   const innerClasses = 'border-accent-2'
-  return <hr className={`${props.className} ${innerClasses}`} />
+  return <hr className={`${props.className ?? ''} ${innerClasses}`} />
 }

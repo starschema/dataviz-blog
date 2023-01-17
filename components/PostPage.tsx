@@ -5,18 +5,24 @@ import AuthorBioBox from 'components/post/AuthorBioBox'
 import PostBody from 'components/post/Body'
 import PostHeader from 'components/post/Header'
 import PostTitle from 'components/post/Title'
+import PostPageHead from 'components/PostPageHead'
 import SectionSeparator from 'components/SectionSeparator'
 import type { Post, Settings } from 'lib/sanity.queries'
+import Head from 'next/head'
 import { notFound } from 'next/navigation'
 
-export default function PostPage(props: {
+export interface PostPageProps {
   preview?: boolean
   loading?: boolean
-  data: { post: Post; morePosts: Post[] }
+  post: Post
+  morePosts: Post[]
   settings: Settings
-}) {
-  const { preview, loading, data, settings } = props
-  const { post = {} as any, morePosts = [] } = data || {}
+}
+
+const NO_POSTS: Post[] = []
+
+export default function PostPage(props: PostPageProps) {
+  const { preview, loading, morePosts = NO_POSTS, post, settings } = props
 
   const slug = post?.slug
 
@@ -25,7 +31,10 @@ export default function PostPage(props: {
   }
 
   return (
-    <Layout preview={preview} loading={loading}>
+    <>
+      <Head>
+        <PostPageHead />
+      </Head>
       <Container>
         {preview && !post ? (
           <PostTitle>Loading…</PostTitle>
@@ -41,17 +50,16 @@ export default function PostPage(props: {
                 layoutType={post.layoutType}
               />
               {/* tailwind removes the top margin from the first heading so we need to add a div here to add it back */}
-              <SectionSeparator className='mb-8' />
+              <SectionSeparator className="mb-8" />
               <PostBody content={post.content} />
-              <SectionSeparator className='mb-8' />
+              <SectionSeparator className="mb-8" />
               <AuthorBioBox authors={post.authors} />
-
             </article>
-            <SectionSeparator className='mb-4' />
+            <SectionSeparator className="mb-4" />
             {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
           </>
         )}
       </Container>
-    </Layout>
+    </>
   )
 }
