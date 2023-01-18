@@ -63,6 +63,7 @@ export interface IndexPosts {
   featuredPost: Post
   latestPosts: Post[]
 }
+
 export interface Author {
   name?: string
   picture?: any
