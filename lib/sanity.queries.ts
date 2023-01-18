@@ -5,7 +5,7 @@ const postFields = groq`
   title,
   date,
   excerpt,
-  coverImage,
+  thumbnail,
   "slug": slug.current,
   "authors": authors[]->{name, picture, bio},
   "layoutType": layoutType
@@ -56,7 +56,13 @@ export interface Author {
 export interface Post {
   _id: string
   title?: string
-  coverImage?: any
+  thumbnail?: {
+    asset?: {
+      url?: string
+      _ref?: string
+    }
+    alt?: string
+  }
   date?: string
   excerpt?: string
   authors?: Author[]

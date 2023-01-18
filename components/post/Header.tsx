@@ -11,7 +11,7 @@ export default function PostHeader(
   props: Pick<
     Post,
     | 'title'
-    | 'coverImage'
+    | 'thumbnail'
     | 'date'
     | 'authors'
     | 'slug'
@@ -20,7 +20,7 @@ export default function PostHeader(
   >
 ) {
   // FIXME: the width of this header does not match the body at large screens. this might be an issue
-  const { title, coverImage, date, authors, slug, layoutType } = props
+  const { title, thumbnail, date, authors, slug, layoutType } = props
 
   const visualComponent =
     layoutType?.layout === 'tableau' ? (
@@ -32,7 +32,7 @@ export default function PostHeader(
         />
       </Suspense>
     ) : (
-      <CoverImage title={title} image={coverImage} priority slug={slug} />
+      <CoverImage title={title} image={thumbnail} priority slug={slug} />
     )
   return (
     <div className="mx-auto max-w-4xl md:mb-10 md:grid md:grid-cols-8 md:gap-5 ">

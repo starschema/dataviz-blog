@@ -9,7 +9,7 @@ interface Props {
   isFeatured?: boolean
 }
 export default function PostPreview(props: Props) {
-  const { title, coverImage, date, excerpt, slug } = props.post
+  const { title, thumbnail, date, excerpt, slug } = props.post
   return (
     <div>
       <Link href={`/posts/${slug}`} className="hover:underline">
@@ -17,7 +17,7 @@ export default function PostPreview(props: Props) {
           <CoverImage
             slug={slug}
             title={title}
-            image={coverImage}
+            image={thumbnail}
             priority={false}
           />
         </div>
