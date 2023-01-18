@@ -3,6 +3,7 @@ import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
 import {
   type Author,
+  type IndexPosts,
   type Post,
   type Settings,
   authorsQuery,
@@ -27,11 +28,14 @@ export async function getSettings(): Promise<Settings> {
   return {}
 }
 
-export async function getAllPosts(): Promise<Post[]> {
+export async function getIndexPosts(): Promise<IndexPosts> {
   if (client) {
-    return (await client.fetch(indexQuery)) || []
+    return await client.fetch(indexQuery)
   }
-  return []
+  return {
+    featuredPost: null,
+    latestPosts: [],
+  }
 }
 
 export async function getAuthors(): Promise<Omit<Author, 'image'>[]> {
