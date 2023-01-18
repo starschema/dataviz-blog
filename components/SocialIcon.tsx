@@ -26,13 +26,15 @@ interface Props {
   url: string
 }
 export default function SocialIcon(props: Props) {
+  const width = 24
+  const height = 24
   const icon = {
     // @ts-ignore
-    twitter: <TwitterIcon width={32} height={32} />,
+    twitter: <TwitterIcon width={width} height={height} />,
     // @ts-ignore
-    instagram: <InstagramIcon width={32} height={32} />,
+    instagram: <InstagramIcon width={width} height={height} />,
     // @ts-ignore
-    mastodon: <MastodonIcon width={32} height={32} />,
+    mastodon: <MastodonIcon width={width} height={height} />,
   }[props.network]
 
   const color = {
@@ -44,7 +46,7 @@ export default function SocialIcon(props: Props) {
   return (
     <Link
       href={props.url}
-      className={`h-8 w-8 transition-all hover:scale-110 ${color}`}
+      className={`transition-all hover:scale-110 ${color}`}
       aria-label={`Open the Starschema dataviz team's ${props.network}`}
     >
       {icon}
