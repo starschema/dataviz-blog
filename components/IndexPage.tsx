@@ -3,16 +3,15 @@ import Container from 'components/layout/BlogContainer'
 import MoreStories from 'components/MoreStories'
 import PostPreview from 'components/post/PostPreview'
 import SectionSeparator from 'components/SectionSeparator'
-import type { Post, Settings } from 'lib/sanity.queries'
+import type { IndexPosts, Post } from 'lib/sanity.queries'
 
 export default function IndexPage(props: {
   preview?: boolean
   loading?: boolean
-  posts: Post[]
-  settings: Settings
+  posts: IndexPosts
 }) {
-  const { preview, loading, posts, settings } = props
-  const [heroPost, ...morePosts] = posts || []
+  const { preview, loading, posts } = props
+  const { featuredPost, latestPosts } = posts
 
   return (
     <>
@@ -20,10 +19,10 @@ export default function IndexPage(props: {
       <SectionSeparator />
       <Container>
         <h3 className="mb-10 mt-6 text-3xl font-bold">Featured</h3>
-        {heroPost && <PostPreview post={heroPost} isFeatured={true} />}
+        {featuredPost && <PostPreview post={featuredPost} isFeatured={true} />}
         <SectionSeparator />
         <h3 className="mb-10 mt-6 text-3xl font-bold">Latest Articles</h3>
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        {latestPosts.length > 0 && <MoreStories posts={latestPosts} />}
       </Container>
     </>
   )

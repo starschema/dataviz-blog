@@ -1,32 +1,45 @@
 import { groq } from 'next-sanity'
 
-const postFields = groq`
+const postPreviewFields = groq`
   _id,
   title,
   date,
-  excerpt,
   thumbnail,
   "slug": slug.current,
   "authors": authors[]->{name, picture, bio},
-  "layoutType": layoutType
+`
+
+const postFields = groq`
+  ${postPreviewFields}
+  content,
+  layoutType,
+  excerpt,
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
+export const featuredPostQuery = groq`
+*[_type == "post"] | order(date desc, _updatedAt desc) [0] {
+  excerpt,
+  ${postPreviewFields}
+}`
+export const latestPostsQuery = groq`
+*[_type == "post"] | order(date desc, _updatedAt desc) [1...7] {
+  ${postPreviewFields}
+}`
 export const indexQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
-  ${postFields}
+{
+'featuredPost': ${featuredPostQuery},
+'latestPosts': ${latestPostsQuery},
 }`
 
 export const postAndMoreStoriesQuery = groq`
 {
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
+  "post": *[_type == "post" && slug.current == $slug] [0] {
     ${postFields}
   },
   "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    content,
-    ${postFields}
+    ${postPreviewFields}
   }
 }`
 
@@ -46,7 +59,10 @@ export const authorsQuery = groq`
   bio
 }
 `
-
+export interface IndexPosts {
+  featuredPost: Post
+  latestPosts: Post[]
+}
 export interface Author {
   name?: string
   picture?: any
