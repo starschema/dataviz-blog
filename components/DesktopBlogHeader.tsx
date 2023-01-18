@@ -6,7 +6,7 @@ export default function DestkopBlogHeader() {
   const navigationItemClasses =
     'px-6 lg:px-8 xl:px-12 outline outline-1 outline-neutral-300 flex items-center pb-1 ml-px'
   return (
-    <header className="top-0 flex h-20 flex-row  items-center bg-white px-8 outline outline-neutral-300 xl:h-24">
+    <header className="top-0 mb-px flex h-20  flex-row items-center bg-white px-8 outline outline-neutral-300 xl:h-24">
       <Link
         href="/"
         className="flex-grow text-xl font-medium lg:text-2xl xl:text-4xl"

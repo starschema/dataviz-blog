@@ -26,9 +26,7 @@ export default function Page(props: PageProps) {
 
   if (preview) {
     return (
-      <PreviewSuspense
-        fallback={<IndexPage loading preview posts={indexPosts} />}
-      >
+      <PreviewSuspense fallback={<IndexPage posts={indexPosts} />}>
         <PreviewIndexPage token={token} />
       </PreviewSuspense>
     )
