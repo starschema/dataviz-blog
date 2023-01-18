@@ -17,7 +17,7 @@ export default function About(props) {
   const processListItemClasses = 'mb-16 h-20 bg-no-repeat px-14 w-[250px]'
   return (
     <Container>
-      <section className="mt-10 text-xl lg:grid lg:h-[550px] lg:grid-cols-12 lg:gap-6 lg:pt-40">
+      <section className="mt-10 text-xl lg:grid lg:h-[500px] lg:grid-cols-12 lg:gap-6 lg:pt-40">
         <p className="mb-10 font-bold lg:col-span-5 lg:text-2xl">
           We are a team of data viz professionals with multidisciplinary &
           diverse backgrounds in business, applied mathematics, software
@@ -60,47 +60,33 @@ export default function About(props) {
       <section>
         <h2 className="my-8 text-3xl font-bold">Our Values</h2>
         <ul className=" flex flex-col items-center justify-evenly text-2xl lg:flex-row">
-          <AboutListItem
-            image={DataVizBestPracticesIcon}
-            text={`Data Viz\nBest Practices`}
-            textFirst={false}
-          />
-          <AboutListItem
-            image={CreativeChallengesIcon}
-            text={`Creative\nChallenges`}
-            textFirst={false}
-          />
-          <AboutListItem
-            image={FunctionalSystemsIcon}
-            text={`Functional\nSystems`}
-            textFirst={false}
-          />
+          <AboutListItem text={`Data Viz\nBest Practices`} textFirst={false}>
+            <DataVizBestPracticesIcon />
+          </AboutListItem>
+          <AboutListItem text={`Creative\nChallenges`} textFirst={false}>
+            <CreativeChallengesIcon />
+          </AboutListItem>
+          <AboutListItem text={`Functional\nSystems`} textFirst={false}>
+            <FunctionalSystemsIcon />{' '}
+          </AboutListItem>
         </ul>
       </section>
       <SectionSeparator />
       <section>
         <h2 className="my-8 text-3xl font-bold">Our Culture</h2>
         <ul className="flex flex-col items-center justify-evenly text-2xl lg:flex-row">
-          <AboutListItem
-            image={SupportiveAtmosphereIcon}
-            text={`Supportive\nAtmosphere`}
-            textFirst={true}
-          />
-          <AboutListItem
-            image={AdaptabilityIcon}
-            text={`Adaptability`}
-            textFirst={true}
-          />
-          <AboutListItem
-            image={CollectiveThinkingIcon}
-            text={`Collective\nThinking`}
-            textFirst={true}
-          />
-          <AboutListItem
-            image={ArtisticApproachIcon}
-            text={`Artistic\nApproach`}
-            textFirst={true}
-          />
+          <AboutListItem text={`Supportive\nAtmosphere`} textFirst={true}>
+            <SupportiveAtmosphereIcon />
+          </AboutListItem>
+          <AboutListItem text={`Adaptability`} textFirst={true}>
+            <AdaptabilityIcon />
+          </AboutListItem>
+          <AboutListItem text={`Collective\nThinking`} textFirst={true}>
+            <CollectiveThinkingIcon />
+          </AboutListItem>
+          <AboutListItem text={`Artistic\nApproach`} textFirst={true}>
+            <ArtisticApproachIcon />
+          </AboutListItem>
         </ul>
       </section>
       <SectionSeparator />

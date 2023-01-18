@@ -4,7 +4,7 @@ import MoreStories from 'components/MoreStories'
 import FeaturedPostPreview from 'components/post/FeaturedPostPreview'
 import PostPreview from 'components/post/PostPreview'
 import SectionSeparator from 'components/SectionSeparator'
-import type { IndexPosts, Post } from 'lib/sanity.queries'
+import type { IndexPosts } from 'lib/sanity.queries'
 
 export default function IndexPage(props: { posts: IndexPosts }) {
   const { posts } = props
