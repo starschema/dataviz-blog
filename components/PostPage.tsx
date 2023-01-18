@@ -1,5 +1,4 @@
 import Container from 'components/layout/BlogContainer'
-import Layout from 'components/layout/BlogLayout'
 import MoreStories from 'components/MoreStories'
 import AuthorBioBox from 'components/post/AuthorBioBox'
 import PostBody from 'components/post/Body'

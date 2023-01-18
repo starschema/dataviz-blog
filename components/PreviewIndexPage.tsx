@@ -1,6 +1,5 @@
-'use client'
-
 import { usePreview } from 'lib/sanity.preview'
+import type { IndexPosts } from 'lib/sanity.queries'
 import {
   type Post,
   type Settings,
@@ -11,8 +10,8 @@ import {
 import IndexPage from './IndexPage'
 
 export default function PreviewIndexPage({ token }: { token: null | string }) {
-  const posts: Post[] = usePreview(token, indexQuery) || []
+  const posts: IndexPosts = usePreview(token, indexQuery) || []
   const settings: Settings = usePreview(token, settingsQuery) || {}
 
-  return <IndexPage preview posts={posts} settings={settings} />
+  return <IndexPage posts={posts} />
 }
