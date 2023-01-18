@@ -22,7 +22,7 @@ const myPortableTextComponents = {
 
 export default function PostBody({ content }) {
   return (
-    <div className='mx-auto max-w-4xl prose prose-neutral prose-xl'>
+    <div className="prose prose-xl prose-neutral mx-auto max-w-[700px]">
       <PortableText value={content} components={myPortableTextComponents} />
     </div>
   )
