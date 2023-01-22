@@ -1,6 +1,6 @@
-import BlogHeader from 'components/BlogHeader'
-import Footer from 'components/Footer'
-import AlertBanner from 'components/live-preview/AlertBanner'
+import BlogHeader from '@/components/layout/BlogHeader'
+import Footer from '@/components/layout/Footer'
+import AlertBanner from '@/components/live-preview/AlertBanner'
 
 export default function BlogLayout({
   preview,

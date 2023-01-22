@@ -12,7 +12,7 @@ import React, {
 import { useClient } from 'sanity'
 import { suspend } from 'suspend-react'
 
-import { getSecret } from '../productionUrl/utils'
+import { getSecret } from '@/plugins/productionUrl/utils'
 
 type Props = {
   slug?: string

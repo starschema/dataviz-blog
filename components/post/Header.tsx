@@ -2,10 +2,10 @@ import Tableau from 'components/tableau/Tableau'
 import type { Post } from 'lib/sanity.queries'
 import { Suspense } from 'react'
 
-import CoverImage from './CoverImage'
-import Excerpt from './Excerpt'
-import HeaderMeta from './HeaderMeta'
-import PostTitle from './Title'
+import CoverImage from '@/components/post/CoverImage'
+import Excerpt from '@/components/post/Excerpt'
+import HeaderMeta from '@/components/post/HeaderMeta'
+import PostTitle from '@/components/post/Title'
 
 export default function PostHeader(
   props: Pick<

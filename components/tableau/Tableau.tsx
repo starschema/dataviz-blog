@@ -1,9 +1,8 @@
-import { calculatePngDimensions } from 'lib/calculatePngDimensions'
-import { imageUrlFromDashboardUrl } from 'lib/tableauUtils'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Overlay from './Overlay'
+import Overlay from '@/components/tableau/Overlay'
+import { imageUrlFromDashboardUrl } from '@/lib/tableauUtils'
 
 interface Props {
   url: string

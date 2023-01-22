@@ -1,11 +1,12 @@
 import { Card } from '@sanity/ui'
-import { height, OpenGraphImage, width } from 'components/OpenGraphImage'
 import { createIntlSegmenterPolyfill } from 'intl-segmenter-polyfill'
-import type { Settings } from 'lib/sanity.queries'
 import React, { useMemo } from 'react'
 import satori, { type SatoriOptions } from 'satori'
 import styled from 'styled-components'
 import useSWR from 'swr'
+
+import { height, OpenGraphImage, width } from '@/components/OpenGraphImage'
+import type { Settings } from '@/lib/sanity.queries'
 
 // we wrap the segmenter setup in SWR to enable caching
 const useSegmenter = () => {

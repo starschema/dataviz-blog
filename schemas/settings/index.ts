@@ -1,7 +1,7 @@
 import { CogIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
-import OpenGraphInput from './OpenGraphInput'
+import OpenGraphInput from '@/schemas/settings/OpenGraphInput'
 
 export default defineType({
   name: 'settings',

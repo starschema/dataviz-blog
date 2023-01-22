@@ -6,7 +6,7 @@
 
 import { type Slug, definePlugin } from 'sanity'
 
-import { getSecret } from './utils'
+import { getSecret } from '@/plugins/productionUrl/utils'
 
 export const productionUrl = definePlugin<{
   previewSecretId: `${string}.${string}`

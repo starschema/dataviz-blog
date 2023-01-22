@@ -1,5 +1,5 @@
 import { BarChartIcon } from '@sanity/icons'
-import { defineField, definePlugin, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 const Tableau = defineType({
   name: 'tableau',

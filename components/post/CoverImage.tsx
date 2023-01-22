@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { urlForImage } from '../../lib/sanity.image'
+import { urlForImage } from '@/lib/sanity.image'
 
 interface CoverImageProps {
   title: string
@@ -12,7 +12,7 @@ interface CoverImageProps {
 export default function CoverImage(props: CoverImageProps) {
   const { title, slug, image: source, priority } = props
   const image = source?.asset?._ref ? (
-    <div >
+    <div>
       <Image
         alt={`Cover Image for ${title}`}
         src={urlForImage(source).width(2000).url()}

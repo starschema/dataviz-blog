@@ -8,9 +8,10 @@
  *
  */
 import { PortableText } from '@portabletext/react'
-import BodyImage from 'components/blocks/BodyImage'
-import Code from 'components/blocks/Code'
-import Tableau from 'components/blocks/Tableau'
+
+import BodyImage from '@/components/post/blocks/BodyImage'
+import Code from '@/components/post/blocks/Code'
+import Tableau from '@/components/post/blocks/Tableau'
 
 const myPortableTextComponents = {
   types: {

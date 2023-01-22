@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { urlForImage } from '../../lib/sanity.image'
+import { urlForImage } from '@/lib/sanity.image'
 
 export default function BodyImage(props) {
   const imageData = props.value
@@ -16,9 +16,11 @@ export default function BodyImage(props) {
         width={2000}
         height={1000}
       />
-      {imageData.caption && <figcaption className="text-center text-md text-neutral-500">
-        {imageData.caption}
-      </figcaption>}
+      {imageData.caption && (
+        <figcaption className="text-md text-center text-neutral-500">
+          {imageData.caption}
+        </figcaption>
+      )}
     </figure>
   )
 }

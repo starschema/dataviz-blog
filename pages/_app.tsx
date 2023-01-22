@@ -1,7 +1,8 @@
 import 'tailwindcss/tailwind.css'
 
-import Layout from 'components/layout/BlogLayout'
 import { AppProps } from 'next/app'
+
+import Layout from '@/components/layout/BlogLayout'
 
 export default function App({ Component, pageProps }: AppProps) {
   // @ts-expect-error / getLayout is not a property of Component according to AppProps

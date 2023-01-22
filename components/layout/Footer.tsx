@@ -1,4 +1,4 @@
-import PageNav from './PageNav'
+import PageNav from '@/components/layout/PageNav'
 
 export default function Footer() {
   return (
