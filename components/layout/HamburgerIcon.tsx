@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import HamburgerIconImage from 'public/images/hamburger-icon.svg'
-import XIconImage from 'public/images/x-icon.svg'
 import { MouseEventHandler } from 'react'
+
+import HamburgerIconImage from '@/public/images/hamburger-icon.svg'
+import XIconImage from '@/public/images/x-icon.svg'
 
 interface Props {
   isClosed: boolean

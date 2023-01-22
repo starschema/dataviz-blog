@@ -1,10 +1,11 @@
-import Hero from 'components/Hero'
-import Container from 'components/layout/BlogContainer'
-import MoreStories from 'components/MoreStories'
-import FeaturedPostPreview from 'components/post/FeaturedPostPreview'
-import PostPreview from 'components/post/PostPreview'
-import SectionSeparator from 'components/SectionSeparator'
 import type { IndexPosts } from 'lib/sanity.queries'
+
+import Hero from '@/components/home/Hero'
+import IndexPageHead from '@/components/home/IndexPageHead'
+import Container from '@/components/layout/BlogContainer'
+import FeaturedPostPreview from '@/components/shared/FeaturedPostPreview'
+import MoreStories from '@/components/shared/MoreStories'
+import SectionSeparator from '@/components/shared/SectionSeparator'
 
 export default function IndexPage(props: { posts: IndexPosts }) {
   const { posts } = props
@@ -12,6 +13,7 @@ export default function IndexPage(props: { posts: IndexPosts }) {
 
   return (
     <>
+      <IndexPageHead />
       <Hero />
       <SectionSeparator />
       <Container>

@@ -1,5 +1,6 @@
-import SocialIcon from 'components/SocialIcon'
 import Link from 'next/link'
+
+import SocialIcon from '@/components/layout/SocialIcon'
 
 export default function DestkopBlogHeader() {
   // this is only ever shown on md screens and up

@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 
-import type { Post } from '../lib/sanity.queries'
-import PostPreview from './post/PostPreview'
-import SectionSeparator from './SectionSeparator'
+import PostPreview from '@/components/shared/PostPreview'
+import SectionSeparator from '@/components/shared/SectionSeparator'
+import type { Post } from '@/lib/sanity.queries'
 
 export default function MoreStories({ posts }: { posts: Post[] }) {
   return (

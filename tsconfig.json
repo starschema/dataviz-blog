@@ -15,6 +15,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
+      "@/public/*": ["public/*"],
+      "@/plugins/*": ["plugins/*"],
+      "@/schemas/*": ["schemas/*"]
+    },
     "plugins": [
       {
         "name": "next"

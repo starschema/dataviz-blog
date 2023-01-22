@@ -6,10 +6,10 @@
 
 import { DefaultDocumentNodeResolver } from 'sanity/desk'
 
-import authorType from '../../schemas/author'
-import postType from '../../schemas/post'
-import AuthorAvatarPreviewPane from './AuthorAvatarPreviewPane'
-import PostPreviewPane from './PostPreviewPane'
+import AuthorAvatarPreviewPane from '@/plugins/previewPane/AuthorAvatarPreviewPane'
+import PostPreviewPane from '@/plugins/previewPane/PostPreviewPane'
+import authorType from '@/schemas/author'
+import postType from '@/schemas/post'
 
 export const previewDocumentNode = ({
   apiVersion,

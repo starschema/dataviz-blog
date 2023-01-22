@@ -1,4 +1,4 @@
-import { Post } from 'lib/sanity.queries'
+import { Post } from '@/lib/sanity.queries'
 
 interface Props {
   authors: Post['authors'][]

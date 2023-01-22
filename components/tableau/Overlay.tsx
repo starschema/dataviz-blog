@@ -1,7 +1,8 @@
-import Modal from 'components/Modal'
-import { imageUrlFromDashboardUrl } from 'lib/tableauUtils'
 import Image from 'next/image'
 import { useState } from 'react'
+
+import Modal from '@/components/shared/Modal'
+import { imageUrlFromDashboardUrl } from '@/lib/tableauUtils'
 
 interface Props {
   url: string

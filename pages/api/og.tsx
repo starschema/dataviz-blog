@@ -1,13 +1,13 @@
+export const config: PageConfig = { runtime: 'experimental-edge' }
+
 import { ImageResponse } from '@vercel/og'
-import { apiVersion, dataset, projectId } from 'lib/sanity.api'
 import type { NextRequest, NextResponse } from 'next/server'
 import type { PageConfig } from 'next/types'
 import { createClient } from 'next-sanity'
 
-export const config: PageConfig = { runtime: 'experimental-edge' }
-
-import { height, OpenGraphImage, width } from 'components/OpenGraphImage'
-import { Settings, settingsQuery } from 'lib/sanity.queries'
+import { height, OpenGraphImage, width } from '@/components/OpenGraphImage'
+import { apiVersion, dataset, projectId } from '@/lib/sanity.api'
+import { Settings, settingsQuery } from '@/lib/sanity.queries'
 
 export default async function og(req: NextRequest, res: NextResponse) {
   const font = fetch(new URL('public/Inter-Bold.woff', import.meta.url)).then(
@@ -28,8 +28,10 @@ export default async function og(req: NextRequest, res: NextResponse) {
   }
 
   return new ImageResponse(
-    // FIXME: fix the title here
-    <OpenGraphImage title={title || 'ogImageTitle'} />,
+    (
+      // FIXME: fix the title here
+      <OpenGraphImage title={title || 'ogImageTitle'} />
+    ),
     {
       width,
       height,

@@ -1,13 +1,10 @@
-import BlogMeta from 'components/BlogMeta'
-import { Settings } from 'lib/sanity.queries'
+import Head from 'next/head'
 
-export interface IndexPageHeadProps {
-  settings: Settings
-}
+import BlogMeta from '@/components/shared/BlogMeta'
 
-export default function IndexPageHead({ settings }: IndexPageHeadProps) {
+export default function IndexPageHead() {
   return (
-    <>
+    <Head>
       {/* FIXME */}
       <title>Bestest Blog ever</title>
       <BlogMeta />
@@ -28,6 +25,6 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
           title: 'this is an image, it will be sorted out',
         })}`}
       />
-    </>
+    </Head>
   )
 }

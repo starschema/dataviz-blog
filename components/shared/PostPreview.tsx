@@ -1,8 +1,9 @@
-import Avatar from 'components/AuthorAvatar'
-import CoverImage from 'components/post/CoverImage'
-import Date from 'components/post/Date'
-import type { Post } from 'lib/sanity.queries'
 import Link from 'next/link'
+
+import Avatar from '@/components/AuthorAvatar'
+import CoverImage from '@/components/post/CoverImage'
+import Date from '@/components/shared/Date'
+import type { Post } from '@/lib/sanity.queries'
 
 interface Props {
   post: Omit<Post, '_id'>

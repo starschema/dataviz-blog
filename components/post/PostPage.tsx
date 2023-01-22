@@ -1,14 +1,15 @@
-import Container from 'components/layout/BlogContainer'
-import MoreStories from 'components/MoreStories'
-import AuthorBioBox from 'components/post/AuthorBioBox'
-import PostBody from 'components/post/Body'
-import PostHeader from 'components/post/Header'
-import PostTitle from 'components/post/Title'
-import PostPageHead from 'components/PostPageHead'
-import SectionSeparator from 'components/SectionSeparator'
 import type { Post, Settings } from 'lib/sanity.queries'
 import Head from 'next/head'
 import { notFound } from 'next/navigation'
+
+import Container from '@/components/layout/BlogContainer'
+import AuthorBioBox from '@/components/post/AuthorBioBox'
+import PostBody from '@/components/post/Body'
+import PostHeader from '@/components/post/Header'
+import PostPageHead from '@/components/post/PostPageHead'
+import PostTitle from '@/components/post/Title'
+import MoreStories from '@/components/shared/MoreStories'
+import SectionSeparator from '@/components/shared/SectionSeparator'
 
 export interface PostPageProps {
   preview?: boolean
@@ -31,9 +32,7 @@ export default function PostPage(props: PostPageProps) {
 
   return (
     <>
-      <Head>
-        <PostPageHead />
-      </Head>
+      <PostPageHead />
       <Container>
         {preview && !post ? (
           <PostTitle>Loading…</PostTitle>

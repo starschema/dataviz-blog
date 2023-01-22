@@ -2,8 +2,8 @@ import { BookIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
-import authorType from './author'
-import tableauType from './tableau'
+import authorType from '@/schemas/author'
+import tableauType from '@/schemas/tableau'
 /**
  * This file is the schema definition for a post.
  *
