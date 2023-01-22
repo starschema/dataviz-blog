@@ -1,17 +1,16 @@
-import { Fragment } from 'react'
-
 import PostPreview from '@/components/shared/PostPreview'
-import SectionSeparator from '@/components/shared/SectionSeparator'
 import type { Post } from '@/lib/sanity.queries'
+import breakpoints from '@/lib/tailwind.breakpoints'
 
 export default function MoreStories({ posts }: { posts: Post[] }) {
+  // @ts-ignore - breakpoints is typed incorrectly
+  const sizes = `(max-width: ${breakpoints.md}) 100vw, (max-width: ${breakpoints.xl}) 50vw, 33vw`
   return (
     <section>
-      <div className="mb-0 grid grid-cols-1 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-24 md:gap-x-16 xl:grid-cols-3">
         {posts.map((post) => (
           <div key={post._id}>
-            <PostPreview post={post} isFeatured={false} />
-            <SectionSeparator key={post._id} className="mt-4 mb-4" />
+            <PostPreview post={post} imageSizes={sizes} />
           </div>
         ))}
       </div>
