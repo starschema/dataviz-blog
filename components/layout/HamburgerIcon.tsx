@@ -11,7 +11,11 @@ interface Props {
 export default function HamburgerIcon(props: Props) {
   const { isClosed, className } = props
   return (
-    <button className={className ?? ''} onClick={props.onClick}>
+    <button
+      className={className ?? ''}
+      onClick={props.onClick}
+      aria-label="Open Navigaton Menu"
+    >
       {isClosed ? (
         <HamburgerIconImage aria-hidden width={24} height={24} />
       ) : (
