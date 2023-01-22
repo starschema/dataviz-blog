@@ -1,16 +1,17 @@
 import Link from 'next/link'
 
-import Avatar from '@/components/AuthorAvatar'
-import CoverImage from '@/components/post/CoverImage'
+import CoverImage from '@/components/shared/CoverImage'
 import Date from '@/components/shared/Date'
 import type { Post } from '@/lib/sanity.queries'
 
 interface Props {
   post: Omit<Post, '_id'>
-  isFeatured?: boolean
+  withExcerpt?: boolean
+  imageSizes?: string
 }
 export default function PostPreview(props: Props) {
-  const { title, thumbnail, date, excerpt, slug } = props.post
+  const { withExcerpt, imageSizes, post } = props
+  const { title, thumbnail, date, excerpt, slug } = post
   return (
     <div>
       <Link href={`/posts/${slug}`} className="hover:underline">
@@ -20,6 +21,7 @@ export default function PostPreview(props: Props) {
             title={title}
             image={thumbnail}
             priority={false}
+            sizes={imageSizes ? imageSizes : undefined}
           />
         </div>
         <h3 className="mb-3 text-xl font-medium leading-snug">{title}</h3>
