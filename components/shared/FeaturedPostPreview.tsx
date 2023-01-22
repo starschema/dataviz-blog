@@ -21,7 +21,7 @@ export default function PostPreview(props: Props) {
           slug={slug}
           title={title}
           image={thumbnail}
-          priority={false}
+          priority={true}
         />
       </Link>
       <div className="h-fit bg-white p-12">
