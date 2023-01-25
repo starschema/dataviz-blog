@@ -52,8 +52,7 @@ export default defineType({
           options: {
             list: [
               { title: 'Tableau Thumbnail + Title', value: 'tableau' },
-              { title: 'Title Only', value: 'titleOnly' },
-              { title: 'Hero + Title', value: 'hero' },
+              { title: 'Image Thumbnail + Title', value: 'hero' },
             ],
             layout: 'dropdown',
           },
