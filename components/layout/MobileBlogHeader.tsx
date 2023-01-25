@@ -1,7 +1,8 @@
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useLockedBody } from 'usehooks-ts'
 
-import HamburgerIcon from '@/components/layout/HamburgerIcon'
+import BlogTitle from '@/components/layout/BlogTitle'
+import MenuIcon from '@/components/layout/MenuIcon'
 import OverlayMenu from '@/components/layout/OverlayMenu'
 
 type MenuState = 'closed' | 'closing' | 'open' | 'opening'
@@ -24,56 +25,37 @@ export default function BlogHeader() {
       }, menuTransitionDuration)
     }
   }
-  //disable scrolling when the menu is open
-  useEffect(() => {
-    if (menuState === 'open') {
-      document.getElementsByTagName('body')[0].style.overflow = 'hidden'
-      return
-    } else if (menuState === 'closed') {
-      document.getElementsByTagName('body')[0].style.overflow = 'unset'
-      return
-    }
-  }, [menuState])
+
   const isMenuClosed = menuState === 'closed'
+
   const headerHeight = '4rem'
   const menuHeight = menuState === 'open' ? `calc(100vh - ${headerHeight}` : '0'
 
+  useLockedBody(!isMenuClosed, 'root')
+
   return (
     <>
-      {/* <header className={`border-b bg-white border-neutral-600 px-4 top-0`} style={{ position: isMenuClosed ? 'relative' : 'sticky' }} > */}
-      {/* add dark:bg-neutral-900 dark:text-white to support dark mode */}
-      <header className={`top-0 border-b border-neutral-600 bg-white px-4`}>
+      <header className="top-0 border-b border-neutral-600 bg-white px-4 ">
         <div
-          className="grid grid-cols-[20px_1fr_20px] "
+          className="grid grid-cols-[48px_1fr_48px] items-center justify-center "
           style={{ height: headerHeight }}
         >
-          <Link
-            href="/"
-            className="col-span-1 col-start-2 flex flex-col justify-center"
-          >
-            <span className="text-center text-xl font-medium xs:text-2xl">
-              Blog Name Placeholder
-            </span>
-          </Link>
-          {/* add dark:brightness-0 dark:invert to support dark mode*/}
-          <HamburgerIcon
-            isClosed={true}
+          <BlogTitle />
+          <MenuIcon
+            isClosed={isMenuClosed}
             onClick={() => handleMenuClick()}
-            className="brightness-0 "
+            className="flex h-12 w-12 items-center justify-center brightness-0"
           />
         </div>
-        {!isMenuClosed && (
-          <div
-            className="min-w-full overflow-hidden transition-[height]"
-            style={{
-              height: menuHeight,
-              top: headerHeight,
-              transitionDuration: `${menuTransitionDuration}ms`,
-            }}
-          >
-            <OverlayMenu onNavigation={() => handleMenuClick()} />
-          </div>
-        )}
+        <OverlayMenu
+          isClosed={isMenuClosed}
+          onNavigation={() => handleMenuClick()}
+          style={{
+            height: menuHeight,
+            top: headerHeight,
+            transitionDuration: `${menuTransitionDuration}ms`,
+          }}
+        />
       </header>
     </>
   )

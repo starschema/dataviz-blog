@@ -14,12 +14,16 @@ export default function HamburgerIcon(props: Props) {
     <button
       className={className ?? ''}
       onClick={props.onClick}
-      aria-label="Open Navigaton Menu"
+      aria-label={
+        isClosed
+          ? 'Open Navigaton Menu Overlay'
+          : 'Close Navigation Menu Overlay'
+      }
     >
       {isClosed ? (
-        <HamburgerIconImage aria-hidden width={24} height={24} />
+        <HamburgerIconImage aria-hidden />
       ) : (
-        <XIconImage aria-hidden width={24} height={24} />
+        <XIconImage aria-hidden />
       )}
     </button>
   )
