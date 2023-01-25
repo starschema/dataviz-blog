@@ -3,19 +3,14 @@ import { GetStaticProps } from 'next'
 import { lazy } from 'react'
 
 import PostPage from '@/components/post/PostPage'
-import {
-  getAllPostsSlugs,
-  getPostAndMoreStories,
-  getSettings,
-} from '@/lib/sanity.client'
-import { Post, Settings } from '@/lib/sanity.queries'
+import { getAllPostsSlugs, getPostAndMoreStories } from '@/lib/sanity.client'
+import { Post } from '@/lib/sanity.queries'
 
 const PreviewPostPage = lazy(() => import('@/components/post/PreviewPostPage'))
 
 interface PageProps {
   post: Post
   morePosts: Post[]
-  settings?: Settings
   preview: boolean
   token: string | null
 }
@@ -29,40 +24,21 @@ interface PreviewData {
 }
 
 export default function ProjectSlugRoute(props: PageProps) {
-  const { settings, post, morePosts, preview, token } = props
+  const { post, morePosts, preview, token } = props
 
   if (preview) {
     return (
       <PreviewSuspense
         fallback={
-          <PostPage
-            loading
-            preview
-            post={post}
-            morePosts={morePosts}
-            settings={settings}
-          />
+          <PostPage loading preview post={post} morePosts={morePosts} />
         }
       >
-        <PreviewPostPage
-          token={token}
-          post={post}
-          morePosts={morePosts}
-          settings={settings}
-        />
+        <PreviewPostPage token={token} post={post} morePosts={morePosts} />
       </PreviewSuspense>
     )
   }
 
-  return (
-    <PostPage
-      loading
-      preview
-      post={post}
-      morePosts={morePosts}
-      settings={settings}
-    />
-  )
+  return <PostPage loading preview post={post} morePosts={morePosts} />
 }
 
 export const getStaticProps: GetStaticProps<
@@ -74,10 +50,7 @@ export const getStaticProps: GetStaticProps<
 
   const token = previewData.token
 
-  const [settings, { post, morePosts }] = await Promise.all([
-    getSettings(),
-    getPostAndMoreStories(params.slug, token),
-  ])
+  const { post, morePosts } = await getPostAndMoreStories(params.slug, token)
 
   if (!post) {
     return {
@@ -89,7 +62,6 @@ export const getStaticProps: GetStaticProps<
     props: {
       post,
       morePosts,
-      settings,
       preview,
       token: previewData.token ?? null,
     },
