@@ -16,8 +16,6 @@ const postFields = groq`
   excerpt,
 `
 
-export const settingsQuery = groq`*[_type == "settings"][0]`
-
 export const featuredPostQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) [0] {
   excerpt,
@@ -88,13 +86,5 @@ export interface Post {
   layoutType?: {
     layout: string
     tableauUrl: string
-  }
-}
-
-export interface Settings {
-  title?: string
-  description?: any[]
-  ogImage?: {
-    title?: string
   }
 }

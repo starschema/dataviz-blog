@@ -5,7 +5,6 @@ import { type Post, postAndMoreStoriesQuery } from '@/lib/sanity.queries'
 export default function PreviewPostPage({
   token,
   post,
-  settings,
 }: {
   token: null | string
 } & PostPageProps) {
@@ -14,12 +13,5 @@ export default function PreviewPostPage({
       slug: post.slug,
     }) || { post: null, morePosts: [] }
 
-  return (
-    <PostPage
-      preview
-      post={postPreview}
-      morePosts={morePosts}
-      settings={settings}
-    />
-  )
+  return <PostPage preview post={postPreview} morePosts={morePosts} />
 }

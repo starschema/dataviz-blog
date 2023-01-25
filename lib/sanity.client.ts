@@ -5,13 +5,11 @@ import {
   type Author,
   type IndexPosts,
   type Post,
-  type Settings,
   authorsQuery,
   indexQuery,
   postAndMoreStoriesQuery,
   postBySlugQuery,
   postSlugsQuery,
-  settingsQuery,
 } from './sanity.queries'
 
 /**
@@ -20,13 +18,6 @@ import {
 const client = projectId
   ? createClient({ projectId, dataset, apiVersion, useCdn })
   : null
-
-export async function getSettings(): Promise<Settings> {
-  if (client) {
-    return (await client.fetch(settingsQuery)) || {}
-  }
-  return {}
-}
 
 export async function getIndexPosts(): Promise<IndexPosts> {
   if (client) {

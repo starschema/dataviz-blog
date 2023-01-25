@@ -8,7 +8,7 @@
  * 2. Click "Create webhook"
  * 3. Set the URL to https://YOUR_NEXTJS_SITE_URL/api/revalidate
  * 4. Trigger on: "Create", "Update", and "Delete"
- * 5. Filter: _type == "post" || _type == "author" || _type == "settings"
+ * 5. Filter: _type == "post" || _type == "author"
  * 6. Projection: Leave empty
  * 7. HTTP method: POST
  * 8. API version: v2021-03-25
@@ -96,8 +96,6 @@ async function queryStaleRoutes(
       return await queryStaleAuthorRoutes(client, body._id)
     case 'post':
       return await queryStalePostRoutes(client, body._id)
-    case 'settings':
-      return await queryAllRoutes(client)
     default:
       throw new TypeError(`Unknown type: ${body._type}`)
   }

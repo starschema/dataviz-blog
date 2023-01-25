@@ -16,14 +16,11 @@ import {
 } from './lib/sanity.api'
 import { previewDocumentNode } from './plugins/previewPane'
 import { productionUrl } from './plugins/productionUrl'
-import { settingsPlugin, settingsStructure } from './plugins/settings'
 import authorType from './schemas/author'
 import postType from './schemas/post'
-import settingsType from './schemas/settings'
 import tableauType from './schemas/tableau'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
+const title = 'Studio for The Viz Collective'
 
 export default defineConfig({
   basePath: '/studio',
@@ -32,21 +29,18 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType, tableauType],
+    types: [authorType, postType, tableauType],
   },
   plugins: [
     deskTool({
-      structure: settingsStructure(settingsType),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
-    // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    settingsPlugin({ type: settingsType.name }),
     // Add the "Open preview" action
     productionUrl({
       apiVersion,
       previewSecretId,
-      types: [postType.name, settingsType.name],
+      types: [postType.name],
     }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
