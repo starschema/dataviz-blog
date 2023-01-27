@@ -1,14 +1,15 @@
-import type { Post } from 'lib/sanity.queries'
-import Head from 'next/head'
 import { notFound } from 'next/navigation'
+import slugify from 'slugify'
 
 import Container from '@/components/layout/BlogContainer'
 import AuthorBioBox from '@/components/post/AuthorBioBox'
 import PostBody from '@/components/post/Body'
 import PostHeader from '@/components/post/header/Header'
 import PostPageHead from '@/components/post/PostPageHead'
+import ScrollNavigation from '@/components/post/ScrollNav'
 import MoreStories from '@/components/shared/MoreStories'
 import SectionSeparator from '@/components/shared/SectionSeparator'
+import type { Post } from '@/lib/sanity.queries'
 
 export interface PostPageProps {
   preview?: boolean
@@ -28,6 +29,16 @@ export default function PostPage(props: PostPageProps) {
     notFound()
   }
 
+  const headings = post?.content
+    .filter((block) =>
+      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(block.style as string)
+    )
+    .map((block) => ({
+      id: slugify(block.children[0].text),
+      text: block.children[0].text,
+      level: block.style.toString(),
+    }))
+
   return (
     <>
       <PostPageHead />
@@ -36,6 +47,7 @@ export default function PostPage(props: PostPageProps) {
           <p>Loading…</p>
         ) : (
           <>
+            <ScrollNavigation headings={headings} />
             <article>
               <PostHeader
                 title={post.title}
