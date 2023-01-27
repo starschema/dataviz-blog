@@ -12,7 +12,7 @@ const postPreviewFields = groq`
 const postFields = groq`
   ${postPreviewFields}
   content,
-  layoutType,
+  layout,
   excerpt,
 `
 
@@ -68,6 +68,11 @@ export interface Author {
   bio?: string
 }
 
+export interface Tableau {
+  url?: string
+  alt?: string
+}
+
 export interface Post {
   _id: string
   title?: string
@@ -83,8 +88,8 @@ export interface Post {
   authors?: Author[]
   slug?: string
   content?: any
-  layoutType?: {
-    layout: string
-    tableauUrl: string
+  layout?: {
+    type: string
+    headerTableau?: Tableau
   }
 }
