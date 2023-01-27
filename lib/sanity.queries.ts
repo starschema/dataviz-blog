@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import { BlockSchemaType, PortableTextBlock, TypedObject } from 'sanity'
 
 const postPreviewFields = groq`
   _id,
@@ -87,7 +88,7 @@ export interface Post {
   excerpt?: string
   authors?: Author[]
   slug?: string
-  content?: any
+  content?: PortableTextBlock[]
   layout?: {
     type: string
     headerTableau?: Tableau

@@ -75,7 +75,19 @@ export default defineType({
       type: 'array',
       description: 'Add and edit blocks to create the content for your post.',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          // overriding default styles to disallow h1-s
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Heading 2', value: 'h2' },
+            { title: 'Heading 3', value: 'h3' },
+            { title: 'Heading 4', value: 'h4' },
+            { title: 'Heading 5', value: 'h5' },
+            { title: 'Heading 6', value: 'h6' },
+            { title: 'Quote', value: 'blockquote' },
+          ],
+        },
         {
           type: 'image',
           options: { hotspot: true },
