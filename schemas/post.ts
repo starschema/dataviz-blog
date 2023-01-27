@@ -40,13 +40,13 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'layoutType',
-      title: 'Layout Type',
+      name: 'layout',
+      title: 'Layout',
       type: 'object',
       fields: [
         defineField({
-          name: 'layout',
-          title: 'Layout',
+          name: 'type',
+          title: 'Type',
           type: 'string',
           initialValue: 'hero',
           options: {
@@ -59,12 +59,12 @@ export default defineType({
           validation: (rule) => rule.required(),
         }),
         defineField({
-          name: 'tableauUrl',
+          name: 'headerTableau',
           title: 'Tableau URL',
-          type: 'url',
-          description: 'The URL of the Tableau dashboard',
+          type: 'tableau',
+          description: 'The Tableau dashboard to display in the header',
           hidden: ({ parent, value }) => {
-            return parent?.layout !== 'tableau'
+            return parent?.type !== 'tableau'
           },
         }),
       ],

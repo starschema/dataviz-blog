@@ -1,4 +1,4 @@
-import Tableau from 'components/tableau/Tableau'
+import Tableau from '@/components/tableau/Tableau'
 import type { Post } from 'lib/sanity.queries'
 import { Suspense } from 'react'
 
@@ -10,27 +10,19 @@ import CoverImage from '@/components/shared/CoverImage' // FIXME: this component
 export default function PostHeader(
   props: Pick<
     Post,
-    | 'title'
-    | 'thumbnail'
-    | 'date'
-    | 'authors'
-    | 'slug'
-    | 'excerpt'
-    | 'layoutType'
+    'title' | 'thumbnail' | 'date' | 'authors' | 'slug' | 'excerpt' | 'layout'
   >
 ) {
   // FIXME: the width of this header does not match the body at large screens. this might be an issue
-  const { title, thumbnail, date, authors, slug, layoutType } = props
+  const { title, thumbnail, date, authors, slug, layout } = props
 
   const visualComponent =
-    layoutType?.layout === 'tableau' ? (
-      <Suspense>
-        <Tableau
-          url={layoutType.tableauUrl}
-          alt="missing for now FIXME"
-          className=""
-        />
-      </Suspense>
+    layout?.type === 'tableau' ? (
+      <Tableau
+        url={layout.headerTableau.url}
+        alt={layout.headerTableau.alt}
+        className=""
+      />
     ) : (
       <CoverImage title={title} image={thumbnail} priority slug={slug} />
     )
