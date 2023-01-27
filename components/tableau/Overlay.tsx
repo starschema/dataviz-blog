@@ -7,8 +7,6 @@ import { imageUrlFromDashboardUrl } from '@/lib/tableauUtils'
 interface Props {
   url: string
   alt: string
-  imageWidth: number
-  imageHeight: number
 }
 export default function TableauOverlay(props: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -21,12 +19,8 @@ export default function TableauOverlay(props: Props) {
         onClick={() => setIsModalOpen(!isModalOpen)}
       ></div>
       <Modal open={isModalOpen} onClose={() => setIsModalOpen(!isModalOpen)}>
-        <Image
-          src={imageUrl}
-          alt={props.alt}
-          width={props.imageWidth}
-          height={props.imageHeight}
-        />
+        {/* eslint-disable-next-line */}
+        <img src={imageUrl} alt={props.alt} />
       </Modal>
     </>
   )

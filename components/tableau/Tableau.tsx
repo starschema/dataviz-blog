@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import Overlay from '@/components/tableau/Overlay'
 import { imageUrlFromDashboardUrl } from '@/lib/tableauUtils'
+import breakpoints from '@/lib/tailwind.breakpoints'
 
 interface Props {
   url: string
@@ -12,39 +13,22 @@ interface Props {
 
 export default function Tableau(props: Props) {
   const imageUrl = imageUrlFromDashboardUrl(props.url)
-  //   FIXME
-  //   const dimensions = await calculatePngDimensions(imageUrl)
-  const dimensions = { width: 800, height: 1200 }
-  const imageHeight = 300
-  const aspectRatio = dimensions.width / dimensions.height
-  const containerWidth = imageHeight * aspectRatio
+  // @ts-ignore - breakpoints is typed incorrectly
+  const imageSizes = `(max-width: ${breakpoints.md}) 100vw, 33vw`
   return (
     <div className={props.className}>
+      <div className="relative max-h-full max-w-full overflow-hidden rounded-lg shadow-[10px_13px_0px_0px_rgba(0,0,0,1)] shadow-[#C676BD] outline outline-[5px] outline-[#C676BD]">
+        {/* eslint-disable-next-line */}
+        <img src={imageUrl} alt={props.alt} />
+        <Overlay url={props.url} alt={props.alt} />
+      </div>
       <Link
-        className="mb-2 block text-right underline decoration-blue-600 underline-offset-2"
-        style={{ width: `${containerWidth}px` }}
+        className="mb-2 mt-6 block text-right underline decoration-blue-600 underline-offset-2"
         href={props.url}
         target="_blank"
       >
-        Open the viz on Tableau Public
+        Open on Tableau Public
       </Link>
-      <div
-        style={{ height: `${imageHeight}px`, aspectRatio: aspectRatio }}
-        className="relative overflow-hidden rounded-lg shadow-[10px_13px_0px_0px_rgba(0,0,0,1)] shadow-[#C676BD] outline outline-[5px] outline-[#C676BD]"
-      >
-        <Image
-          src={imageUrl}
-          alt={props.alt}
-          height={300}
-          width={containerWidth}
-        />
-        <Overlay
-          url={props.url}
-          alt={props.alt}
-          imageWidth={dimensions.width}
-          imageHeight={dimensions.height}
-        />
-      </div>
     </div>
   )
 }
