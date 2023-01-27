@@ -19,7 +19,7 @@ export default function TableauOverlay(props: Props) {
         onClick={() => setIsModalOpen(!isModalOpen)}
       ></div>
       <Modal open={isModalOpen} onClose={() => setIsModalOpen(!isModalOpen)}>
-        {/* eslint-disable-next-line */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imageUrl} alt={props.alt} />
       </Modal>
     </>

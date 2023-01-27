@@ -1,9 +1,9 @@
 import type { IndexPosts } from 'lib/sanity.queries'
 
+import FeaturedPostPreview from '@/components/home/FeaturedPostPreview'
 import Hero from '@/components/home/Hero'
 import IndexPageHead from '@/components/home/IndexPageHead'
 import Container from '@/components/layout/BlogContainer'
-import FeaturedPostPreview from '@/components/shared/FeaturedPostPreview'
 import MoreStories from '@/components/shared/MoreStories'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 

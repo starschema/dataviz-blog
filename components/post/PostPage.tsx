@@ -5,9 +5,8 @@ import { notFound } from 'next/navigation'
 import Container from '@/components/layout/BlogContainer'
 import AuthorBioBox from '@/components/post/AuthorBioBox'
 import PostBody from '@/components/post/Body'
-import PostHeader from '@/components/post/Header'
+import PostHeader from '@/components/post/header/Header'
 import PostPageHead from '@/components/post/PostPageHead'
-import PostTitle from '@/components/post/Title'
 import MoreStories from '@/components/shared/MoreStories'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 
@@ -34,7 +33,7 @@ export default function PostPage(props: PostPageProps) {
       <PostPageHead />
       <Container>
         {preview && !post ? (
-          <PostTitle>Loading…</PostTitle>
+          <p>Loading…</p>
         ) : (
           <>
             <article>

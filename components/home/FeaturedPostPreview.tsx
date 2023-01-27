@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import AuthorMeta from '@/components/post/AuthorMeta'
+import Author from '@/components/post/header/Author'
 import Date from '@/components/shared/Date'
 import FeaturedCoverImage from '@/components/shared/FeaturedCoverImage'
 import type { Post } from '@/lib/sanity.queries'
@@ -11,7 +11,6 @@ interface Props {
 export default function PostPreview(props: Props) {
   const { title, thumbnail, date, excerpt, slug } = props.post
   return (
-    // FIXME: add layout for SM and below
     <div
       className="grid grid-flow-row grid-cols-1 items-center gap-6 bg-[#A5B4F7] px-2 py-6 shadow-[0_0_0_100vmax_#A5B4F7] md:grid-cols-2 md:gap-24 md:py-16"
       style={{ clipPath: 'inset(0 -100vmax)' }}
@@ -28,7 +27,7 @@ export default function PostPreview(props: Props) {
             {title}
           </h3>
         </Link>
-        <AuthorMeta authors={props.post.authors} />
+        <Author authors={props.post.authors} className="text-sm" />
         <p>{excerpt}</p>
         <Date dateString={date} />
       </div>
