@@ -23,7 +23,7 @@ export default function CoverImage(props: CoverImageProps) {
       <Image
         alt={`Cover Image for ${title}`}
         src={imageUrl}
-        sizes={sizes || '100vw'}
+        sizes={sizes}
         priority={priority}
         fill
       />
