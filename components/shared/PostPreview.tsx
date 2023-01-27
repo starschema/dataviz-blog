@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import CoverImage from '@/components/shared/CoverImage'
+import CoverImage from '@/components/shared/Thumbnail'
 import Date from '@/components/shared/Date'
 import type { Post } from '@/lib/sanity.queries'
 
