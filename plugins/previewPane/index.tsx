@@ -27,7 +27,7 @@ export const previewDocumentNode = ({
             .component(({ document }) => (
               <AuthorAvatarPreviewPane
                 name={document.displayed.name as any}
-                picture={document.displayed.picture as any}
+                bio={document.displayed.bio as any}
               />
             ))
             .title('Preview'),
