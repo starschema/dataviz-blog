@@ -37,7 +37,7 @@ export const postAndMoreStoriesQuery = groq`
   "post": *[_type == "post" && slug.current == $slug] [0] {
     ${postFields}
   },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...3] {
     ${postPreviewFields}
   }
 }`
