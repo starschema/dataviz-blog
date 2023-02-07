@@ -6,6 +6,8 @@ const imageSrcDomains = [
   'public.tableau.com',
 ]
 
+const isProd = process.env.VERCEL_ENV === 'production'
+
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -39,7 +41,9 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval'`,
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${
+      isProd ? '' : "'unsafe-eval'"
+    }`,
   },
 ]
 
