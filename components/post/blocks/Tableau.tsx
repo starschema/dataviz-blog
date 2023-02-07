@@ -22,7 +22,6 @@ export default function TableauBlock(props: Props) {
 
   useEffect(() => {
     if (!fullImageUrl) return
-    console.log(fullImageUrl)
     const dimensions = fetch(
       `/api/tableau-dashboard-dimensions?url=${fullImageUrl}`
     )
