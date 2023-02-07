@@ -1,11 +1,51 @@
 /** @type {import('next').NextConfig} */
+
+const imageSrcDomains = [
+  'cdn.sanity.io',
+  'source.unsplash.com',
+  'public.tableau.com',
+]
+
+const securityHeaders = [
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on',
+  },
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=31536000; includeSubDomains; preload',
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'SAMEORIGIN',
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  },
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+  {
+    key: 'Referrer-Policy',
+    value: 'origin-when-cross-origin',
+  },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  },
+  {
+    key: 'Content-Security-Policy',
+    value: `default-src 'self'; img-src ${imageSrcDomains.join(
+      ' '
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval'`,
+  },
+]
+
 const config = {
   images: {
-    remotePatterns: [
-      { hostname: 'cdn.sanity.io' },
-      { hostname: 'source.unsplash.com' },
-      { hostname: 'public.tableau.com' },
-    ],
+    remotePatterns: imageSrcDomains.map((domain) => ({ hostname: domain })),
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
@@ -24,18 +64,14 @@ const config = {
 
     return config
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ]
+  },
 }
 
 export default config
-
-// module.exports = {
-//   webpack(config) {
-//     config.module.rules.push({
-//       test: /\.svg$/i,
-//       issuer: /\.[jt]sx?$/,
-//       use: ['@svgr/webpack'],
-//     })
-
-//     return config
-//   },
-// }
