@@ -38,7 +38,7 @@ export default function ProjectSlugRoute(props: PageProps) {
     )
   }
 
-  return <PostPage loading preview post={post} morePosts={morePosts} />
+  return <PostPage post={post} morePosts={morePosts} />
 }
 
 export const getStaticProps: GetStaticProps<
