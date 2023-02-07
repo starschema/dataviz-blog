@@ -6,7 +6,7 @@ const imageSrcDomains = [
   'public.tableau.com',
 ]
 
-const isProd = process.env.VERCEL_ENV === 'production'
+const isNetlify = process.env.NETLIFY === 'true'
 
 const securityHeaders = [
   {
@@ -42,7 +42,7 @@ const securityHeaders = [
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
     )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${
-      isProd ? '' : "'unsafe-eval'"
+      isNetlify ? '' : "'unsafe-eval'"
     }`,
   },
 ]
