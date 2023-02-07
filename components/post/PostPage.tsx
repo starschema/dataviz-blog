@@ -41,7 +41,7 @@ export default function PostPage(props: PostPageProps) {
 
   return (
     <>
-      <PostPageHead />
+      <PostPageHead title={post.title} />
       <Container>
         {preview && !post ? (
           <p>Loading…</p>
