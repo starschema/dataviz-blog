@@ -47,7 +47,7 @@ export default function PostPage(props: PostPageProps) {
           <p>Loading…</p>
         ) : (
           <>
-            <ScrollNavigation headings={headings} />
+            {/* <ScrollNavigation headings={headings} /> */}
             <article>
               <PostHeader
                 title={post.title}
