@@ -12,14 +12,14 @@ import { PortableText } from '@portabletext/react'
 import BodyImage from '@/components/post/blocks/BodyImage'
 import Code from '@/components/post/blocks/Code'
 import Heading from '@/components/post/blocks/Heading'
-import Tableau from '@/components/post/blocks/Tableau'
+import TableauBlock from '@/components/post/blocks/TableauBlock'
 import type { Post } from '@/lib/sanity.queries'
 
 const myPortableTextComponents = {
   types: {
     code: Code,
     image: BodyImage,
-    tableau: Tableau,
+    tableau: TableauBlock,
   },
   block: {
     h1: Heading,

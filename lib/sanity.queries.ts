@@ -72,6 +72,10 @@ export interface Author {
 export interface Tableau {
   url?: string
   alt?: string
+  dimensions: {
+    width: number
+    height: number
+  }
 }
 
 export interface Post {
