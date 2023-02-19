@@ -3,7 +3,7 @@ import type { Post } from 'lib/sanity.queries'
 import CoverImage from '@/components/post/header/CoverImage'
 import Excerpt from '@/components/post/header/Excerpt'
 import Meta from '@/components/post/header/Meta'
-import Tableau from '@/components/post/header/tableauHeader/Tableau'
+import TableauHeader from '@/components/post/header/TableauHeader'
 import PostTitle from '@/components/post/header/Title'
 
 export default function PostHeader(
@@ -18,11 +18,7 @@ export default function PostHeader(
   const isTableau = layout?.type === 'tableau'
 
   const visualComponent = isTableau ? (
-    <Tableau
-      url={layout.headerTableau.url}
-      alt={layout.headerTableau.alt}
-      className=""
-    />
+    <TableauHeader {...layout.headerTableau} className="" />
   ) : (
     <CoverImage title={title} image={thumbnail} slug={slug} />
   )
