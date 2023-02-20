@@ -61,7 +61,12 @@ export default function Tableau(props: Props) {
           className="my-0 cursor-zoom-in rounded-lg shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] shadow-[#C676BD] outline outline-4 outline-[#C676BD]"
         />
       </button>
-      <Link href={url}>Open the viz on Tableau Public</Link>
+      <Link
+        href={url}
+        className="text-right underline decoration-blue-500 underline-offset-4 hover:decoration-2"
+      >
+        Open the viz on Tableau Public
+      </Link>
       <Modal isOpen={isZoomed} onClose={onClose}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
