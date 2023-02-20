@@ -5,8 +5,7 @@ import BlogMeta from '@/components/shared/BlogMeta'
 export default function IndexPageHead() {
   return (
     <Head>
-      {/* FIXME */}
-      <title>Bestest Blog ever</title>
+      <title>The Viz Collective</title>
       <BlogMeta />
       <meta
         key="description"
