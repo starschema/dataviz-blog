@@ -7,6 +7,7 @@ const imageSrcDomains = [
 ]
 
 const isNetlify = process.env.NETLIFY === 'true'
+const isAmplify = Boolean(process.env.AWS_APP_ID)
 
 const securityHeaders = [
   {
@@ -31,7 +32,7 @@ const securityHeaders = [
   },
   {
     key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin',
+    value: 'strict-origin-when-cross-origin',
   },
   {
     key: 'Permissions-Policy',
@@ -41,9 +42,8 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${
-      isNetlify ? '' : "'unsafe-eval'"
-    }`,
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isNetlify || isAmplify ? '' : "'unsafe-eval'"
+      }`,
   },
 ]
 
