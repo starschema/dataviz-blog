@@ -10,7 +10,7 @@ type MenuState = 'closed' | 'closing' | 'open' | 'opening'
 export default function BlogHeader() {
   const [menuState, setMenuState] = useState<MenuState>('closed')
   const menuTransitionDuration = 250 //ms
-
+  // TODO: refactor to use framer motion
   const handleMenuClick = () => {
     if (menuState === 'closed') {
       setMenuState('opening')
