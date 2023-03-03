@@ -5,6 +5,7 @@ import IndexPageHead from '@/components/home/IndexPageHead'
 import Container from '@/components/layout/BlogContainer'
 import AuthorBio from '@/components/shared/AuthorBio'
 import SectionSeparator from '@/components/shared/SectionSeparator'
+import { useIsMobile } from '@/lib/hooks'
 import { getAuthors } from '@/lib/sanity.client'
 import AdaptabilityIcon from '@/public/images/decoration/adaptability-icon.svg'
 import ArtisticApproachIcon from '@/public/images/decoration/artistic-approach-icon.svg'
@@ -17,6 +18,8 @@ import SupportiveAtmosphereIcon from '@/public/images/decoration/supportive-atmo
 export default function About(props) {
   const { authors } = props
   const processListItemClasses = 'mb-16 h-20 bg-no-repeat px-14 w-[250px]'
+  const isMobile = useIsMobile()
+
   return (
     <>
       <IndexPageHead />
@@ -96,9 +99,16 @@ export default function About(props) {
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Team</h2>
-          {authors.map((a) => (
-            <AuthorBio name={a.name} bio={a.bio} key={a.name} />
-          ))}
+          <ul className="flex flex-col gap-4">
+            {authors.map((a) => (
+              <AuthorBio
+                name={a.name}
+                bio={a.bio}
+                key={a.name}
+                isFixedOpen={!isMobile}
+              />
+            ))}
+          </ul>
         </section>
       </Container>
     </>
