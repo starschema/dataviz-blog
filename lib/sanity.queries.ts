@@ -32,6 +32,13 @@ export const indexQuery = groq`
 'latestPosts': ${latestPostsQuery},
 }`
 
+export const articlesQuery = groq`
+  *[_type == "post"] | order(date desc, _updatedAt desc) {
+    excerpt,
+    ${postPreviewFields}
+  }
+`
+
 export const postAndMoreStoriesQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] [0] {

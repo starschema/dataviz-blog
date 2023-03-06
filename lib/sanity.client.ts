@@ -5,6 +5,7 @@ import {
   type Author,
   type IndexPosts,
   type Post,
+  articlesQuery,
   authorsQuery,
   indexQuery,
   postAndMoreStoriesQuery,
@@ -27,6 +28,13 @@ export async function getIndexPosts(): Promise<IndexPosts> {
     featuredPost: null,
     latestPosts: [],
   }
+}
+
+export async function getArticlesPosts(): Promise<Post[]> {
+  if (client) {
+    return await client.fetch(articlesQuery)
+  }
+  return []
 }
 
 export async function getAuthors(): Promise<Omit<Author, 'image'>[]> {
