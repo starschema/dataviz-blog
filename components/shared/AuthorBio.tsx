@@ -1,24 +1,36 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { MouseEventHandler, ReactNode, useState } from 'react'
 
+import AuthorAvatar from '@/components/AuthorAvatar'
+import { Author } from '@/lib/sanity.queries'
 import ChevronImage from '@/public/images/chevron.svg'
 
-interface Props {
-  name: string
-  bio: string
+interface Props extends Pick<Author, 'bio' | 'name' | 'picture'> {
   isFixedOpen: boolean
 }
 export default function AuthorBio(props: Props) {
-  const { name, bio, isFixedOpen } = props
+  const { name, bio, picture, isFixedOpen } = props
   const [isOpen, setIsOpen] = useState(false)
+
   const backgGroundClass =
     isFixedOpen || isOpen ? 'bg-blue-50' : 'bg-transparent'
   return (
     <li
-      className={`list-none p-4 pb-6 text-black transition-colors ${backgGroundClass}`}
+      className={`list-none p-8 pb-6 text-black transition-colors ${backgGroundClass}`}
     >
-      <div className="flex flex-row justify-between">
-        <p className="text-xl font-medium">{name}</p>
+      <div className="flex flex-row items-center justify-between">
+        <div className="flex h-12 flex-row items-center gap-4">
+          <LayoutGroup>
+            <AnimatePresence initial={false}>
+              {(isOpen || isFixedOpen) && (
+                <AuthorAvatar name={name} picture={picture} />
+              )}
+            </AnimatePresence>
+            <motion.p layout className="text-xl font-medium">
+              {name}
+            </motion.p>
+          </LayoutGroup>
+        </div>
         {!isFixedOpen && (
           <ExpandButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         )}

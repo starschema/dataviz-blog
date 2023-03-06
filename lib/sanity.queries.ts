@@ -62,7 +62,8 @@ export const postBySlugQuery = groq`
 export const authorsQuery = groq`
 *[_type == "author" && isGuest != true] | order(name asc) {
   name,
-  bio
+  bio,
+  picture
 }
 `
 export interface IndexPosts {
