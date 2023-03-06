@@ -26,7 +26,7 @@ export default function PageNav(props: Props) {
         {/* FIXME: this should be a separate page with only the posts and no hero */}
         <li className={navigationItemClasses}>
           <Link
-            href="/"
+            href="/articles"
             onClick={props.onNavigation}
             className="underline decoration-fuchsia-700 underline-offset-8"
           >
