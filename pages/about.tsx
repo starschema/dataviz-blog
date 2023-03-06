@@ -7,6 +7,7 @@ import AuthorBio from '@/components/shared/AuthorBio'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 import { useIsMobile } from '@/lib/hooks'
 import { getAuthors } from '@/lib/sanity.client'
+import { Author } from '@/lib/sanity.queries'
 import AdaptabilityIcon from '@/public/images/decoration/adaptability-icon.svg'
 import ArtisticApproachIcon from '@/public/images/decoration/artistic-approach-icon.svg'
 import CollectiveThinkingIcon from '@/public/images/decoration/collective-thinking-icon.svg'
@@ -15,7 +16,10 @@ import DataVizBestPracticesIcon from '@/public/images/decoration/dataviz-best-pr
 import FunctionalSystemsIcon from '@/public/images/decoration/functional-systems-icon.svg'
 import SupportiveAtmosphereIcon from '@/public/images/decoration/supportive-atmosphere-icon.svg'
 
-export default function About(props) {
+interface PageProps {
+  authors: Author[]
+}
+export default function About(props: PageProps) {
   const { authors } = props
   const processListItemClasses = 'mb-16 h-20 bg-no-repeat px-14 w-[250px]'
   const isMobile = useIsMobile()
@@ -99,11 +103,12 @@ export default function About(props) {
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Team</h2>
-          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <ul className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
             {authors.map((a) => (
               <AuthorBio
                 name={a.name}
                 bio={a.bio}
+                picture={a.picture}
                 key={a.name}
                 isFixedOpen={!isMobile}
               />

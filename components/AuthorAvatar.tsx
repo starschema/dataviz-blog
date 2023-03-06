@@ -1,13 +1,20 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import { urlForImage } from '@/lib/sanity.image'
 import type { Author } from '@/lib/sanity.queries'
 
-export default function AuthorAvatar(props: Author) {
+interface Props extends Pick<Author, 'name' | 'picture'> {}
+export default function AuthorAvatar(props: Props) {
   const { name, picture } = props
   return (
-    <div className="flex items-center">
-      <div className="relative mr-4 h-12 w-12">
+    <motion.div
+      className="relative flex items-center "
+      initial={{ opacity: 0, left: '-3rem' }}
+      animate={{ opacity: 1, left: '0' }}
+      exit={{ opacity: 0, left: '-3rem' }}
+    >
+      <div className="relative h-12 w-12">
         <Image
           src={
             picture?.asset?._ref
@@ -21,7 +28,6 @@ export default function AuthorAvatar(props: Author) {
           alt=""
         />
       </div>
-      <div className="text-xl font-bold">{name}</div>
-    </div>
+    </motion.div>
   )
 }
