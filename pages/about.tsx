@@ -99,7 +99,7 @@ export default function About(props) {
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Team</h2>
-          <ul className="flex flex-col gap-4">
+          <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {authors.map((a) => (
               <AuthorBio
                 name={a.name}
