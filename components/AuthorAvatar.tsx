@@ -24,7 +24,7 @@ export default function AuthorAvatar(props: Props) {
           className="rounded-full"
           height={96}
           width={96}
-          // @TODO add alternative text to avatar image schema
+          aria-hidden
           alt=""
         />
       </div>
