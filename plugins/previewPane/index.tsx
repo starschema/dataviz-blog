@@ -26,8 +26,9 @@ export const previewDocumentNode = ({
           S.view
             .component(({ document }) => (
               <AuthorAvatarPreviewPane
-                name={document.displayed.name as any}
-                bio={document.displayed.bio as any}
+                name={document.displayed.name}
+                bio={document.displayed.bio}
+                picture={document.displayed.picture}
               />
             ))
             .title('Preview'),
