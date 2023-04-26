@@ -6,8 +6,8 @@ const imageSrcDomains = [
   'public.tableau.com',
 ]
 
-const isNetlify = process.env.NETLIFY === 'true'
 const isAmplify = Boolean(process.env.AWS_APP_ID)
+const isProduction = isAmplify
 
 const securityHeaders = [
   {
@@ -42,7 +42,7 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isNetlify || isAmplify ? '' : "'unsafe-eval'"
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isProduction ? '' : "'unsafe-eval'"
       }`,
   },
 ]
@@ -53,11 +53,11 @@ const config = {
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
-    ignoreBuildErrors: process.env.VERCEL_ENV === 'production',
+    ignoreBuildErrors: isProduction,
   },
   eslint: {
     /// Set this to false if you want production builds to abort if there's lint errors
-    ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
+    ignoreDuringBuilds: isProduction,
   },
   webpack: (config) => {
     config.module.rules.push({
