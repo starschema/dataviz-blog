@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import { withPlausibleProxy } from 'next-plausible'
 
 const imageSrcDomains = [
   'cdn.sanity.io',
@@ -6,8 +7,8 @@ const imageSrcDomains = [
   'public.tableau.com',
 ]
 
-const isAmplify = Boolean(process.env.AWS_APP_ID)
-const isProduction = isAmplify
+// const isAmplify = Boolean(process.env.AWS_APP_ID)
+const isProduction = process.env.NODE_ENV === 'production'
 
 const securityHeaders = [
   {
@@ -42,12 +43,12 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isProduction ? '' : "'unsafe-eval'"
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-hashes' 'sha256-/6SBPqW+GW+//4nlXX6Y1nR9dWlh0gsQJ6KK71djH6A=')' ${isProduction ? '' : "'unsafe-eval'"
       }`,
   },
 ]
 
-const config = {
+const config = withPlausibleProxy()({
   images: {
     remotePatterns: imageSrcDomains.map((domain) => ({ hostname: domain })),
   },
@@ -85,6 +86,6 @@ const config = {
       },
     ]
   },
-}
+})
 
 export default config
