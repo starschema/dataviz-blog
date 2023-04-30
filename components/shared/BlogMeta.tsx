@@ -6,6 +6,10 @@ export default function BlogMeta() {
   return (
     <>
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <meta
+        name="google-site-verification"
+        content="Dxco5xyhPRuschk7Oh_0dumgdcOn56-gxFHC8F9NtG0"
+      />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -25,6 +29,7 @@ export default function BlogMeta() {
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
+
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
