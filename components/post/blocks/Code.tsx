@@ -7,8 +7,8 @@ import Refractor from 'react-refractor'
 import js from 'refractor/lang/javascript'
 import python from 'refractor/lang/python'
 
-Refractor.registerLanguage(js);
-Refractor.registerLanguage(python);
+Refractor.registerLanguage(js)
+Refractor.registerLanguage(python)
 
 type Props = PortableTextTypeComponentProps<CodeInputValue>
 export default function Code(props: Props) {
