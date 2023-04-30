@@ -6,7 +6,6 @@ import AuthorBioBox from '@/components/post/AuthorBioBox'
 import PostBody from '@/components/post/Body'
 import PostHeader from '@/components/post/header/Header'
 import PostPageHead from '@/components/post/PostPageHead'
-import ScrollNavigation from '@/components/post/ScrollNav'
 import MoreStories from '@/components/shared/MoreStories'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 import type { Post } from '@/lib/sanity.queries'
@@ -41,7 +40,11 @@ export default function PostPage(props: PostPageProps) {
 
   return (
     <>
-      <PostPageHead title={post.title} />
+      <PostPageHead
+        title={post.title}
+        thumbnail={post.thumbnail}
+        excerpt={post.excerpt}
+      />
       <Container>
         {preview && !post ? (
           <p>Loading…</p>
