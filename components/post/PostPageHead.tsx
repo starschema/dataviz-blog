@@ -9,7 +9,9 @@ type PostPageHeadProps = Pick<Post, 'title' | 'thumbnail' | 'excerpt'>
 
 export default function PostPageHead(props: PostPageHeadProps) {
   const { thumbnail, title, excerpt } = props
-  const imageUrl = thumbnail?.asset?._ref && urlForImage(thumbnail).url()
+  const imageUrl =
+    thumbnail?.asset?._ref &&
+    urlForImage(thumbnail).width(1200).height(630).fit('crop').url()
   return (
     <Head>
       <title>{title}</title>
