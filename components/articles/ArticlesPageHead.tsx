@@ -2,6 +2,9 @@ import Head from 'next/head'
 
 import BlogMeta from '@/components/shared/BlogMeta'
 import SocialMetaTags from '@/components/shared/SocialMetaTags'
+import { DOMAIN_NAME } from '@/lib/constants'
+
+const ogImage = `https://${DOMAIN_NAME}/images/index-og.png`
 
 export default function ArticlesPageHead() {
   return (
@@ -11,7 +14,7 @@ export default function ArticlesPageHead() {
       <SocialMetaTags
         title="The Viz Collective"
         description="a blog by the dataviz team at Starschema"
-        image="https://thevizcollective.com/images/index-og.png"
+        image={ogImage}
       />
     </Head>
   )
