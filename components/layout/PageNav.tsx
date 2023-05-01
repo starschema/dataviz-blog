@@ -23,7 +23,6 @@ export default function PageNav(props: Props) {
             Home
           </Link>
         </li>
-        {/* FIXME: this should be a separate page with only the posts and no hero */}
         <li className={navigationItemClasses}>
           <Link
             href="/articles"
