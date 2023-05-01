@@ -48,7 +48,7 @@ function DesktopSocials() {
 
 function DesktopNav() {
   const navigationItemClasses =
-    'px-6 lg:px-8 xl:px-12 outline outline-1 outline-neutral-300 flex items-center pb-1 ml-px'
+    'px-6 lg:px-8 xl:px-12 outline outline-1 outline-neutral-300 flex items-center pb-1 ml-px hover:decoration-2'
   return (
     <nav className="h-full">
       <ul className="items-middle flex h-full flex-row px-8 lg:text-lg xl:text-xl">

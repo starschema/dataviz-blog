@@ -1,12 +1,20 @@
 import Link from 'next/link'
 
+import {
+  INSTAGRAM_USER,
+  LINKEDIN_PAGE,
+  MASTODON_URL,
+  PINTEREST_USER,
+  TWITTER_USER,
+} from '@/lib/constants'
+
 interface Props {
   className?: string
   onNavigation?: () => void
 }
 export default function PageNav(props: Props) {
-  const navigationItemClasses = 'font-medium text-2xl my-10'
-  const socialItemClasses = 'my-2'
+  const navigationItemClasses = 'font-medium text-2xl my-10 hover:decoration-4'
+  const socialItemClasses = 'my-2 hover:underline '
   return (
     <nav
       className={`flex h-full flex-col justify-between lg:flex-row lg:justify-start lg:gap-40 ${
@@ -47,9 +55,25 @@ export default function PageNav(props: Props) {
           Keep in touch
         </span>
         <ul className="mt-6">
-          <li className={`${socialItemClasses}`}>Twitter</li>
-          <li className={`${socialItemClasses}`}>Instagram</li>
-          <li className={`${socialItemClasses}`}>Mastodon</li>
+          <li className={`${socialItemClasses}`}>
+            <Link href={`https://twitter.com/${TWITTER_USER}`}>Twitter</Link>
+          </li>
+          <li className={`${socialItemClasses}`}>
+            <Link href={`https://instagram.com/${INSTAGRAM_USER}`}>
+              Instagram
+            </Link>
+          </li>
+          <li className={`${socialItemClasses}`}>
+            <Link href={`${MASTODON_URL}`}>Mastodon</Link>
+          </li>
+          <li className={`${socialItemClasses}`}>
+            <Link href={`https://pinterest.com/${PINTEREST_USER}`}>
+              Pinterest
+            </Link>
+          </li>
+          <li className={`${socialItemClasses}`}>
+            <Link href={`https://linkedin.com/${LINKEDIN_PAGE}`}>LinkedIn</Link>
+          </li>
         </ul>
       </div>
     </nav>
