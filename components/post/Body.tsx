@@ -37,7 +37,7 @@ interface Props {
 
 export default function PostBody(props: Props) {
   return (
-    <div className="prose prose-xl prose-neutral mx-auto max-w-[700px]">
+    <div className="prose prose-xl prose-neutral mx-auto max-w-3xl">
       <PortableText
         value={props.content}
         components={myPortableTextComponents}

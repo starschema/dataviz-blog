@@ -6,7 +6,7 @@ interface Props {
 }
 export default function AuthorBioBox(props: Props) {
   return (
-    <div className="mx-auto mt-12 mb-8 max-w-4xl bg-blue-50 pt-6 pb-0">
+    <div className="mx-auto mt-12 mb-8 max-w-3xl bg-blue-50 pt-6 pb-0">
       <div className="px-8 text-sm font-light text-neutral-400">
         <p>about the {props.authors.length > 1 ? 'authors' : 'author'}</p>
       </div>
