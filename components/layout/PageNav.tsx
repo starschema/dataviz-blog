@@ -35,7 +35,7 @@ export default function PageNav(props: Props) {
           <Link
             href="/articles"
             onClick={props.onNavigation}
-            className="underline decoration-fuchsia-700 underline-offset-8"
+            className="underline decoration-teal-500 underline-offset-8"
           >
             Articles
           </Link>
@@ -44,7 +44,7 @@ export default function PageNav(props: Props) {
           <Link
             href="/about"
             onClick={props.onNavigation}
-            className="underline decoration-teal-500 underline-offset-8"
+            className="underline decoration-fuchsia-700 underline-offset-8"
           >
             About Us
           </Link>

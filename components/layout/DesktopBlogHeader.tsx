@@ -63,7 +63,7 @@ function DesktopNav() {
         <li className={navigationItemClasses}>
           <Link
             href="/articles"
-            className="underline decoration-fuchsia-700 underline-offset-8"
+            className="underline decoration-teal-500 underline-offset-8"
           >
             Articles
           </Link>
@@ -71,7 +71,7 @@ function DesktopNav() {
         <li className={navigationItemClasses}>
           <Link
             href="/about"
-            className="underline decoration-teal-500 underline-offset-8"
+            className="underline decoration-fuchsia-700 underline-offset-8"
           >
             About Us
           </Link>

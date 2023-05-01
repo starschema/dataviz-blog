@@ -23,7 +23,7 @@ export const featuredPostQuery = groq`
   ${postPreviewFields}
 }`
 export const latestPostsQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) [1...7] {
+*[_type == "post"] | order(date desc, _updatedAt desc) [1...4] {
   ${postPreviewFields}
 }`
 export const indexQuery = groq`
