@@ -43,7 +43,7 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self'; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-hashes' 'sha256-/6SBPqW+GW+//4nlXX6Y1nR9dWlh0gsQJ6KK71djH6A='' ${isProduction ? '' : "'unsafe-eval'"
+    )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isProduction ? '' : "'unsafe-eval' 'unsafe-hashes' 'sha256-/6SBPqW+GW+//4nlXX6Y1nR9dWlh0gsQJ6KK71djH6A='"
       }`,
   },
 ]
