@@ -7,7 +7,7 @@ const postPreviewFields = groq`
   date,
   thumbnail,
   "slug": slug.current,
-  "authors": authors[]->{name, picture, bio},
+  "authors": authors[]->{name, picture, bio, socials},
 `
 
 const postFields = groq`
@@ -63,7 +63,8 @@ export const authorsQuery = groq`
 *[_type == "author" && isGuest != true] | order(name asc) {
   name,
   bio,
-  picture
+  picture,
+  socials
 }
 `
 export interface IndexPosts {
@@ -71,10 +72,16 @@ export interface IndexPosts {
   latestPosts: Post[]
 }
 
+export interface Social {
+  name: string
+  url: string
+}
+
 export interface Author {
   name?: string
   picture?: any
   bio?: string
+  socials?: Social[]
 }
 
 export interface Tableau {

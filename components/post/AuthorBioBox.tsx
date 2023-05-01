@@ -18,6 +18,7 @@ export default function AuthorBioBox(props: Props) {
               bio={author.bio}
               picture={author.picture}
               key={`${author.name}-${idx}`}
+              socials={author.socials}
               isFixedOpen={true}
             />
           )

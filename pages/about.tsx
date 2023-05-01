@@ -110,6 +110,7 @@ export default function About(props: PageProps) {
                 bio={a.bio}
                 picture={a.picture}
                 key={a.name}
+                socials={a.socials}
                 isFixedOpen={!isMobile}
               />
             ))}
