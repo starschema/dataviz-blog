@@ -70,33 +70,66 @@ export default function About(props: PageProps) {
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Values</h2>
-          <ul className=" flex flex-col items-center justify-evenly text-2xl lg:flex-row">
-            <AboutListItem text={`Data Viz\nBest Practices`} textFirst={false}>
-              <DataVizBestPracticesIcon />
+          <ul className="my-10 flex flex-col items-start justify-evenly gap-8 text-2xl lg:flex-row lg:px-8">
+            <AboutListItem
+              title={`Data Viz Best Practices`}
+              textFirst={false}
+              icon={<DataVizBestPracticesIcon />}
+            >
+              Well-defined, sustainable and easy-to-maintain framework
             </AboutListItem>
-            <AboutListItem text={`Creative\nChallenges`} textFirst={false}>
-              <CreativeChallengesIcon />
+            <AboutListItem
+              title={`Creative Challenges`}
+              textFirst={false}
+              icon={<CreativeChallengesIcon />}
+            >
+              Inspiring projects to get those creative muscles working
             </AboutListItem>
-            <AboutListItem text={`Functional\nSystems`} textFirst={false}>
-              <FunctionalSystemsIcon />{' '}
+            <AboutListItem
+              title={`Functional Systems`}
+              textFirst={false}
+              icon={<FunctionalSystemsIcon />}
+            >
+              Problem-focused, effective solutions that provide accurate,
+              actionable insights
             </AboutListItem>
           </ul>
         </section>
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Culture</h2>
-          <ul className="flex flex-col items-center justify-evenly text-2xl lg:flex-row">
-            <AboutListItem text={`Supportive\nAtmosphere`} textFirst={true}>
-              <SupportiveAtmosphereIcon />
+          <ul className="my-10 flex flex-col items-start justify-evenly gap-8 text-2xl lg:flex-row lg:px-8">
+            <AboutListItem
+              title={`Supportive Atmosphere`}
+              textFirst={true}
+              icon={<SupportiveAtmosphereIcon />}
+            >
+              Supporting each other to overcome challenges, sharing experience
+              and knowledge
             </AboutListItem>
-            <AboutListItem text={`Adaptability`} textFirst={true}>
-              <AdaptabilityIcon />
+            <AboutListItem
+              title={`Adaptability`}
+              textFirst={true}
+              icon={<AdaptabilityIcon />}
+            >
+              Creating customized solutions that reflect best on the needs and
+              requirements of the project
             </AboutListItem>
-            <AboutListItem text={`Collective\nThinking`} textFirst={true}>
-              <CollectiveThinkingIcon />
+            <AboutListItem
+              title={`Collective Thinking`}
+              textFirst={true}
+              icon={<CollectiveThinkingIcon />}
+            >
+              Collaborative approach to provide valuable results that benefit
+              everyone
             </AboutListItem>
-            <AboutListItem text={`Artistic\nApproach`} textFirst={true}>
-              <ArtisticApproachIcon />
+            <AboutListItem
+              title={`Artistic Approach`}
+              textFirst={true}
+              icon={<ArtisticApproachIcon />}
+            >
+              Defining data visualisation in both business-related and artistic
+              context
             </AboutListItem>
           </ul>
         </section>
