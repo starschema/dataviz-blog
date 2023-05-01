@@ -2,6 +2,13 @@ import Link from 'next/link'
 
 import BlogTitle from '@/components/layout/BlogTitle'
 import SocialIcon from '@/components/layout/SocialIcon'
+import {
+  INSTAGRAM_USER,
+  LINKEDIN_PAGE,
+  MASTODON_URL,
+  PINTEREST_USER,
+  TWITTER_USER,
+} from '@/lib/constants'
 
 export default function DestkopBlogHeader() {
   // this is only ever shown on md screens and up
@@ -18,10 +25,23 @@ export default function DestkopBlogHeader() {
 function DesktopSocials() {
   return (
     <div className="flex h-full flex-row items-center gap-4">
-      {/* FIXME: fix the social links once available */}
-      <SocialIcon network="twitter" url="https://twitter.com" />
-      <SocialIcon network="instagram" url="https://instagram.com" />
-      <SocialIcon network="mastodon" url="https://mastodon.social" />
+      <SocialIcon
+        network="twitter"
+        url={`https://twitter.com/${TWITTER_USER}`}
+      />
+      <SocialIcon
+        network="instagram"
+        url={`https://instagram.com/${INSTAGRAM_USER}`}
+      />
+      <SocialIcon network="mastodon" url={`${MASTODON_URL}`} />
+      <SocialIcon
+        network="pinterest"
+        url={`https://pinterest.com/${PINTEREST_USER}`}
+      />
+      <SocialIcon
+        network="linkedin"
+        url={`https://linkedin.com/${LINKEDIN_PAGE}`}
+      />
     </div>
   )
 }

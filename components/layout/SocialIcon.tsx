@@ -7,12 +7,14 @@ const TwitterIcon = dynamic(
     loading: () => null,
   }
 )
+
 const InstagramIcon = dynamic(
   () => import('public/images/social-icons/instagram.svg'),
   {
     loading: () => null,
   }
 )
+
 const MastodonIcon = dynamic(
   () => import('public/images/social-icons/mastodon.svg'),
   {
@@ -20,7 +22,34 @@ const MastodonIcon = dynamic(
   }
 )
 
-type SocialNetwork = 'twitter' | 'instagram' | 'mastodon'
+const LinkedInIcon = dynamic(
+  () => import('public/images/social-icons/linkedin.svg'),
+  {
+    loading: () => null,
+  }
+)
+
+const PinterestIcon = dynamic(
+  () => import('public/images/social-icons/pinterest.svg'),
+  {
+    loading: () => null,
+  }
+)
+
+const GitHubIcon = dynamic(
+  () => import('public/images/social-icons/github.svg'),
+  {
+    loading: () => null,
+  }
+)
+
+type SocialNetwork =
+  | 'twitter'
+  | 'instagram'
+  | 'mastodon'
+  | 'linkedin'
+  | 'pinterest'
+  | 'github'
 interface Props {
   network: SocialNetwork
   url: string
@@ -28,19 +57,13 @@ interface Props {
 export default function SocialIcon(props: Props) {
   const width = 24
   const height = 24
-  const icon = {
-    // @ts-ignore
-    twitter: <TwitterIcon width={width} height={height} />,
-    // @ts-ignore
-    instagram: <InstagramIcon width={width} height={height} />,
-    // @ts-ignore
-    mastodon: <MastodonIcon width={width} height={height} />,
-  }[props.network]
-
-  const color = {
-    twitter: 'text-blue-500',
-    instagram: 'text-pink-600',
-    mastodon: 'text-violet-700',
+  const [Icon, color] = {
+    twitter: [TwitterIcon, 'text-blue-500'],
+    instagram: [InstagramIcon, 'text-pink-600'],
+    mastodon: [MastodonIcon, 'text-violet-700'],
+    linkedin: [LinkedInIcon, 'text-blue-600'],
+    pinterest: [PinterestIcon, 'text-red-500'],
+    github: [GitHubIcon, 'text-gray-700'],
   }[props.network]
 
   return (
@@ -48,8 +71,10 @@ export default function SocialIcon(props: Props) {
       href={props.url}
       className={`transition-all hover:scale-110 ${color}`}
       aria-label={`Open the Starschema dataviz team's ${props.network}`}
+      target="_blank"
     >
-      {icon}
+      {/* @ts-ignore */}
+      <Icon width={width} height={height} />
     </Link>
   )
 }
