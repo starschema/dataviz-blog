@@ -11,9 +11,7 @@ export default function HeaderMeta(props: Props) {
       <div className="max-w-2xl text-sm">
         <Author authors={authors} />
       </div>
-      <div className="mb-6 text-sm">
-        <Date dateString={date} />
-      </div>
+      <Date dateString={date} className="mt-4 mb-6 text-sm" />
     </div>
   )
 }

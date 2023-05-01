@@ -29,7 +29,7 @@ export default function PostPreview(props: Props) {
         </Link>
         <Author authors={props.post.authors} className="text-sm" />
         <p>{excerpt}</p>
-        <Date dateString={date} />
+        <Date dateString={date} className="my-4" />
       </div>
     </div>
   )
