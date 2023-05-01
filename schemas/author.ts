@@ -53,7 +53,7 @@ export default defineType({
                   { title: 'GitHub', value: 'github' },
                   { title: 'LinkedIn', value: 'linkedin' },
                   { title: 'Instagram', value: 'instagram' },
-                  { title: 'Behance', value: 'behance' },
+                  { title: 'Pinterest', value: 'pinterest' },
                   { title: 'Mastodon', value: 'mastodon' },
                 ],
               },
