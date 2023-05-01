@@ -10,6 +10,8 @@ const imageSrcDomains = [
 // const isAmplify = Boolean(process.env.AWS_APP_ID)
 const isProduction = process.env.NODE_ENV === 'production'
 
+const sanityProjectDomain = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io`
+
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -41,7 +43,7 @@ const securityHeaders = [
   },
   {
     key: 'Content-Security-Policy',
-    value: `default-src 'self'; img-src ${imageSrcDomains.join(
+    value: `default-src 'self' ${sanityProjectDomain}; img-src ${imageSrcDomains.join(
       ' '
     )} 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' ${isProduction ? '' : "'unsafe-eval' 'unsafe-hashes' 'sha256-/6SBPqW+GW+//4nlXX6Y1nR9dWlh0gsQJ6KK71djH6A='"
       }`,
