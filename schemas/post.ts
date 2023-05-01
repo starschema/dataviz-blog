@@ -2,8 +2,10 @@ import { BookIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
+import PullQuote from '@/components/post/blocks/PullQuote'
 import authorType from '@/schemas/author'
 import tableauType from '@/schemas/tableau'
+
 /**
  * This file is the schema definition for a post.
  *
@@ -86,6 +88,7 @@ export default defineType({
             { title: 'Heading 5', value: 'h5' },
             { title: 'Heading 6', value: 'h6' },
             { title: 'Quote', value: 'blockquote' },
+            { title: 'Pull Quote', value: 'pullquote', component: PullQuote },
           ],
         },
         {

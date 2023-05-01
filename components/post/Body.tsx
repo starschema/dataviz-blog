@@ -12,6 +12,7 @@ import { PortableText } from '@portabletext/react'
 import BodyImage from '@/components/post/blocks/BodyImage'
 import Code from '@/components/post/blocks/Code'
 import Heading from '@/components/post/blocks/Heading'
+import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
 import type { Post } from '@/lib/sanity.queries'
 
@@ -28,6 +29,7 @@ const myPortableTextComponents = {
     h4: Heading,
     h5: Heading,
     h6: Heading,
+    pullquote: PullQuote,
   },
 }
 
