@@ -14,8 +14,7 @@ interface Props extends TableauType {
 
 export default function Tableau(props: Props) {
   const [isZoomed, setIsZoomed] = useState(false)
-  const { url, alt, className, dimensions } = props
-  const { width, height } = dimensions || {}
+  const { url, alt, className, width, height } = props
 
   const imageUrl = imageUrlFromDashboardUrl(url)
 
@@ -63,6 +62,7 @@ export default function Tableau(props: Props) {
       </button>
       <Link
         href={url}
+        target="_blank"
         className="text-right underline decoration-blue-500 underline-offset-4 hover:decoration-2"
       >
         Open the viz on Tableau Public

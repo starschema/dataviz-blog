@@ -25,7 +25,7 @@ export default function FeaturedCoverImage(props: CoverImageProps) {
       <Image
         alt={`Cover Image for ${title}`}
         src={urlForImage(source).width(2000).url()}
-        sizes="100vw"
+        sizes="(min-width: 320px) 100vw, 100vw"
         priority
         fill
       />

@@ -6,7 +6,6 @@ interface Props extends TableauType {
 }
 
 export default function TableauHeader(props: Props) {
-  // @ts-ignore - breakpoints is typed incorrectly
   return (
     <div className={props.className}>
       <Tableau {...props} />
