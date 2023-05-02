@@ -51,6 +51,7 @@ const securityHeaders = [
 ]
 
 const config = withPlausibleProxy()({
+  output: "standalone",
   images: {
     remotePatterns: imageSrcDomains.map((domain) => ({ hostname: domain })),
   },
