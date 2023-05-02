@@ -8,7 +8,7 @@ export default function MoreStories({ posts }: { posts: Post[] }) {
   // @ts-ignore - breakpoints is typed incorrectly
   const sizes = `(max-width: ${breakpoints.md}) 100vw, (max-width: ${breakpoints.xl}) 50vw, 33vw`
   return (
-    <section className="mb-6 flex flex-col items-end gap-2">
+    <section className="mb-6 flex flex-col gap-2">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 xl:grid-cols-3">
         {posts.map((post) => (
           <div key={post._id}>

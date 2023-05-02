@@ -6,3 +6,5 @@ export const INSTAGRAM_USER = 'the_viz_collective'
 export const LINKEDIN_PAGE = 'company/the-viz-collective'
 export const PINTEREST_USER = 'the_viz_collective'
 export const MASTODON_URL = 'https://mastodon.social/@the_viz_collective'
+
+export const GITHUB_REPO = 'starschema/dataviz-blog'
