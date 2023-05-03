@@ -136,7 +136,7 @@ export default function About(props: PageProps) {
         <SectionSeparator />
         <section>
           <h2 className="my-8 text-3xl font-bold">Our Team</h2>
-          <ul className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+          <ul className="grid gap-4 pb-8 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
             {authors.map((a) => (
               <AuthorBio
                 name={a.name}
