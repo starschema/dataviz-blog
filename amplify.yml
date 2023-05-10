@@ -7,6 +7,7 @@ frontend:
     build:
       commands:
         - npx next telemetry disable
+        - env | grep -e SANITY_API_READ_TOKEN >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
