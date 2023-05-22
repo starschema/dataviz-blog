@@ -72,6 +72,37 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'thumbnail',
+      title: 'Thumbnail Image',
+      type: 'image',
+      description: `This image will be used on the home page, in social media previews, and - if you chose the thumbnail layout type - at the top of your post.  It will be cropped to 1.91 aspect ratio for the previews and displayed in full in the featured section of the home page`,
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          description: 'Alt text',
+          type: 'string',
+          title: 'Alternative text',
+          validation: (rule) =>
+            rule
+              .error(
+                'You have to fill out the alternative text for vision-impaired readers.'
+              )
+              .required(),
+        }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description:
+        'This ends up on summary pages, on Google, when people share your post in social media.',
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
@@ -119,37 +150,6 @@ export default defineType({
         { type: 'code' },
         { type: tableauType.name },
       ],
-    }),
-    defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
-      description:
-        'This ends up on summary pages, on Google, when people share your post in social media.',
-    }),
-    defineField({
-      name: 'thumbnail',
-      title: 'Thumbnail Image',
-      type: 'image',
-      description: `This image will be used on the home page, in social media previews, and - if you chose the thumbnail layout type - at the top of your post.  It will be cropped to 1.91 aspect ratio for the previews and displayed in full in the featured section of the home page`,
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: 'alt',
-          description: 'Alt text',
-          type: 'string',
-          title: 'Alternative text',
-          validation: (rule) =>
-            rule
-              .error(
-                'You have to fill out the alternative text for vision-impaired readers.'
-              )
-              .required(),
-        }),
-      ],
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'date',
