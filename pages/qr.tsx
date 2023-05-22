@@ -4,6 +4,7 @@ import Container from '@/components/layout/BlogContainer'
 export default function Qr() {
   return (
     <div className="container mx-auto flex h-[80vh] max-w-md items-center justify-center">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/home-qr.svg"
         className="aspect-square w-full"
