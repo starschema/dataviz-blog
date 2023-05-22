@@ -1,14 +1,5 @@
-import type {
-  PortableTextBlockComponent,
-  PortableTextTypeComponentProps,
-} from '@portabletext/react'
-
-interface PullquoteValue {
-  _type?: 'pullquote'
-  text: string
-}
-
-type Props = PortableTextTypeComponentProps<string>
+import { FunctionComponent } from 'react'
+import { BlockStyleProps } from 'sanity'
 
 export default (function PullQuote(props) {
   return (
@@ -16,4 +7,4 @@ export default (function PullQuote(props) {
       {props.children}
     </p>
   )
-} satisfies PortableTextBlockComponent)
+} satisfies FunctionComponent<BlockStyleProps>)
