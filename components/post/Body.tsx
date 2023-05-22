@@ -14,6 +14,7 @@ import Code from '@/components/post/blocks/Code'
 import Heading from '@/components/post/blocks/Heading'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
+import YoutubeVideoBlock from '@/components/post/blocks/YoutubeVideoBlock'
 import type { Post } from '@/lib/sanity.queries'
 
 const myPortableTextComponents = {
@@ -21,6 +22,7 @@ const myPortableTextComponents = {
     code: Code,
     image: BodyImage,
     tableau: TableauBlock,
+    youtubeVideo: YoutubeVideoBlock,
   },
   block: {
     h1: Heading,
@@ -42,6 +44,7 @@ export default function PostBody(props: Props) {
     <div className="prose prose-xl prose-neutral mx-auto max-w-3xl">
       <PortableText
         value={props.content}
+        // @ts-expect-error PullQuote typing is difficult
         components={myPortableTextComponents}
       />
     </div>

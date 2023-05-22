@@ -44,8 +44,7 @@ export default function YoutubeVideo({ src }: { src: string }) {
 
   return (
     <iframe
-      width="560"
-      height="315"
+      className="aspect-video w-full"
       src={embedUrl}
       title="YouTube video player"
       frameBorder="0"

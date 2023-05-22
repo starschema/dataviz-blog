@@ -91,6 +91,10 @@ export interface Tableau {
   height: number
 }
 
+export interface YoutubeVideo {
+  url?: string
+}
+
 export interface Post {
   _id: string
   title?: string

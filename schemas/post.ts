@@ -149,6 +149,19 @@ export default defineType({
 
         { type: 'code' },
         { type: tableauType.name },
+        defineType({
+          name: 'youtubeVideo',
+          type: 'object',
+          title: 'YouTube Video',
+          fields: [
+            defineField({
+              name: 'url',
+              title: 'URL',
+              type: 'url',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        }),
       ],
     }),
     defineField({
