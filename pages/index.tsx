@@ -26,7 +26,6 @@ interface PreviewData {
 
 export default function Page(props: PageProps) {
   const { indexPosts, preview, token } = props
-
   if (preview) {
     return (
       <PreviewSuspense fallback={<IndexPage posts={indexPosts} />}>
