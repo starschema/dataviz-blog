@@ -5,10 +5,17 @@ import { urlForImage } from '@/lib/sanity.image'
 
 export default function BodyImage(props) {
   const imageData = props.value
-  const imageUrl = urlForImage(imageData).width(1000).url()
+  const imageUrl = urlForImage(imageData).url()
 
   const dimensions = calculateSanityImageDimensions(imageUrl)
   const aspectRatio = dimensions.width / dimensions.height
+
+  const sizes = [
+    '(min-width: 1024px) 768x',
+    '(min-width: 640px) 640px',
+    '(min-width: 375px) 375px',
+    '100vw'
+  ]
 
   return (
     <figure className="my-6 w-full">

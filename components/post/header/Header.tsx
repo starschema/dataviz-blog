@@ -12,13 +12,12 @@ export default function PostHeader(
     'title' | 'thumbnail' | 'date' | 'authors' | 'slug' | 'excerpt' | 'layout'
   >
 ) {
-  // FIXME: the width of this header does not match the body at large screens. this might be an issue
   const { title, thumbnail, date, authors, slug, layout } = props
 
   const isTableau = layout?.type === 'tableau'
 
   const visualComponent = isTableau ? (
-    <TableauHeader {...layout.headerTableau} className="" />
+    <TableauHeader {...layout.headerTableau} className="mr-8" />
   ) : (
     <CoverImage title={title} image={thumbnail} slug={slug} />
   )
@@ -38,7 +37,7 @@ export default function PostHeader(
     >
       <PostTitle>{title}</PostTitle>
       <Meta date={date} authors={authors} />
-      <div className="mr-8 flex justify-end" style={{ gridArea: 'vis' }}>
+      <div className="flex justify-end" style={{ gridArea: 'vis' }}>
         {visualComponent}
       </div>
       <Excerpt excerpt={props.excerpt} />
