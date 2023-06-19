@@ -12,6 +12,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'vc-blue': '#4B6AF0',
+        'vc-turqoise': '#78C9B8',
+        'vc-orange': '#F29C4D',
+        'vc-yellow': '#F1D356',
+        'vc-lightblue': '#56A9EB',
+        'vc-red': '#E96C61',
+        'vc-lightpurple': '#C676BD',
+      },
       backgroundImage: {
         'mobile-hero': "url('/images/mobile-hero.svg')",
         'desktop-hero': "url('/images/desktop-hero.svg')",

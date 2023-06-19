@@ -57,7 +57,7 @@ export default function Tableau(props: Props) {
           width={width}
           height={height}
           sizes={imageSizes}
-          className="my-0 cursor-zoom-in rounded-lg shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] shadow-[#C676BD] outline outline-4 outline-[#C676BD]"
+          className="my-0 cursor-zoom-in rounded-lg shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] shadow-vc-lightpurple outline outline-4 outline-vc-lightpurple"
         />
       </button>
       <Link
