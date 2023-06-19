@@ -3,6 +3,8 @@ import { defineField, defineType } from 'sanity'
 
 import { TableauInput } from '@/plugins/tableauInput'
 
+import { vcColors } from 'tailwind.config'
+
 const Tableau = defineType({
   name: 'tableau',
   type: 'object',
@@ -36,6 +38,18 @@ const Tableau = defineType({
       type: 'number',
       title: '',
       description: 'The height of the dashboard in pixels',
+    }),
+    defineField({
+      name: 'borderColor',
+      type: 'string',
+      initialValue: vcColors.find((color) => color.name === 'vc-lightpurple')!
+        .name,
+      options: {
+        list: vcColors.map((color) => ({
+          title: color.title,
+          value: color.name,
+        })),
+      },
     }),
   ],
 })

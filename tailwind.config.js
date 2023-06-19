@@ -2,6 +2,51 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
+const vcColors = [
+  {
+    name: 'vc-blue',
+    title: 'Blue',
+    value: '#4B6AF0',
+  },
+  {
+    name: 'vc-turqoise',
+    title: 'Turqoise',
+    value: '#78C9B8',
+  },
+  {
+    name: 'vc-orange',
+    title: 'Orange',
+    value: '#F29C4D',
+  },
+  {
+    name: 'vc-yellow',
+    title: 'Yellow',
+    value: '#F1D356',
+  },
+  {
+    name: 'vc-lightblue',
+    title: 'Light Blue',
+    value: '#56A9EB',
+  },
+  {
+    name: 'vc-red',
+    title: 'Red',
+    value: '#E96C61',
+  },
+  {
+    name: 'vc-lightpurple',
+    title: 'Light Purple',
+    value: '#C676BD',
+  },
+  {
+    name: 'vc-gray',
+    title: 'Gray',
+    value: '#D4D4D4',
+  }
+]
+
+exports.vcColors = vcColors
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
@@ -12,15 +57,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'vc-blue': '#4B6AF0',
-        'vc-turqoise': '#78C9B8',
-        'vc-orange': '#F29C4D',
-        'vc-yellow': '#F1D356',
-        'vc-lightblue': '#56A9EB',
-        'vc-red': '#E96C61',
-        'vc-lightpurple': '#C676BD',
-      },
+      colors: Object.fromEntries(
+        vcColors.map((color) => [color.name, color.value])
+      ),
       backgroundImage: {
         'mobile-hero': "url('/images/mobile-hero.svg')",
         'desktop-hero': "url('/images/desktop-hero.svg')",
@@ -40,4 +79,5 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/typography')],
+  vcColors
 }

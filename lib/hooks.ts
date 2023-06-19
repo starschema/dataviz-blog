@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
-import breakpoints from '@/lib/tailwind.breakpoints'
+import { breakpoints } from '@/lib/tailwind.theme'
 
 export function useIsMobile() {
   // @ts-ignore - breakpoints is typed incorrectly

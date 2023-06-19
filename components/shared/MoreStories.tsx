@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import PostPreview from '@/components/shared/PostPreview'
 import type { Post } from '@/lib/sanity.queries'
-import breakpoints from '@/lib/tailwind.breakpoints'
+import { breakpoints } from '@/lib/tailwind.theme'
 
 export default function MoreStories({ posts }: { posts: Post[] }) {
   // @ts-ignore - breakpoints is typed incorrectly
