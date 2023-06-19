@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import Modal from '@/components/shared/Modal'
 import type { Tableau as TableauType } from '@/lib/sanity.queries'
 import { imageUrlFromDashboardUrl } from '@/lib/tableauUtils'
-import breakpoints from '@/lib/tailwind.breakpoints'
+import { breakpoints } from '@/lib/tailwind.theme'
 
 interface Props extends TableauType {
   className?: string

@@ -13,6 +13,7 @@ export type TableauInputProps = ObjectInputProps<Tableau>
 
 export function TableauInput(props: TableauInputProps) {
   const {
+    value,
     members,
     renderField,
     renderInput,
@@ -29,6 +30,11 @@ export function TableauInput(props: TableauInputProps) {
   const urlMember = members.find(
     (member): member is FieldMember =>
       member.kind === 'field' && member.name === 'url'
+  )
+
+  const borderColorMember = members.find(
+    (member): member is FieldMember =>
+      member.kind === 'field' && member.name === 'borderColor'
   )
 
   function handleUrlChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -55,6 +61,15 @@ export function TableauInput(props: TableauInputProps) {
       {altMember && (
         <MemberField
           member={altMember}
+          renderInput={renderInput}
+          renderField={renderField}
+          renderItem={renderItem}
+          renderPreview={renderPreview}
+        />
+      )}
+      {borderColorMember && (
+        <MemberField
+          member={borderColorMember}
           renderInput={renderInput}
           renderField={renderField}
           renderItem={renderItem}

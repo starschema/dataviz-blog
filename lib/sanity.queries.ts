@@ -89,6 +89,7 @@ export interface Tableau {
   alt?: string
   width: number
   height: number
+  borderColor?: string
 }
 
 export interface YoutubeVideo {
