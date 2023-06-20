@@ -42,8 +42,14 @@ const vcColors = [
     name: 'vc-gray',
     title: 'Gray',
     value: '#D4D4D4',
-  }
+  },
 ]
+
+const dynamicColorClasses = ['outline', 'shadow', 'text']
+
+const safeColorClasses = dynamicColorClasses
+  .map((cls) => vcColors.map((color) => `${cls}-${color.name}`))
+  .reduce((classes, currentClass) => classes.concat(currentClass))
 
 exports.vcColors = vcColors
 
@@ -79,5 +85,6 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/typography')],
-  vcColors
+  safelist: safeColorClasses,
+  vcColors,
 }
