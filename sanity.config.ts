@@ -3,6 +3,7 @@
  */
 
 import { codeInput } from '@sanity/code-input'
+import { colorInput } from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
@@ -17,8 +18,10 @@ import {
 import { previewDocumentNode } from './plugins/previewPane'
 import { productionUrl } from './plugins/productionUrl'
 import authorType from './schemas/author'
+import colorSwatchType from './schemas/colorSwatch'
 import postType from './schemas/post'
 import tableauType from './schemas/tableau'
+import youtubeVideoType from './schemas/youtubeVideo'
 
 const title = 'Studio for The Viz Collective'
 
@@ -29,7 +32,13 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, tableauType],
+    types: [
+      authorType,
+      postType,
+      tableauType,
+      youtubeVideoType,
+      colorSwatchType,
+    ],
   },
   plugins: [
     deskTool({
@@ -48,5 +57,6 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     codeInput(),
+    colorInput(),
   ],
 })
