@@ -39,8 +39,12 @@ function validateEmbedUrl(url: string) {
   }
 }
 
+function getPrivacyFirstEmbedUrl(embedUrl: string) {
+  return embedUrl.replace('youtube.com', 'youtube-nocookie.com')
+}
+
 export default function YoutubeVideo({ src }: { src: string }) {
-  const embedUrl = validateEmbedUrl(src)
+  const embedUrl = getPrivacyFirstEmbedUrl(validateEmbedUrl(src))
 
   return (
     <iframe
