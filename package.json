@@ -31,7 +31,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "react-refractor": "^2.1.7",
-    "sanity": "^3.9.1",
+    "sanity": "^3.14.1",
     "sanity-plugin-asset-source-unsplash": "^1.0.1",
     "server-only": "^0.0.1",
     "sharp": "^0.32.1",
