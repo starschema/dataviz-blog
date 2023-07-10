@@ -5,6 +5,7 @@ import { defineField, defineType } from 'sanity'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import authorType from '@/schemas/author'
 import tableauType from '@/schemas/tableau'
+import youtubeVideType from '@/schemas/youtubeVideo'
 
 /**
  * This file is the schema definition for a post.
@@ -149,19 +150,7 @@ export default defineType({
 
         { type: 'code' },
         { type: tableauType.name },
-        defineType({
-          name: 'youtubeVideo',
-          type: 'object',
-          title: 'YouTube Video',
-          fields: [
-            defineField({
-              name: 'url',
-              title: 'URL',
-              type: 'url',
-              validation: (rule) => rule.required(),
-            }),
-          ],
-        }),
+        { type: youtubeVideType.name },
       ],
     }),
     defineField({
