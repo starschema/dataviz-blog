@@ -1,11 +1,18 @@
-import { usePreview } from 'lib/sanity.preview'
-import type { Post } from 'lib/sanity.queries'
-import { articlesQuery } from 'lib/sanity.queries'
+import { useLiveQuery } from 'next-sanity/preview'
 
-import ArticlesPage from '@/components/articles/ArticlesPage'
+import ArticlesPage, {
+  ArticlesPageProps,
+} from '@/components/articles/ArticlesPage'
+import type { Post } from '@/lib/sanity.queries'
+import { articlesQuery } from '@/lib/sanity.queries'
 
-export default function PreviewIndexPage({ token }: { token: null | string }) {
-  const articles: Post[] = usePreview(token, articlesQuery) || []
+export default function PreviewIndexPage(props: ArticlesPageProps) {
+  const [articles, loadingArticles] = useLiveQuery(
+    props.articles,
+    articlesQuery
+  )
 
-  return <ArticlesPage articles={articles} />
+  return (
+    <ArticlesPage articles={articles} draftMode loading={loadingArticles} />
+  )
 }

@@ -1,56 +1,44 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
 import { GetStaticProps } from 'next'
-import { lazy } from 'react'
 
 import IndexPage from '@/components/home/IndexPage'
-import { getIndexPosts } from '@/lib/sanity.client'
+import PreviewIndexPage from '@/components/home/PreviewIndexPage'
+import { readToken } from '@/lib/sanity.api'
+import { getClient, getIndexPosts } from '@/lib/sanity.client'
 import { IndexPosts } from '@/lib/sanity.queries'
+import type { SharedPageProps } from '@/pages/_app'
 
-const PreviewIndexPage = lazy(
-  () => import('@/components/home/PreviewIndexPage')
-)
-
-interface PageProps {
+interface PageProps extends SharedPageProps {
   indexPosts: IndexPosts
-  preview: boolean
-  token: string | null
 }
 
 interface Query {
   [key: string]: string
 }
 
-interface PreviewData {
-  token?: string
-}
-
 export default function Page(props: PageProps) {
-  const { indexPosts, preview, token } = props
-  if (preview) {
-    return (
-      <PreviewSuspense fallback={<IndexPage posts={indexPosts} />}>
-        <PreviewIndexPage token={token} />
-      </PreviewSuspense>
-    )
+  const { indexPosts, draftMode } = props
+
+  if (draftMode) {
+    return <PreviewIndexPage posts={indexPosts} />
   }
 
   return <IndexPage posts={indexPosts} />
 }
 
-export const getStaticProps: GetStaticProps<
-  PageProps,
-  Query,
-  PreviewData
-> = async (ctx) => {
-  const { preview = false, previewData = {} } = ctx
+export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
+  const { draftMode = false } = ctx
 
-  const indexPosts = await getIndexPosts()
+  const token = draftMode ? readToken : null
+  const client = getClient(draftMode ? { token } : undefined)
+
+  const indexPosts = await getIndexPosts(client)
 
   return {
     props: {
       indexPosts,
-      preview,
-      token: previewData.token ?? null,
+      draftMode,
+      token,
+      loading: false,
     },
   }
 }

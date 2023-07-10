@@ -1,4 +1,4 @@
-import { createClient } from 'next-sanity'
+import { type SanityClient, createClient } from 'next-sanity'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
 import {
@@ -13,65 +13,59 @@ import {
   postSlugsQuery,
 } from './sanity.queries'
 
-/**
- * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
- */
-const client = projectId
-  ? createClient({ projectId, dataset, apiVersion, useCdn })
-  : null
-
-export async function getIndexPosts(): Promise<IndexPosts> {
-  if (client) {
-    return await client.fetch(indexQuery)
+export function getClient(preview?: { token: string }): SanityClient {
+  const client = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn,
+    perspective: 'published',
+  })
+  if (preview) {
+    if (!preview.token) {
+      throw new Error('You must provide a token to preview drafts')
+    }
+    return client.withConfig({
+      token: preview.token,
+      useCdn: false,
+      ignoreBrowserTokenWarning: true,
+      perspective: 'previewDrafts',
+    })
   }
-  return {
-    featuredPost: null,
-    latestPosts: [],
-  }
+  return client
 }
 
-export async function getArticlesPosts(): Promise<Post[]> {
-  if (client) {
-    return await client.fetch(articlesQuery)
-  }
-  return []
+export async function getIndexPosts(client: SanityClient): Promise<IndexPosts> {
+  return await client.fetch(indexQuery)
 }
 
-export async function getAuthors(): Promise<Omit<Author, 'image'>[]> {
-  if (client) {
-    return (await client.fetch(authorsQuery)) || []
-  }
-  return []
+export async function getArticlesPosts(client: SanityClient): Promise<Post[]> {
+  return await client.fetch(articlesQuery)
 }
 
-export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
-  if (client) {
-    const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
-    return slugs.map((slug) => ({ slug }))
-  }
-  return []
+export async function getAuthors(
+  client: SanityClient
+): Promise<Omit<Author, 'image'>[]> {
+  return (await client.fetch(authorsQuery)) || []
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
-  if (client) {
-    return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
-  }
-  return {} as any
+export async function getAllPostsSlugs(
+  client: SanityClient
+): Promise<Pick<Post, 'slug'>[]> {
+  const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
+  return slugs.map((slug) => ({ slug }))
+}
+
+export async function getPostBySlug(
+  client: SanityClient,
+  slug: string
+): Promise<Post> {
+  return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
 }
 
 export async function getPostAndMoreStories(
-  slug: string,
-  token?: string | null
+  client: SanityClient,
+  slug: string
 ): Promise<{ post: Post; morePosts: Post[] }> {
-  if (projectId) {
-    const client = createClient({
-      projectId,
-      dataset,
-      apiVersion,
-      useCdn,
-      token: token || undefined,
-    })
-    return await client.fetch(postAndMoreStoriesQuery, { slug })
-  }
-  return { post: null, morePosts: [] }
+  return await client.fetch(postAndMoreStoriesQuery, { slug })
 }

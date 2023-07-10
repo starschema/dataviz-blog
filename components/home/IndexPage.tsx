@@ -7,7 +7,13 @@ import Container from '@/components/layout/BlogContainer'
 import MoreStories from '@/components/shared/MoreStories'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 
-export default function IndexPage(props: { posts: IndexPosts }) {
+export interface IndexPageProps {
+  posts: IndexPosts
+  draftMode?: boolean
+  loading?: boolean
+}
+
+export default function IndexPage(props: IndexPageProps) {
   const { posts } = props
   const { featuredPost, latestPosts } = posts
 

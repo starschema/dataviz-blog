@@ -27,6 +27,10 @@ export default function StudioPage() {
 }
 
 // disable root layout
-StudioPage.getLayout = function getLayout(page) {
-  return <>{page}</>
+StudioPage.Layout = function getLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <>{children}</>
 }
