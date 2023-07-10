@@ -1,56 +1,41 @@
-import { PreviewSuspense } from '@sanity/preview-kit'
 import { GetStaticProps } from 'next'
-import { lazy } from 'react'
 
 import PostPage from '@/components/post/PostPage'
-import { getAllPostsSlugs, getPostAndMoreStories } from '@/lib/sanity.client'
+import PreviewPostPage from '@/components/post/PreviewPostPage'
+import { readToken } from '@/lib/sanity.api'
+import {
+  getAllPostsSlugs,
+  getClient,
+  getPostAndMoreStories,
+} from '@/lib/sanity.client'
 import { Post } from '@/lib/sanity.queries'
+import type { SharedPageProps } from '@/pages/_app'
 
-const PreviewPostPage = lazy(() => import('@/components/post/PreviewPostPage'))
-
-interface PageProps {
+interface PageProps extends SharedPageProps {
   post: Post
   morePosts: Post[]
-  preview: boolean
-  token: string | null
 }
 
 interface Query {
   [key: string]: string
 }
 
-interface PreviewData {
-  token?: string
-}
-
 export default function ProjectSlugRoute(props: PageProps) {
-  const { post, morePosts, preview, token } = props
+  const { post, morePosts, draftMode } = props
 
-  if (preview) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <PostPage loading preview post={post} morePosts={morePosts} />
-        }
-      >
-        <PreviewPostPage token={token} post={post} morePosts={morePosts} />
-      </PreviewSuspense>
-    )
+  if (draftMode) {
+    return <PreviewPostPage post={post} morePosts={morePosts} />
   }
 
   return <PostPage post={post} morePosts={morePosts} />
 }
 
-export const getStaticProps: GetStaticProps<
-  PageProps,
-  Query,
-  PreviewData
-> = async (ctx) => {
-  const { preview = false, previewData = {}, params = {} } = ctx
+export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
+  const { draftMode = false, params = {} } = ctx
 
-  const token = previewData.token
-
-  const { post, morePosts } = await getPostAndMoreStories(params.slug, token)
+  const token = draftMode ? readToken : null
+  const client = getClient(draftMode ? { token } : undefined)
+  const { post, morePosts } = await getPostAndMoreStories(client, params.slug)
 
   if (!post) {
     return {
@@ -62,14 +47,16 @@ export const getStaticProps: GetStaticProps<
     props: {
       post,
       morePosts,
-      preview,
-      token: previewData.token ?? null,
+      draftMode,
+      token,
+      loading: false,
     },
   }
 }
 
 export const getStaticPaths = async () => {
-  const slugs = await getAllPostsSlugs()
+  const client = getClient()
+  const slugs = await getAllPostsSlugs(client)
 
   return {
     paths: slugs?.map(({ slug }) => `/posts/${slug}`) || [],

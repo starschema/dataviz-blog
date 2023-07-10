@@ -1,5 +1,5 @@
 import { DOMAIN_NAME } from '@/lib/constants'
-import { getAllPostsSlugs } from '@/lib/sanity.client'
+import { getAllPostsSlugs, getClient } from '@/lib/sanity.client'
 
 const standardPages = ['/about', '/articles', '/']
 const postsBasePath = '/posts'
@@ -19,8 +19,8 @@ export async function getServerSideProps({ res }) {
       </url>
     `
   })
-
-  const slugs = await getAllPostsSlugs()
+  const client = getClient()
+  const slugs = await getAllPostsSlugs(client)
   const postsUrls = slugs.map((slug) => {
     const url = `https://${DOMAIN_NAME}${postsBasePath}/${slug.slug}`
     return `

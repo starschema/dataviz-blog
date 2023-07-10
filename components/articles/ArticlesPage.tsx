@@ -3,11 +3,13 @@ import Container from '@/components/layout/BlogContainer'
 import PostPreview from '@/components/shared/PostPreview'
 import { Post } from '@/lib/sanity.queries'
 
-interface Props {
+export interface ArticlesPageProps {
   articles: Post[]
+  draftMode?: boolean
+  loading?: boolean
 }
 
-export default function ArticlesPage(props: Props) {
+export default function ArticlesPage(props: ArticlesPageProps) {
   const { articles } = props
 
   return (

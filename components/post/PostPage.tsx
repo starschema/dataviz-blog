@@ -11,7 +11,7 @@ import SectionSeparator from '@/components/shared/SectionSeparator'
 import type { Post } from '@/lib/sanity.queries'
 
 export interface PostPageProps {
-  preview?: boolean
+  draftMode?: boolean
   loading?: boolean
   post: Post
   morePosts: Post[]
@@ -20,11 +20,11 @@ export interface PostPageProps {
 const NO_POSTS: Post[] = []
 
 export default function PostPage(props: PostPageProps) {
-  const { preview, loading, morePosts = NO_POSTS, post } = props
+  const { draftMode, loading, morePosts = NO_POSTS, post } = props
 
   const slug = post?.slug
 
-  if (!slug && !preview) {
+  if (!slug && !draftMode) {
     notFound()
   }
 
@@ -46,11 +46,10 @@ export default function PostPage(props: PostPageProps) {
         excerpt={post.excerpt}
       />
       <Container>
-        {preview && !post ? (
+        {draftMode && !post ? (
           <p>Loading…</p>
         ) : (
           <>
-            {/* <ScrollNavigation headings={headings} /> */}
             <article>
               <PostHeader
                 title={post.title}

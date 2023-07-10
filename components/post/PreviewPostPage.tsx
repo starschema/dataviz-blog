@@ -1,17 +1,27 @@
+import { useLiveQuery } from 'next-sanity/preview'
+
 import PostPage, { PostPageProps } from '@/components/post/PostPage'
-import { usePreview } from '@/lib/sanity.preview'
-import { type Post, postAndMoreStoriesQuery } from '@/lib/sanity.queries'
+import { postAndMoreStoriesQuery } from '@/lib/sanity.queries'
 
-export default function PreviewPostPage({
-  token,
-  post,
-}: {
-  token: null | string
-} & PostPageProps) {
-  const { post: postPreview, morePosts }: { post: Post; morePosts: Post[] } =
-    usePreview(token, postAndMoreStoriesQuery, {
-      slug: post.slug,
-    }) || { post: null, morePosts: [] }
+export default function PreviewPostPage(props: PostPageProps) {
+  const initialData = {
+    post: props.post,
+    morePosts: props.morePosts,
+  }
+  const [{ post, morePosts }, loadingPost] = useLiveQuery(
+    initialData,
+    postAndMoreStoriesQuery,
+    {
+      slug: props.post.slug,
+    }
+  )
 
-  return <PostPage preview post={postPreview} morePosts={morePosts} />
+  return (
+    <PostPage
+      draftMode
+      loading={loadingPost}
+      post={post}
+      morePosts={morePosts}
+    />
+  )
 }

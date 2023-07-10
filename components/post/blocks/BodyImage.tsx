@@ -14,7 +14,7 @@ export default function BodyImage(props) {
     '(min-width: 1024px) 768x',
     '(min-width: 640px) 640px',
     '(min-width: 375px) 375px',
-    '100vw'
+    '100vw',
   ]
 
   return (

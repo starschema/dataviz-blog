@@ -25,21 +25,23 @@ export default function CoverImage(props: CoverImageProps) {
     '(min-width: 768px) 768px',
     '(min-width: 640px) 640px',
     '(min-width: 375px) 375px',
-    '100vw'
+    '100vw',
   ]
 
-  return <div className='w-full'>
-    <div style={{aspectRatio}} className='relative sm:relative'>
-      <Image
-        src={imageUrl}
-        alt={source.alt ?? ''}
-        style={{objectFit: 'contain', margin:'0 auto'}}
-        sizes={sizes.join(', ')}
-        priority
-        fill
+  return (
+    <div className="w-full">
+      <div style={{ aspectRatio }} className="relative sm:relative">
+        <Image
+          src={imageUrl}
+          alt={source.alt ?? ''}
+          style={{ objectFit: 'contain', margin: '0 auto' }}
+          sizes={sizes.join(', ')}
+          priority
+          fill
         />
+      </div>
     </div>
-  </div>
+  )
 }
 
 // "http://localhost:3000/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fgj1oqiyh%2Fproduction%2Fd4d08ec408bd66f47d94912c8f4a5c6d1c0bfae2-4138x2100.png%3Ffit%3Dmax%26auto%3Dformat&w=1080&q=75"
