@@ -1,5 +1,6 @@
+import { ColorValue } from '@sanity/color-input'
 import { groq } from 'next-sanity'
-import { BlockSchemaType, PortableTextBlock, TypedObject } from 'sanity'
+import { PortableTextBlock } from 'sanity'
 
 const postPreviewFields = groq`
   _id,
@@ -94,6 +95,11 @@ export interface Tableau {
 
 export interface YoutubeVideo {
   url?: string
+}
+
+export interface ColorSwatch {
+  name?: string
+  color: ColorValue
 }
 
 export interface Post {
