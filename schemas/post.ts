@@ -4,8 +4,9 @@ import { defineField, defineType } from 'sanity'
 
 import PullQuote from '@/components/post/blocks/PullQuote'
 import authorType from '@/schemas/author'
+import colorSwatchType from '@/schemas/colorSwatch'
 import tableauType from '@/schemas/tableau'
-import youtubeVideType from '@/schemas/youtubeVideo'
+import youtubeVideoType from '@/schemas/youtubeVideo'
 
 /**
  * This file is the schema definition for a post.
@@ -150,7 +151,8 @@ export default defineType({
 
         { type: 'code' },
         { type: tableauType.name },
-        { type: youtubeVideType.name },
+        { type: youtubeVideoType.name },
+        { type: colorSwatchType.name },
       ],
     }),
     defineField({
