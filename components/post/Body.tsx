@@ -11,6 +11,7 @@ import { PortableText } from '@portabletext/react'
 
 import BodyImage from '@/components/post/blocks/BodyImage'
 import Code from '@/components/post/blocks/Code'
+import ColorSwatch from '@/components/post/blocks/ColorSwatch'
 import Heading from '@/components/post/blocks/Heading'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
@@ -23,6 +24,7 @@ const myPortableTextComponents = {
     image: BodyImage,
     tableau: TableauBlock,
     youtubeVideo: YoutubeVideoBlock,
+    colorSwatch: ColorSwatch,
   },
   block: {
     h1: Heading,
@@ -41,7 +43,7 @@ interface Props {
 
 export default function PostBody(props: Props) {
   return (
-    <div className="prose prose-xl prose-neutral mx-auto max-w-3xl mb-8">
+    <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-3xl">
       <PortableText
         value={props.content}
         // @ts-expect-error PullQuote typing is difficult
