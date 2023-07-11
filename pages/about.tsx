@@ -6,7 +6,7 @@ import Container from '@/components/layout/BlogContainer'
 import AuthorBio from '@/components/shared/AuthorBio'
 import SectionSeparator from '@/components/shared/SectionSeparator'
 import { useIsMobile } from '@/lib/hooks'
-import { getAuthors } from '@/lib/sanity.client'
+import { getAuthors, getClient } from '@/lib/sanity.client'
 import { Author } from '@/lib/sanity.queries'
 import AdaptabilityIcon from '@/public/images/decoration/adaptability-icon.svg'
 import ArtisticApproachIcon from '@/public/images/decoration/artistic-approach-icon.svg'
@@ -155,7 +155,8 @@ export default function About(props: PageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const authors = await getAuthors()
+  const client = getClient()
+  const authors = await getAuthors(client)
   return {
     props: {
       authors,
