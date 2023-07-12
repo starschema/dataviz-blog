@@ -1,10 +1,11 @@
 import { Post } from '@/lib/sanity.queries'
 
 interface Props {
-  authors: Post['authors'][]
+  authors: Post['authors']
   className?: string
 }
-export default function AuthorMeta(props) {
+export default function AuthorMeta(props: Props) {
+  if (!props.authors) return null
   const authorNames = props.authors.map((author) => author.name).join(', ')
 
   return (
