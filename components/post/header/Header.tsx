@@ -32,7 +32,6 @@ export default function PostHeader(
       className={`items-middle mx-auto max-w-4xl md:mb-10 md:gap-5 ${parentLayout}`}
       style={{
         gridTemplateAreas: gridTemplateAreas,
-        gridTemplateRows: 'auto 1fr 1fr',
       }}
     >
       <PostTitle>{title}</PostTitle>
