@@ -14,7 +14,7 @@ export default function DestkopBlogHeader() {
   // this is only ever shown on md screens and up
 
   return (
-    <header className="top-0 mb-px flex h-20 flex-row items-center bg-white px-8 outline outline-neutral-300 xl:h-24">
+    <header className="hidden md:flex top-0 mb-px h-20 flex-row items-center bg-white px-8 outline outline-neutral-300 xl:h-24">
       <BlogTitle />
       <DesktopNav />
       <DesktopSocials />

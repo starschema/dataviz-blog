@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useLockedBody } from 'usehooks-ts'
 
 import BlogTitle from '@/components/layout/BlogTitle'
@@ -35,7 +35,7 @@ export default function BlogHeader() {
 
   return (
     <>
-      <header className="top-0 border-b border-neutral-600 bg-white px-4 ">
+      <header className="top-0 border-b border-neutral-600 bg-white px-4 md:hidden">
         <div
           className="grid grid-cols-[48px_1fr_48px] items-center justify-center "
           style={{ height: headerHeight }}
