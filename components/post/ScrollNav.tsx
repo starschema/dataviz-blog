@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import { useIsMobile } from '@/lib/hooks'
 
 interface Props {
   headings: Array<{
@@ -12,7 +11,6 @@ interface Props {
 
 export default function ScrollNavigation(props: Props) {
   const [activeHeading, setActiveHeading] = useState(null)
-  const isMobile = useIsMobile()
 
   useEffect(() => {
     const headingIds = props.headings.map((heading) => heading.id)
@@ -39,8 +37,6 @@ export default function ScrollNavigation(props: Props) {
     }
   }, [props.headings])
 
-  if (isMobile) return null
-
   const navItems = []
 
   // loop through headings and create nav items
@@ -56,7 +52,7 @@ export default function ScrollNavigation(props: Props) {
   })
 
   return (
-    <nav className="fixed top-64 right-10 inline-block ">
+    <nav className="hidden fixed top-64 right-10 md:inline-block ">
       <ol>{navItems}</ol>
     </nav>
   )
