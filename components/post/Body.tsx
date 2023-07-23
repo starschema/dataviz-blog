@@ -16,6 +16,7 @@ import Heading from '@/components/post/blocks/Heading'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
 import YoutubeVideoBlock from '@/components/post/blocks/YoutubeVideoBlock'
+import ScrollNavigation from '@/components/post/ScrollNav'
 import type { Post } from '@/lib/sanity.queries'
 
 const myPortableTextComponents = {
@@ -43,12 +44,15 @@ interface Props {
 
 export default function PostBody(props: Props) {
   return (
-    <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose">
-      <PortableText
-        value={props.content}
-        // @ts-expect-error PullQuote typing is difficult
-        components={myPortableTextComponents}
-      />
+    <div className="grid grid-flow-col">
+      <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose">
+        <PortableText
+          value={props.content}
+          // @ts-expect-error PullQuote typing is difficult
+          components={myPortableTextComponents}
+        />
+      </div>
+      <ScrollNavigation content={props.content} />
     </div>
   )
 }
