@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import slugify from 'slugify'
 
 import Container from '@/components/layout/BlogContainer'
 import AuthorBioBox from '@/components/post/AuthorBioBox'
@@ -27,16 +26,6 @@ export default function PostPage(props: PostPageProps) {
   if (!slug && !draftMode) {
     notFound()
   }
-
-  const headings = post?.content
-    .filter((block) =>
-      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(block.style as string)
-    )
-    .map((block) => ({
-      id: slugify(block.children[0].text),
-      text: block.children[0].text,
-      level: block.style.toString(),
-    }))
 
   return (
     <>

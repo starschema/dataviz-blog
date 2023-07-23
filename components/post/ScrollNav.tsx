@@ -1,19 +1,28 @@
-import { useEffect, useState } from 'react'
-
+import { useEffect, useMemo, useState } from 'react'
+import { PortableTextBlock } from 'sanity'
+import slugify from 'slugify'
 
 interface Props {
-  headings: Array<{
-    id: string
-    text: string
-    level: string
-  }>
+  content?: PortableTextBlock[]
 }
 
-export default function ScrollNavigation(props: Props) {
+export default function ScrollNavigation({ content }: Props) {
   const [activeHeading, setActiveHeading] = useState(null)
 
+  const headings = useMemo(() => {
+    return content
+      ?.filter((block) =>
+        ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(block.style as string)
+      )
+      .map((block) => ({
+        id: slugify(block.children[0].text),
+        text: block.children[0].text,
+        level: block.style.toString(),
+      }))
+  }, [content])
+
   useEffect(() => {
-    const headingIds = props.headings.map((heading) => heading.id)
+    const headingIds = headings.map((heading) => heading.id)
     const docHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,7 +34,7 @@ export default function ScrollNavigation(props: Props) {
           setActiveHeading(targetId)
         })
       },
-      { rootMargin: '0px 0px -50% 0px' }
+      { rootMargin: '0px 0px -75% 0px' }
     )
 
     docHeadings.forEach((heading) => {
@@ -35,25 +44,36 @@ export default function ScrollNavigation(props: Props) {
     return () => {
       observer.disconnect()
     }
-  }, [props.headings])
+  }, [headings])
 
-  const navItems = []
+  if (isMobile) return null
+  if (headings.length <= 1) return null
 
-  // loop through headings and create nav items
-  props.headings?.forEach((heading) => {
-    navItems.push(
+  const navItems = headings.map((heading) => {
+    const indent = parseInt(heading.level.slice(1)) - 1
+    return (
       <li
         key={heading.id}
-        className={`${heading.id === activeHeading ? 'font-medium' : ''}`}
+        className={`${
+          heading.id === activeHeading ? 'font-medium' : ''
+        } whitespace-pre-wrap leading-snug`}
+        style={{ marginLeft: `${indent * 8}px` }}
       >
-        <a href={`#${heading.id}`}>{heading.text}</a>
+        <a
+          className="block overflow-hidden text-ellipsis"
+          href={`#${heading.id}`}
+        >
+          {heading.text}
+        </a>
       </li>
     )
   })
 
   return (
-    <nav className="hidden fixed top-64 right-10 md:inline-block ">
-      <ol>{navItems}</ol>
-    </nav>
+    <div className="hidden h-full md:block">
+      <nav className="sticky top-12 bottom-12 max-w-xs ">
+        <ol className="space-y-4">{navItems}</ol>
+      </nav>
+    </div>
   )
 }
