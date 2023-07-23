@@ -43,7 +43,7 @@ interface Props {
 
 export default function PostBody(props: Props) {
   return (
-    <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-3xl">
+    <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose">
       <PortableText
         value={props.content}
         // @ts-expect-error PullQuote typing is difficult
