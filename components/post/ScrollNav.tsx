@@ -46,7 +46,6 @@ export default function ScrollNavigation({ content }: Props) {
     }
   }, [headings])
 
-  if (isMobile) return null
   if (headings.length <= 1) return null
 
   const navItems = headings.map((heading) => {
