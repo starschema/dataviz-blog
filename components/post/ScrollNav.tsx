@@ -51,13 +51,16 @@ export default function ScrollNavigation({ content }: Props) {
 
   const navItems = headings.map((heading) => {
     const indent = parseInt(heading.level.slice(1)) - 1
+    const isActive = heading.id === activeHeading
     return (
       <li
         key={heading.id}
         className={`${
-          heading.id === activeHeading ? 'font-medium' : ''
-        } whitespace-pre-wrap leading-snug`}
-        style={{ marginLeft: `${indent * 8}px` }}
+          isActive
+            ? 'border-l-[3px] border-black font-medium -tracking-[0.0125em]'
+            : 'ml-[1px] border-l-[1px] border-gray-300'
+        } whitespace-pre-wrap py-2 leading-snug transition-colors duration-300 ease-in-out`}
+        style={{ paddingLeft: `${4 + indent * 8 - (isActive ? 1 : 0)}px` }}
       >
         <a
           className="block overflow-hidden text-ellipsis"
@@ -70,9 +73,9 @@ export default function ScrollNavigation({ content }: Props) {
   })
 
   return (
-    <div className="hidden h-full md:block">
-      <nav className="sticky top-12 bottom-12 max-w-xs ">
-        <ol className="space-y-4">{navItems}</ol>
+    <div className="ml-12 hidden h-full pb-12 lg:block">
+      <nav className="sticky left-0 top-12 bottom-0 max-w-xs">
+        <ol>{navItems}</ol>
       </nav>
     </div>
   )

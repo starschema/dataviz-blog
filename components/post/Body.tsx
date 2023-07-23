@@ -45,7 +45,7 @@ interface Props {
 export default function PostBody(props: Props) {
   return (
     <div className="grid grid-flow-col">
-      <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose">
+      <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose 2xl:mr-12">
         <PortableText
           value={props.content}
           // @ts-expect-error PullQuote typing is difficult
