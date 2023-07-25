@@ -4,6 +4,7 @@ import { defineField, defineType } from 'sanity'
 
 import PullQuote from '@/components/post/blocks/PullQuote'
 import authorType from '@/schemas/author'
+import breakType from '@/schemas/break'
 import colorSwatchType from '@/schemas/colorSwatch'
 import tableauType from '@/schemas/tableau'
 import youtubeVideoType from '@/schemas/youtubeVideo'
@@ -153,6 +154,7 @@ export default defineType({
         { type: tableauType.name },
         { type: youtubeVideoType.name },
         { type: colorSwatchType.name },
+        { type: breakType.name },
       ],
     }),
     defineField({
