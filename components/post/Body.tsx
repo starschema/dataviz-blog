@@ -52,6 +52,7 @@ interface Props {
 export default function PostBody(props: Props) {
   return (
     <div className="grid grid-flow-col">
+      {/* FIXME margin should only apply if the scrollnav is not empty */}
       <div className="prose prose-xl prose-neutral mx-auto mb-8 max-w-prose 2xl:mr-12">
         <PortableText
           value={props.content}
