@@ -22,6 +22,7 @@
       "@/plugins/*": ["plugins/*"],
       "@/schemas/*": ["schemas/*"],
       "@/pages/*": ["pages/*"],
+      "@/styles/*": ["styles/*"],
     },
     "plugins": [
       {
