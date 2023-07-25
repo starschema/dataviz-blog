@@ -102,6 +102,10 @@ export interface ColorSwatch {
   color: ColorValue
 }
 
+export interface Break {
+  type: string
+}
+
 export interface Post {
   _id: string
   title?: string

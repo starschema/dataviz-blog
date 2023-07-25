@@ -10,6 +10,7 @@
 import { PortableText } from '@portabletext/react'
 
 import BodyImage from '@/components/post/blocks/BodyImage'
+import Break from '@/components/post/blocks/Break'
 import Code from '@/components/post/blocks/Code'
 import ColorSwatch from '@/components/post/blocks/ColorSwatch'
 import Heading from '@/components/post/blocks/Heading'
@@ -26,6 +27,7 @@ const myPortableTextComponents = {
     tableau: TableauBlock,
     youtubeVideo: YoutubeVideoBlock,
     colorSwatch: ColorSwatch,
+    break: Break,
   },
   block: {
     h1: Heading,
