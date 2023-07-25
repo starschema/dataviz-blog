@@ -13,6 +13,7 @@ import BodyImage from '@/components/post/blocks/BodyImage'
 import Break from '@/components/post/blocks/Break'
 import Code from '@/components/post/blocks/Code'
 import ColorSwatch from '@/components/post/blocks/ColorSwatch'
+import DangerousHTML from '@/components/post/blocks/DangerousHTML'
 import Heading from '@/components/post/blocks/Heading'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
@@ -27,6 +28,8 @@ const myPortableTextComponents = {
     tableau: TableauBlock,
     youtubeVideo: YoutubeVideoBlock,
     colorSwatch: ColorSwatch,
+    inlineHtml: DangerousHTML,
+    blockHtml: DangerousHTML,
     break: Break,
   },
   block: {
@@ -37,7 +40,6 @@ const myPortableTextComponents = {
     h5: Heading,
     h6: Heading,
     pullquote: PullQuote,
-    colorSwatch: ColorSwatch,
   },
 }
 

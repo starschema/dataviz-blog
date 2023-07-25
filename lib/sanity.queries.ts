@@ -106,6 +106,10 @@ export interface Break {
   type: string
 }
 
+export interface DangerousHTML {
+  html?: string
+}
+
 export interface Post {
   _id: string
   title?: string

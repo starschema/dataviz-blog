@@ -6,6 +6,7 @@ import PullQuote from '@/components/post/blocks/PullQuote'
 import authorType from '@/schemas/author'
 import breakType from '@/schemas/break'
 import colorSwatchType from '@/schemas/colorSwatch'
+import dangerousHtmlType from '@/schemas/dangerousHtml'
 import tableauType from '@/schemas/tableau'
 import youtubeVideoType from '@/schemas/youtubeVideo'
 
@@ -124,7 +125,14 @@ export default defineType({
             { title: 'Quote', value: 'blockquote' },
             { title: 'Pull Quote', value: 'pullquote', component: PullQuote },
           ],
-          of: [{ type: colorSwatchType.name }],
+          of: [
+            { type: colorSwatchType.name },
+            defineType({
+              name: 'inlineHtml',
+              title: 'Dangerous HTML (Inline)',
+              type: dangerousHtmlType.name,
+            }),
+          ],
         },
         {
           type: 'image',
@@ -154,8 +162,12 @@ export default defineType({
         { type: 'code' },
         { type: tableauType.name },
         { type: youtubeVideoType.name },
-        // { type: colorSwatchType.name },
         { type: breakType.name },
+        defineType({
+          name: 'blockHtml',
+          title: 'Dangerous HTML (Block)',
+          type: dangerousHtmlType.name,
+        }),
       ],
     }),
     defineField({

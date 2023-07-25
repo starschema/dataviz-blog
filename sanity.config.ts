@@ -20,6 +20,7 @@ import { productionUrl } from './plugins/productionUrl'
 import authorType from './schemas/author'
 import breakType from './schemas/break'
 import colorSwatchType from './schemas/colorSwatch'
+import dangerousHtmlType from './schemas/dangerousHtml'
 import postType from './schemas/post'
 import tableauType from './schemas/tableau'
 import youtubeVideoType from './schemas/youtubeVideo'
@@ -40,6 +41,7 @@ export default defineConfig({
       youtubeVideoType,
       colorSwatchType,
       breakType,
+      dangerousHtmlType,
     ],
   },
   plugins: [
