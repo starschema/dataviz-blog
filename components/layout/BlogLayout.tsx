@@ -17,7 +17,8 @@ export default function BlogLayout({
       <BlogHeader />
       <AlertBanner draftMode={draftMode} loading={loading} />
       <main>{children}</main>
-      <Footer />
+      {/* FIXME there is a conflict between our footer and the sanity draft mode?? */}
+      {!draftMode && <Footer />}
     </>
   )
 }
