@@ -7,6 +7,7 @@ import authorType from '@/schemas/author'
 import breakType from '@/schemas/break'
 import colorSwatchType from '@/schemas/colorSwatch'
 import dangerousHtmlType from '@/schemas/dangerousHtml'
+import iframeType from '@/schemas/iframe'
 import tableauType from '@/schemas/tableau'
 import youtubeVideoType from '@/schemas/youtubeVideo'
 
@@ -168,6 +169,7 @@ export default defineType({
           title: 'Dangerous HTML (Block)',
           type: dangerousHtmlType.name,
         }),
+        { type: iframeType.name },
       ],
     }),
     defineField({

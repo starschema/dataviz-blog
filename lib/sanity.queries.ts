@@ -110,6 +110,11 @@ export interface DangerousHTML {
   html?: string
 }
 
+export interface Iframe {
+  src?: string
+  aspectRatio?: number
+}
+
 export interface Post {
   _id: string
   title?: string

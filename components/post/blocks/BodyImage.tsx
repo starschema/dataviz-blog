@@ -10,6 +10,7 @@ export default function BodyImage(props) {
   const dimensions = calculateSanityImageDimensions(imageUrl)
   const aspectRatio = dimensions.width / dimensions.height
 
+  // TODO check why we are not using this
   const sizes = [
     '(min-width: 1024px) 768x',
     '(min-width: 640px) 640px',
