@@ -25,12 +25,12 @@ export default function ColorSwatch(
   return (
     <span className="relative">
       <button
-        className="inline-block h-4 w-4 cursor-pointer rounded-md"
+        className="relative top-px mx-1 inline-block h-[calc(1em*0.8)] w-[calc(1em*0.8)] cursor-pointer rounded-sm"
         style={{ backgroundColor: hex }}
         aria-label="Copy color hex to clipboard"
         onClick={copyToClipboard}
       ></button>
-      <span> {name}</span>
+      <span>{name}</span>
       <AnimatePresence>
         {showTooltip && (
           <motion.span
