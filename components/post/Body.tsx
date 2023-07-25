@@ -15,6 +15,7 @@ import Code from '@/components/post/blocks/Code'
 import ColorSwatch from '@/components/post/blocks/ColorSwatch'
 import DangerousHTML from '@/components/post/blocks/DangerousHTML'
 import Heading from '@/components/post/blocks/Heading'
+import Iframe from '@/components/post/blocks/Iframe'
 import PullQuote from '@/components/post/blocks/PullQuote'
 import TableauBlock from '@/components/post/blocks/TableauBlock'
 import YoutubeVideoBlock from '@/components/post/blocks/YoutubeVideoBlock'
@@ -31,6 +32,7 @@ const myPortableTextComponents = {
     inlineHtml: DangerousHTML,
     blockHtml: DangerousHTML,
     break: Break,
+    iframe: Iframe,
   },
   block: {
     h1: Heading,

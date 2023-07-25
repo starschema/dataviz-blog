@@ -21,6 +21,7 @@ import authorType from './schemas/author'
 import breakType from './schemas/break'
 import colorSwatchType from './schemas/colorSwatch'
 import dangerousHtmlType from './schemas/dangerousHtml'
+import iframeType from './schemas/iframe'
 import postType from './schemas/post'
 import tableauType from './schemas/tableau'
 import youtubeVideoType from './schemas/youtubeVideo'
@@ -42,6 +43,7 @@ export default defineConfig({
       colorSwatchType,
       breakType,
       dangerousHtmlType,
+      iframeType,
     ],
   },
   plugins: [
