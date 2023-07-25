@@ -37,6 +37,7 @@ const myPortableTextComponents = {
     h5: Heading,
     h6: Heading,
     pullquote: PullQuote,
+    colorSwatch: ColorSwatch,
   },
 }
 

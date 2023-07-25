@@ -124,6 +124,7 @@ export default defineType({
             { title: 'Quote', value: 'blockquote' },
             { title: 'Pull Quote', value: 'pullquote', component: PullQuote },
           ],
+          of: [{ type: colorSwatchType.name }],
         },
         {
           type: 'image',
@@ -153,7 +154,7 @@ export default defineType({
         { type: 'code' },
         { type: tableauType.name },
         { type: youtubeVideoType.name },
-        { type: colorSwatchType.name },
+        // { type: colorSwatchType.name },
         { type: breakType.name },
       ],
     }),
