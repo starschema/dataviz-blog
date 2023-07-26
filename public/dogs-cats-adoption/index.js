@@ -138,6 +138,9 @@ const monthNames = [
           alignTicks: true,
           animation: true,
           parallelAxes: { alignTicks: true },
+          zooming: {
+            mouseWheel: { enabled: false },
+          },
           description:
             'This chart displays how the cat and dog adoption changed over 2022 in Austin Animal Center.',
         },
@@ -379,13 +382,67 @@ const monthNames = [
         ],
         annotations: [
           {
+            draggable: false,
             labels: [
               {
-                point: { x: 0, y: 0 },
-                text: 'x: {point.plotX} px<br/>y: {point.plotY} px',
+                point: { x: 4, xAxis: 0, y: 225, yAxis: 0 },
+                text: 'Cat adoptions exceeded<br/>the adoption of dogs in May',
+                x: -80,
+                y: -120,
+              },
+              {
+                point: { x: 7, xAxis: 0, y: 410, yAxis: 0 },
+                text: 'The adoption of cats<br/>reached its peak in August<br/>with <b>411</b> adoptions',
+                x: 120,
+                y: -32,
               },
             ],
-            labelOptions: { x: 40, y: -10 },
+            labelOptions: {
+              shape: 'rect',
+              backgroundColor: 'rgba(255,255,255,0.75)',
+              borderWidth: 2,
+              borderColor: '#dadada',
+              padding: 8,
+              style: {
+                color: '#0a0a0a',
+                fontSize: '12px',
+                fontFamily:
+                  '"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif',
+              },
+            },
+          },
+          {
+            draggable: false,
+            labels: [
+              {
+                point: { x: 11, xAxis: 0, y: 280, yAxis: 0 },
+                text: 'Dogs',
+                x: 120,
+                y: -4,
+                style: {
+                  color: '#c676bd',
+                },
+              },
+              {
+                point: { x: 11, xAxis: 0, y: 274, yAxis: 0 },
+                text: 'Cats',
+                x: 120,
+                y: 28,
+                style: {
+                  color: '#f29c4d',
+                },
+              },
+            ],
+            labelOptions: {
+              shape: 'rect',
+              distance: 0,
+              backgroundColor: 'transparent',
+              borderColor: 'transparent',
+              style: {
+                fontWeight: '700',
+                fontSize: '14px',
+              },
+            },
           },
         ],
         pane: { background: [] },
@@ -398,7 +455,7 @@ const monthNames = [
               style: {
                 fontFamily:
                   '"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif',
-                color: '#666666',
+                color: '#333333',
                 fontSize: '18px',
                 fontWeight: 'normal',
                 fontStyle: 'normal',
@@ -407,6 +464,12 @@ const monthNames = [
             categories: monthNames,
             reversed: false,
             opposite: false,
+            lineColor: '#666666',
+            labels: {
+              style: {
+                color: '#666666',
+              },
+            },
             description: 'Month of the selected year (2022)',
           },
         ],
@@ -418,11 +481,16 @@ const monthNames = [
             className: 'sdsd',
             reversed: false,
             description: 'Number of adoption in unit',
-            labels: { enabled: true },
+            labels: {
+              style: {
+                color: '#666666',
+              },
+            },
           },
         ],
         labels: { items: [{}] },
-        legend: { layout: 'horizontal', align: 'center', enabled: true },
+        // legend: { layout: 'proximate', align: 'right', enabled: true },
+        legend: { enabled: false },
       }
       /*
 // Sample of extending options:
