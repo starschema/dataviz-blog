@@ -72,7 +72,7 @@ export default function ScrollNavigation({ content }: Props) {
   })
 
   return (
-    <div className="ml-12 hidden h-full lg:block">
+    <div className="ml-12 hidden h-full xl:block">
       <nav className="no-scrollbar sticky left-0 top-0 bottom-0 max-h-screen max-w-xs overflow-y-scroll py-12">
         <ol>{navItems}</ol>
       </nav>
