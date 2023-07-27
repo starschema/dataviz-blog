@@ -55,6 +55,8 @@ const config = withPlausibleProxy()({
   output: 'standalone',
   images: {
     remotePatterns: imageSrcDomains.map((domain) => ({ hostname: domain })),
+    deviceSizes: [320, 375, 640, 768, 1024, 1280, 1536],
+    imageSizes: [343, 608],
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors

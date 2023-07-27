@@ -12,9 +12,9 @@ export default function BodyImage(props) {
 
   // TODO check why we are not using this
   const sizes = [
-    '(min-width: 1024px) 768x',
-    '(min-width: 640px) 640px',
-    '(min-width: 375px) 375px',
+    '(min-width: 768px) 768px',
+    '(min-width: 640px) 608px',
+    '(min-width: 375px) 343px',
     '100vw',
   ]
 
@@ -25,7 +25,8 @@ export default function BodyImage(props) {
           src={imageUrl}
           alt={imageData.alt}
           style={{ objectFit: 'contain', margin: '0 auto' }}
-          sizes="(min-width: 320px) 100vw, 100vw"
+          sizes={sizes.join(', ')}
+          quality={100}
           fill
         />
       </div>
