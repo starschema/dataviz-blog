@@ -102,6 +102,13 @@ export interface ColorSwatch {
   color: ColorValue
 }
 
+export interface Tabs {
+  tabs?: {
+    title?: string
+    content?: PortableTextBlock[]
+  }[]
+}
+
 export interface Break {
   type: string
 }

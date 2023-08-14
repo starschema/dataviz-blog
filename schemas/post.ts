@@ -4,6 +4,7 @@ import { defineField, defineType } from 'sanity'
 
 import authorType from '@/schemas/author'
 import contentBlockArray from '@/schemas/contentBlock'
+import tabsType from '@/schemas/tabs'
 
 /**
  * This file is the schema definition for a post.
@@ -106,7 +107,7 @@ export default defineType({
       title: 'Content',
       type: 'array',
       description: 'Add and edit blocks to create the content for your post.',
-      of: contentBlockArray,
+      of: [...contentBlockArray, { type: tabsType.name }],
     }),
     defineField({
       name: 'date',

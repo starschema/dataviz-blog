@@ -24,6 +24,7 @@ import dangerousHtmlType from './schemas/dangerousHtml'
 import iframeType from './schemas/iframe'
 import postType from './schemas/post'
 import tableauType from './schemas/tableau'
+import tabsType from './schemas/tabs'
 import youtubeVideoType from './schemas/youtubeVideo'
 
 const title = 'Studio for The Viz Collective'
@@ -44,6 +45,7 @@ export default defineConfig({
       breakType,
       dangerousHtmlType,
       iframeType,
+      tabsType,
     ],
   },
   plugins: [
