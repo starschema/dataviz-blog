@@ -3,6 +3,7 @@ import {
   PortableText,
   PortableTextTypeComponentProps,
 } from '@portabletext/react'
+import { vcColors } from 'tailwind.config'
 
 import type { Tabs as TabsType } from '@/lib/sanity.queries'
 
@@ -19,20 +20,23 @@ export default function Tabs(props: Props) {
 
   return (
     <Tab.Group>
-      <Tab.List className="relative border-b-4 border-vc-lightblue">
+      <Tab.List className="-mb-0">
         {tabs.map((tab, index) => (
           <Tab
             key={index}
-            className={`relative rounded-t-md border-neutral-200 bg-neutral-200 px-2 py-1 aria-selected:-mb-2 aria-selected:border-4 aria-selected:border-vc-lightblue aria-selected:border-b-white aria-selected:bg-white`}
+            className={`relative -mr-0.5 px-4 py-2 bg-${vcColors[index].name} border-x-2 border-t-2 border-black bg-opacity-20 tracking-normal aria-selected:bg-opacity-50 aria-selected:font-bold aria-selected:tracking-tight`}
           >
             {tab.title}
           </Tab>
         ))}
       </Tab.List>
-      <Tab.Panels className="rounded-b-md border-x-4 border-b-4 border-vc-lightblue p-2">
+      <Tab.Panels className="">
         {tabs.map((tab, index) => {
           return (
-            <Tab.Panel key={index}>
+            <Tab.Panel
+              key={index}
+              className={`bg-${vcColors[index].name} border-2 border-black bg-opacity-20 px-6 py-2`}
+            >
               <PortableText
                 value={tab.content}
                 // @ts-expect-error PullQuote typing is difficult

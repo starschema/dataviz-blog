@@ -45,7 +45,7 @@ const vcColors = [
   },
 ]
 
-const dynamicColorClasses = ['outline', 'shadow', 'text']
+const dynamicColorClasses = ['outline', 'shadow', 'text', 'bg']
 
 const safeColorClasses = dynamicColorClasses
   .map((cls) => vcColors.map((color) => `${cls}-${color.name}`))
