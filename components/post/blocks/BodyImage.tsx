@@ -5,7 +5,15 @@ import { urlForImage } from '@/lib/sanity.image'
 
 export default function BodyImage(props) {
   const imageData = props.value
-  const imageUrl = urlForImage(imageData).url()
+  let imageUrl
+  try {
+    imageUrl = urlForImage(imageData).url()
+  } catch (error) {
+    console.error('Failed to generate image URL for Sanity image')
+    console.log(imageData)
+    console.error(error)
+    return null
+  }
 
   const dimensions = calculateSanityImageDimensions(imageUrl)
   const aspectRatio = dimensions.width / dimensions.height
