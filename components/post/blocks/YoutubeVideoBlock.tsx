@@ -10,5 +10,9 @@ interface YoutubeVideoValue extends YoutubeVideoType {
 export default function YoutubeVideoBlock(
   props: PortableTextTypeComponentProps<YoutubeVideoValue>
 ) {
-  return <YoutubeVideo src={props.value.url} />
+  return (
+    <div className="my-6">
+      <YoutubeVideo src={props.value.url} />
+    </div>
+  )
 }
