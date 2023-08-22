@@ -18,17 +18,19 @@ export default function BodyImage(props) {
   const dimensions = calculateSanityImageDimensions(imageUrl)
   const aspectRatio = dimensions.width / dimensions.height
 
-  // TODO check why we are not using this
   const sizes = [
-    '(min-width: 768px) 768px',
-    '(min-width: 640px) 608px',
-    '(min-width: 375px) 343px',
+    `(min-width: 768px) ${Math.min(768, dimensions.width)}px`,
+    `(min-width: 640px) ${Math.min(608, dimensions.width)}px`,
+    `(min-width: 375px) ${Math.min(343, dimensions.width)}px`,
     '100vw',
   ]
 
   return (
     <figure className="my-6 w-full">
-      <div style={{ aspectRatio }} className="relative">
+      <div
+        style={{ aspectRatio, maxWidth: dimensions.width }}
+        className="relative mx-auto"
+      >
         <Image
           src={imageUrl}
           alt={imageData.alt}
