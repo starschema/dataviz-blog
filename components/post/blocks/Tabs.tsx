@@ -35,7 +35,7 @@ export default function Tabs(props: Props) {
           return (
             <Tab.Panel
               key={index}
-              className={`bg-${vcColors[index].name} border-2 border-black bg-opacity-20 px-6 pt-0 pb-6`}
+              className={`bg-${vcColors[index].name} border-2 border-black bg-opacity-20 px-6 py-2`}
             >
               <PortableText
                 value={tab.content}
