@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Accessibility Journey</title>
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/index.css" />
+    <link rel="stylesheet" href="style/sections.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="typo-container">
+      <h1>Investing in Data Viz Accessibility Pays Off</h1>
+      <p class="introduction">
+        In this playful exploration of data visualization accessibility, we
+        delve into why it matters and the steps a person or organization might
+        take on their road to deeper knowledge about the topic.
+      </p>
+      <h2>Reasons to Invest</h2>
+      <div class="horizontal-container">
+        <div class="reason">
+          <img class="reason__icon" src="icons/legal-reason-icon.svg" />
+          <h3 class="reason__title">Legal</h3>
+          <p class="reason__body">
+            Many companies in the world are subject to the legal prohibition of
+            discrimination based on disability. Furthermore, even in lieue of
+            such a law, anti-discrimination lawsuits can still be very costly.
+          </p>
+        </div>
+        <div class="reason">
+          <img class="reason__icon" src="icons/moral-reason-icon.svg" />
+          <h3 class="reason__title">Moral</h3>
+          <p class="reason__body">
+            Caring about disabled users is the right thing to do as it aligns
+            with human rights and the principles of modern democracies. The
+            digital world is currently an inequal space bt we should change
+            that.
+          </p>
+        </div>
+        <div class="reason">
+          <img class="reason__icon" src="icons/business-reason-icon.svg" />
+          <h3 class="reason__title">Financial</h3>
+          <p class="reason__body">
+            Investing in accessibility expands market size, boosts brand
+            loyalty, enhances product quality, and fosters diversity. Early
+            adoption saves money in the long run.
+          </p>
+        </div>
+      </div>
+      <div class="journey-header">
+        <h2 class="journey__title">
+          The Accessibility<br />
+          Journey
+        </h2>
+        <div class="instructions">
+          Click the stations to read the descriptions
+        </div>
+      </div>
+    </div>
+    <div class="journey">
+      <div class="typo-container">
+        <div class="journey-map">
+          <div class="section" data-section-name="cvd">
+            <button class="section__toggle">
+              <img src="icons/cvd.svg" draggable="false" aria-hidden />
+              Color Vision
+            </button>
+            <div class="infobox-wrapper">
+              <div class="infobox hidden">
+                <p>
+                  The most common starting point for dataviz accessibility,
+                  learning about color vision deficiencies and corresponding
+                  techniques can teach a lot of skills needed to design for
+                  accessibility. It is a tiny subset of problems however.
+                </p>
+              </div>
+            </div>
+            <dialog>
+              <div class="info-dialog__content">
+                <button class="info-dialog__close">&times;</button>
+                <img src="icons/cvd.svg" draggable="false" aria-hidden />
+                <h2>Cognitive</h2>
+                <hr />
+                <p>
+                  The most common starting point for dataviz accessibility,
+                  learning about color vision deficiencies and corresponding
+                  techniques can teach a lot of skills needed to design for
+                  accessibility. It is a tiny subset of problems however.
+                </p>
+              </div>
+            </dialog>
+          </div>
+          <div class="section" data-section-name="low-vision">
+            <button class="section__toggle">
+              <img src="icons/low-vision.svg" draggable="false" aria-hidden />
+              Low Vision
+            </button>
+            <div class="infobox-wrapper">
+              <div class="infobox hidden">
+                <p>
+                  There exist vision problems outside of CVD-s and less severe
+                  than blindness. Alleviating the challenges they pose for
+                  impacted users improves the experience for everyone.
+                </p>
+              </div>
+            </div>
+            <dialog>
+              <div class="info-dialog__content">
+                <button class="info-dialog__close">&times;</button>
+                <img src="icons/low-vision.svg" draggable="false" aria-hidden />
+                <h2>Low Vision</h2>
+                <hr />
+                <p>
+                  There exist vision problems outside of CVD-s and less severe
+                  than blindness. Alleviating the challenges they pose for
+                  impacted users improves the experience for everyone.
+                </p>
+              </div>
+            </dialog>
+          </div>
+          <div class="section" data-section-name="cognitive">
+            <button class="section__toggle">
+              <img src="icons/cognitive.svg" draggable="false" aria-hidden />
+              Cognitive
+            </button>
+            <div class="infobox-wrapper">
+              <div class="infobox hidden">
+                <p>
+                  Memory and attention are limited but cognitive disabilities
+                  impact these areas severely. Designing products that require
+                  less cognitive effort does not only make them more accessible
+                  for some, but more useful for all.
+                </p>
+              </div>
+            </div>
+            <dialog>
+              <div class="info-dialog__content">
+                <button class="info-dialog__close">&times;</button>
+                <img src="icons/cognitive.svg" draggable="false" aria-hidden />
+                <h2>Cognitive</h2>
+                <hr />
+                <p>
+                  Memory and attention are limited but cognitive disabilities
+                  impact these areas severely. Designing products that require
+                  less cognitive effort does not only make them more accessible
+                  for some, but more useful for all.
+                </p>
+              </div>
+            </dialog>
+          </div>
+          <div class="section" data-section-name="assistive-technologies">
+            <button class="section__toggle">
+              <img
+                src="icons/assistive-technologies.svg"
+                draggable="false"
+                aria-hidden
+              />
+              Assistive Technologies
+            </button>
+            <div class="infobox-wrapper">
+              <div class="infobox hidden">
+                <p>
+                  This is the most difficult part of the journey as designing
+                  for assistive technologies - e.g. screen readers - requires
+                  specialized knowledge. Start by learning to use a screen
+                  reader as that process shows the fundamental challenges.
+                </p>
+              </div>
+            </div>
+            <dialog>
+              <div class="info-dialog__content">
+                <button class="info-dialog__close">&times;</button>
+                <img
+                  src="icons/assistive-technologies.svg"
+                  draggable="false"
+                  aria-hidden
+                />
+                <h2>Assistive Technologies</h2>
+                <hr />
+                <p>
+                  This is the most difficult part of the journey as designing
+                  for assistive technologies - e.g. screen readers - requires
+                  specialized knowledge. A good starting point would be to learn
+                  to use a screen reader
+                </p>
+              </div>
+            </dialog>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

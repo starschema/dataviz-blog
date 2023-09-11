@@ -1,0 +1,187 @@
+@import url(../Satoshi-Variable.ttf);
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  /* TODO replace this with Satoshi */
+  font-family: "Satoshi Variable", Calibri, "Trebuchet MS", sans-serif;
+
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+  background-image: linear-gradient(180deg, white 25%, #c9d2fb 100%);
+}
+
+.typo-container {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 3.625rem;
+  line-height: 1.5;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.introduction {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 5rem;
+  margin-bottom: 4.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.horizontal-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.reason__icon {
+  max-height: 2.75rem;
+}
+
+.reason__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-top: 2.25rem;
+  margin-bottom: 1.625rem;
+}
+
+.journey {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-height: 49rem;
+  background-image: url("../journey-background.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  /* background-size: contain; */
+}
+
+.journey-map {
+  position: relative;
+  min-height: 48rem;
+}
+
+.journey__title {
+  text-align: right;
+  margin: 0;
+}
+
+.journey-header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  align-items: middle;
+  justify-content: space-between;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.instructions {
+  /* position: absolute;
+  right: 0rem; */
+  display: flex;
+  font-size: 1.375rem;
+  max-width: 15rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  background-color: #f1f1f1;
+  padding: 1rem;
+  box-shadow: 4px 4px 0px 0px #000;
+  align-self: flex-end;
+}
+
+.hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-shadow: none;
+  transform: translate(0.125rem, 0.125rem);
+  transition: opacity 0.1s ease-in-out 0.05s, visibility 0.05s ease-in-out,
+    box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+dialog {
+  background-color: transparent;
+  border: none;
+}
+
+dialog::backdrop {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* 700 px is a weird number
+  this interactive will be embedded into a 728px wide text column on desktop
+*/
+@media (max-width: 700px) {
+  body {
+    font-size: 0.875rem;
+  }
+
+  .introduction {
+    font-size: 1.375rem;
+    line-height: 1.75;
+  }
+
+  .typo-container {
+    max-width: 320px;
+  }
+
+  .horizontal-container {
+    grid-template-columns: 1fr;
+  }
+
+  .journey {
+    background-image: url("../journey-background-mobile.svg");
+    min-height: 45rem;
+  }
+
+  .journey__title {
+    font-size: 2rem;
+  }
+
+  .journey-header {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .instructions {
+    align-self: flex-start;
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .reason__icon {
+    margin-inline: auto;
+  }
+
+  .horizontal-container {
+    gap: 4rem;
+  }
+
+  .reason__title {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
