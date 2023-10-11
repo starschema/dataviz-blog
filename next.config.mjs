@@ -45,7 +45,7 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `default-src 'self' ${sanityProjectDomain}; img-src ${imageSrcDomains.join(
       ' '
-    )} 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.youtube-nocookie.com; script-src 'self' https://code.highcharts.com ${
+    )} 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'self'; frame-src 'self' https://www.youtube-nocookie.com; script-src 'self' https://code.highcharts.com ${
       isProduction ? '' : "'unsafe-eval'"
     } 'unsafe-hashes' 'sha256-/6SBPqW+GW+//4nlXX6Y1nR9dWlh0gsQJ6KK71djH6A='`,
   },
