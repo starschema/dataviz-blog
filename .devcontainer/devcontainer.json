@@ -29,12 +29,6 @@
       ]
     }
   },
-  "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,readonly",
-    "source=${localEnv:HOME}/.zshrc,target=/home/node/.zshrc,type=bind",
-    "source=${localEnv:HOME}/.oh-my-zsh,target=/home/node/.oh-my-zsh,type=bind",
-    "source=${localEnv:HOME}/.p10k.zsh,target=/home/node/.p10k.zsh,type=bind"
-  ],
   "remoteUser": "node",
   "postCreateCommand": "npm install -g @sanity/cli "
 }
