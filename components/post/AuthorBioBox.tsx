@@ -2,9 +2,10 @@ import AuthorBio from '@/components/shared/AuthorBio'
 import type { Author } from '@/lib/sanity.queries'
 
 interface Props {
-  authors: Author[]
+  authors: Author[] | null
 }
 export default function AuthorBioBox(props: Props) {
+  if (props.authors === null) return null
   return (
     <div className="mx-auto mt-12 mb-8 max-w-3xl bg-blue-50 pt-6 pb-0">
       <div className="px-8 text-sm font-light text-neutral-400">
