@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: production
     permissions:
       contents: read #This is required for actions/checkout
@@ -45,7 +45,7 @@ jobs:
           path: release.zip
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     environment:
       name: 'Production'
