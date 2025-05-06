@@ -52,7 +52,7 @@ const securityHeaders = [
 ]
 
 const config = withPlausibleProxy()({
-  output: 'standalone',
+  // output: 'standalone',
   images: {
     remotePatterns: imageSrcDomains.map((domain) => ({ hostname: domain })),
     deviceSizes: [320, 375, 640, 768, 1024, 1280, 1536],
